@@ -10,5 +10,9 @@
 		"goBack": "Geri",
 		"finish": "Bitir"
 	},
+	"telemetry": {
+		"helpImprove": "Bolt Code'u iyileştirmeye yardımcı ol",
+		"helpImproveMessage": "Telemetri varsayılan olarak kapalıdır. İstersen, <settingsLink>ayarlar</settingsLink> bölümünden anonim hata ve kullanım raporlamasını etkinleştirerek hataları düzeltmemize ve uzantıyı geliştirmemize yardımcı olabilirsin. Kod, istem veya kişisel bilgiler asla toplanmaz."
+	},
 	"importSettings": "Ayarları İçe Aktar"
 }

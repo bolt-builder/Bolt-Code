@@ -10,5 +10,9 @@
 		"goBack": "戻る",
 		"finish": "完了"
 	},
+	"telemetry": {
+		"helpImprove": "Bolt Codeの改善にご協力ください",
+		"helpImproveMessage": "テレメトリはデフォルトでオフになっています。ご希望の場合は、<settingsLink>設定</settingsLink>で匿名のエラーおよび使用状況レポートを有効にして、バグの修正や拡張機能の改善にご協力いただけます。コード、プロンプト、個人情報が収集されることはありません。"
+	},
 	"importSettings": "設定のインポート"
 }

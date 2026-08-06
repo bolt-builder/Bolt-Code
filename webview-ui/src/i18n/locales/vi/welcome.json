@@ -10,5 +10,9 @@
 		"goBack": "Quay lại",
 		"finish": "Hoàn thành"
 	},
+	"telemetry": {
+		"helpImprove": "Giúp cải thiện Bolt Code",
+		"helpImproveMessage": "Telemetry được tắt theo mặc định. Nếu muốn, bạn có thể giúp chúng tôi sửa lỗi và cải thiện tiện ích mở rộng bằng cách bật báo cáo lỗi và sử dụng ẩn danh trong <settingsLink>cài đặt</settingsLink>. Mã, prompt hoặc thông tin cá nhân không bao giờ được thu thập."
+	},
 	"importSettings": "Nhập Cài đặt"
 }
