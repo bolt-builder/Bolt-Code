@@ -13,7 +13,9 @@ export class RooProtectedController {
 
 	// Predefined list of protected Roo configuration patterns
 	private static readonly PROTECTED_PATTERNS = [
+		".boltignore",
 		".rooignore",
+		".boltrules*",
 		".roomodes",
 		".roorules*",
 		".clinerules*",
