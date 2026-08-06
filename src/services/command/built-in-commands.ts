@@ -284,6 +284,96 @@ Please analyze this codebase and create an AGENTS.md file containing:
 
 Remember: The goal is to create documentation that enables AI assistants to be immediately productive in this codebase, focusing on project-specific knowledge that isn't obvious from the code structure alone.`,
 	},
+	review: {
+		name: "review",
+		description: "Review code changes for correctness, clarity, and risk",
+		argumentHint: "branch, commit range, or file paths (defaults to uncommitted changes)",
+		content: `<task>
+Perform a focused code review. If the user provided arguments after /review, treat them as the review target (a branch, commit range, PR number, or specific file paths). Otherwise review the current uncommitted changes (staged and unstaged).
+</task>
+
+<workflow>
+1. Identify the change set: use git (e.g. \`git diff\`, \`git diff --staged\`, \`git diff <range>\`, \`git log\`) to enumerate what changed. Read every changed file with enough surrounding context to judge the change, and trace callers of any modified function or type.
+2. Evaluate, in priority order:
+   - Correctness: logic errors, unhandled edge cases, race conditions, broken contracts with callers, off-by-one errors, error handling gaps.
+   - Security: injection, unvalidated input, secrets in code, unsafe file or network access.
+   - Tests: are the changes covered? Do existing tests need updating? Point at specific missing cases.
+   - Clarity and conventions: naming, dead code, duplication, divergence from the project's established patterns.
+3. Report findings grouped by severity (blocking, should-fix, nit). For each finding cite the file and line, explain why it matters, and propose a concrete fix. If the change looks good, say so briefly instead of inventing issues.
+</workflow>
+
+Do not modify any files during the review; only read and report. Offer to implement fixes as a follow-up.`,
+	},
+	commit: {
+		name: "commit",
+		description: "Stage, write a conventional commit message, and commit current changes",
+		argumentHint: "optional instructions, e.g. scope hint or files to include",
+		content: `<task>
+Create a well-formed git commit for the current changes. If the user provided arguments after /commit, treat them as instructions (e.g. which files to include, a scope hint, or intent to split into multiple commits).
+</task>
+
+<workflow>
+1. Inspect state: run \`git status\` and \`git diff\` (and \`git diff --staged\`) to understand exactly what changed. Run \`git log --oneline -10\` to learn the repository's commit message style.
+2. Decide staging: stage the files that belong together in one logical change. Never use \`git add .\` blindly; exclude unrelated edits, generated artifacts, and anything that looks like a secret or credential. If the working tree contains multiple unrelated changes, propose splitting into separate commits.
+3. Write the message following the repository's existing convention (inspect recent history; many projects use \`type(scope): summary\`). The subject line must describe WHY/WHAT at a glance, not restate the diff. Add a short body only when the change needs explanation.
+4. Commit and show the result with \`git log -1 --stat\`. Do not push unless the user asked for it.
+</workflow>
+
+Never amend, rebase, or force-push existing commits unless the user explicitly asked. If there is nothing to commit, say so instead of creating an empty commit.`,
+	},
+	test: {
+		name: "test",
+		description: "Write or improve tests for the specified code",
+		argumentHint: "file, function, or feature to cover (defaults to recent changes)",
+		content: `<task>
+Add or improve automated tests. If the user provided arguments after /test, treat them as the target (a file, function, module, or feature). Otherwise cover the most recent code changes (use git to find them).
+</task>
+
+<workflow>
+1. Study the target code and its contracts: inputs, outputs, error paths, and edge cases. Trace how it is called in practice.
+2. Find the project's testing conventions before writing anything: locate existing test files for neighboring code, note the framework, file naming, directory placement, assertion style, and how the project runs a single test. Match those conventions exactly; do not introduce a new framework or pattern.
+3. Write focused tests at the narrowest layer that proves the behavior: happy path, boundary conditions, and error handling. Prefer real implementations over mocks where practical; mock only true external boundaries (network, clock, filesystem when needed).
+4. Run the new tests and iterate until they pass. Then run the surrounding suite to make sure nothing else broke. Report what is now covered and any gaps you deliberately left.
+</workflow>
+
+Do not weaken or delete existing assertions to make tests pass. If the code under test appears to have a bug, write the test that exposes it and flag the bug instead of encoding the buggy behavior as expected.`,
+	},
+	fix: {
+		name: "fix",
+		description: "Diagnose and fix a bug or failing build/test",
+		argumentHint: "error message, failing test, or bug description",
+		content: `<task>
+Diagnose and fix a problem. If the user provided arguments after /fix, treat them as the starting point (an error message, stack trace, failing test name, or bug description). Otherwise look for the most obvious current failure (failing tests, type errors, or lint errors).
+</task>
+
+<workflow>
+1. Reproduce first: run the failing test, build, or command to see the actual error. Never fix from the description alone when a reproduction is available.
+2. Trace the root cause: read the code path implicated by the error, inspect recent changes to it (\`git log -p\` on the file), and form a hypothesis. Verify the hypothesis with evidence (targeted logging, a narrower test, or reading the relevant code) before editing.
+3. Implement the smallest change that fixes the root cause, not the symptom. Avoid drive-by refactoring.
+4. Prove it: re-run the original reproduction and confirm it passes. Add a regression test at the lowest layer that would have caught the bug. Run the surrounding tests to check for collateral damage.
+5. Summarize: state the root cause in one or two sentences, what changed, and how it was verified.
+</workflow>
+
+If you cannot reproduce the problem, report exactly what you tried and what additional information you need instead of guessing at a fix.`,
+	},
+	docs: {
+		name: "docs",
+		description: "Write or update documentation for the specified code or feature",
+		argumentHint: "file, feature, or doc to update (defaults to recent changes)",
+		content: `<task>
+Write or update documentation. If the user provided arguments after /docs, treat them as the target (a file, module, feature, or an existing doc that is stale). Otherwise document the most recent code changes (use git to find them).
+</task>
+
+<workflow>
+1. Read the code being documented until you can explain its behavior precisely, including defaults, edge cases, and error behavior. Documentation must be derived from the code as it is, not from assumptions.
+2. Find where documentation lives in this project (README sections, docs/ directory, doc comments, CHANGELOG) and match the existing format, tone, and heading structure.
+3. Prefer updating existing documents over creating new files. Fix anything the change made stale: examples, option tables, API signatures, and cross-references.
+4. Keep it tight: lead with what the reader needs to accomplish a task, show a minimal working example where helpful, and cut filler. Accuracy beats completeness; never document behavior you have not verified in the code.
+5. Verify examples: if a documented command or code snippet can be executed, run it to confirm it works.
+</workflow>
+
+Do not invent features, options, or behavior. If the code's behavior seems wrong while documenting it, flag it rather than documenting around it.`,
+	},
 }
 
 /**
