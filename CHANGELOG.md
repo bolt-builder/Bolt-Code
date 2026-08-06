@@ -1,5 +1,11 @@
 # Bolt Code Changelog
 
+## [Unreleased]
+
+- Fork of Zoo Code rebranded as Bolt Code: marketplace identity `bolt-builder.bolt-code`, updated user-facing strings, icons, and provenance (Roo Code to Zoo Code to Bolt Code, Apache-2.0).
+- Telemetry is now opt-in and off by default; dismissing the first-run banner records an explicit decline.
+- Release/CI hygiene for the fork: nightly pre-release is manual-only, Zoo-internal automation removed, and `PUBLISHING.md` documents the publisher setup.
+
 ## [3.74.0]
 
 ### Minor Changes
