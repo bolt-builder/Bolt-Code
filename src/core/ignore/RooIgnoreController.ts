@@ -8,21 +8,30 @@ import * as vscode from "vscode"
 export const LOCK_TEXT_SYMBOL = "\u{1F512}"
 
 /**
+ * Ignore file names checked in order; the first existing file wins.
+ * `.boltignore` is the Bolt Code native name; `.rooignore` is kept for
+ * compatibility with projects coming from Roo Code / Zoo Code.
+ */
+export const IGNORE_FILE_NAMES = [".boltignore", ".rooignore"] as const
+
+/**
  * Controls LLM access to files by enforcing ignore patterns.
  * Designed to be instantiated once in Cline.ts and passed to file manipulation services.
- * Uses the 'ignore' library to support standard .gitignore syntax in .rooignore files.
+ * Uses the 'ignore' library to support standard .gitignore syntax in .boltignore
+ * files (with .rooignore as a legacy fallback).
  */
 export class RooIgnoreController {
 	private cwd: string
 	private ignoreInstance: Ignore
 	private disposables: vscode.Disposable[] = []
+	private ignoreFileName: string = IGNORE_FILE_NAMES[0]
 	rooIgnoreContent: string | undefined
 
 	constructor(cwd: string) {
 		this.cwd = cwd
 		this.ignoreInstance = ignore()
 		this.rooIgnoreContent = undefined
-		// Set up file watcher for .rooignore
+		// Set up file watchers for the supported ignore files
 		this.setupFileWatcher()
 	}
 
@@ -35,48 +44,50 @@ export class RooIgnoreController {
 	}
 
 	/**
-	 * Set up the file watcher for .rooignore changes
+	 * Set up file watchers for changes to any supported ignore file
 	 */
 	private setupFileWatcher(): void {
-		const rooignorePattern = new vscode.RelativePattern(this.cwd, ".rooignore")
-		const fileWatcher = vscode.workspace.createFileSystemWatcher(rooignorePattern)
+		for (const fileName of IGNORE_FILE_NAMES) {
+			const ignorePattern = new vscode.RelativePattern(this.cwd, fileName)
+			const fileWatcher = vscode.workspace.createFileSystemWatcher(ignorePattern)
 
-		// Watch for changes and updates
-		this.disposables.push(
-			fileWatcher.onDidChange(() => {
-				this.loadRooIgnore()
-			}),
-			fileWatcher.onDidCreate(() => {
-				this.loadRooIgnore()
-			}),
-			fileWatcher.onDidDelete(() => {
-				this.loadRooIgnore()
-			}),
-		)
+			// Watch for changes and updates. Returning the promise keeps the
+			// reload awaitable for callers that invoke the handlers directly.
+			this.disposables.push(
+				fileWatcher.onDidChange(() => this.loadRooIgnore()),
+				fileWatcher.onDidCreate(() => this.loadRooIgnore()),
+				fileWatcher.onDidDelete(() => this.loadRooIgnore()),
+			)
 
-		// Add fileWatcher itself to disposables
-		this.disposables.push(fileWatcher)
+			// Add fileWatcher itself to disposables
+			this.disposables.push(fileWatcher)
+		}
 	}
 
 	/**
-	 * Load custom patterns from .rooignore if it exists
+	 * Load custom patterns from the first existing ignore file
+	 * (.boltignore, falling back to .rooignore)
 	 */
 	private async loadRooIgnore(): Promise<void> {
 		try {
 			// Reset ignore instance to prevent duplicate patterns
 			this.ignoreInstance = ignore()
-			const ignorePath = path.join(this.cwd, ".rooignore")
-			if (await fileExistsAtPath(ignorePath)) {
-				const content = await fs.readFile(ignorePath, "utf8")
-				this.rooIgnoreContent = content
-				this.ignoreInstance.add(content)
-				this.ignoreInstance.add(".rooignore")
-			} else {
-				this.rooIgnoreContent = undefined
+			for (const fileName of IGNORE_FILE_NAMES) {
+				const ignorePath = path.join(this.cwd, fileName)
+				if (await fileExistsAtPath(ignorePath)) {
+					const content = await fs.readFile(ignorePath, "utf8")
+					this.ignoreFileName = fileName
+					this.rooIgnoreContent = content
+					this.ignoreInstance.add(content)
+					// Never expose any of the ignore files themselves
+					this.ignoreInstance.add([...IGNORE_FILE_NAMES])
+					return
+				}
 			}
+			this.rooIgnoreContent = undefined
 		} catch (error) {
 			// Should never happen: reading file failed even though it exists
-			console.error("Unexpected error loading .rooignore:", error)
+			console.error("Unexpected error loading ignore file:", error)
 		}
 	}
 
@@ -200,14 +211,14 @@ export class RooIgnoreController {
 	}
 
 	/**
-	 * Get formatted instructions about the .rooignore file for the LLM
-	 * @returns Formatted instructions or undefined if .rooignore doesn't exist
+	 * Get formatted instructions about the active ignore file for the LLM
+	 * @returns Formatted instructions or undefined if no ignore file exists
 	 */
 	getInstructions(): string | undefined {
 		if (!this.rooIgnoreContent) {
 			return undefined
 		}
 
-		return `# .rooignore\n\n(The following is provided by a root-level .rooignore file where the user has specified files and directories that should not be accessed. When using list_files, you'll notice a ${LOCK_TEXT_SYMBOL} next to files that are blocked. Attempting to access the file's contents e.g. through read_file will result in an error.)\n\n${this.rooIgnoreContent}\n.rooignore`
+		return `# ${this.ignoreFileName}\n\n(The following is provided by a root-level ${this.ignoreFileName} file where the user has specified files and directories that should not be accessed. When using list_files, you'll notice a ${LOCK_TEXT_SYMBOL} next to files that are blocked. Attempting to access the file's contents e.g. through read_file will result in an error.)\n\n${this.rooIgnoreContent}\n${this.ignoreFileName}`
 	}
 }

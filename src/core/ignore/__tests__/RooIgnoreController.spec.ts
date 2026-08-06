@@ -85,14 +85,15 @@ describe("RooIgnoreController", () => {
 		 * Tests the controller initialization when .rooignore exists
 		 */
 		it("should load .rooignore patterns on initialization when file exists", async () => {
-			// Setup mocks to simulate existing .rooignore file
-			mockFileExists.mockResolvedValue(true)
+			// Setup mocks to simulate an existing .rooignore file (no .boltignore)
+			mockFileExists.mockImplementation(async (p) => p === path.join(TEST_CWD, ".rooignore"))
 			mockReadFile.mockResolvedValue("node_modules\n.git\nsecrets.json")
 
 			// Initialize controller
 			await controller.initialize()
 
-			// Verify file was checked and read
+			// Verify the native name was checked first, then the legacy fallback read
+			expect(mockFileExists).toHaveBeenCalledWith(path.join(TEST_CWD, ".boltignore"))
 			expect(mockFileExists).toHaveBeenCalledWith(path.join(TEST_CWD, ".rooignore"))
 			expect(mockReadFile).toHaveBeenCalledWith(path.join(TEST_CWD, ".rooignore"), "utf8")
 
@@ -104,6 +105,22 @@ describe("RooIgnoreController", () => {
 			expect(controller.validateAccess("src/app.ts")).toBe(true)
 			expect(controller.validateAccess(".git/config")).toBe(false)
 			expect(controller.validateAccess("secrets.json")).toBe(false)
+		})
+
+		it("should prefer .boltignore over .rooignore when both exist", async () => {
+			// Both files exist; only .boltignore must be read
+			mockFileExists.mockResolvedValue(true)
+			mockReadFile.mockResolvedValue("bolt-secrets/")
+
+			await controller.initialize()
+
+			expect(mockReadFile).toHaveBeenCalledWith(path.join(TEST_CWD, ".boltignore"), "utf8")
+			expect(mockReadFile).not.toHaveBeenCalledWith(path.join(TEST_CWD, ".rooignore"), "utf8")
+			expect(controller.rooIgnoreContent).toBe("bolt-secrets/")
+			expect(controller.validateAccess("bolt-secrets/key.pem")).toBe(false)
+			// Both ignore files protect themselves and each other
+			expect(controller.validateAccess(".boltignore")).toBe(false)
+			expect(controller.validateAccess(".rooignore")).toBe(false)
 		})
 
 		/**
@@ -157,7 +174,7 @@ describe("RooIgnoreController", () => {
 			await controller.initialize()
 
 			// Verify error was logged
-			expect(consoleSpy).toHaveBeenCalledWith("Unexpected error loading .rooignore:", expect.any(Error))
+			expect(consoleSpy).toHaveBeenCalledWith("Unexpected error loading ignore file:", expect.any(Error))
 
 			// Cleanup
 			consoleSpy.mockRestore()
@@ -389,19 +406,30 @@ describe("RooIgnoreController", () => {
 		 * Tests instructions generation with .rooignore
 		 */
 		it("should generate formatted instructions when .rooignore exists", async () => {
-			// Setup .rooignore content
-			mockFileExists.mockResolvedValue(true)
+			// Setup legacy .rooignore content (no .boltignore)
+			mockFileExists.mockImplementation(async (p) => p === path.join(TEST_CWD, ".rooignore"))
 			mockReadFile.mockResolvedValue("node_modules\n.git\nsecrets/**")
 			await controller.initialize()
 
 			const instructions = controller.getInstructions()
 
-			// Verify instruction format
+			// Verify instruction format references the active ignore file
 			expect(instructions).toContain("# .rooignore")
 			expect(instructions).toContain(LOCK_TEXT_SYMBOL)
 			expect(instructions).toContain("node_modules")
 			expect(instructions).toContain(".git")
 			expect(instructions).toContain("secrets/**")
+		})
+
+		it("should reference .boltignore in instructions when it is the active file", async () => {
+			mockFileExists.mockImplementation(async (p) => p === path.join(TEST_CWD, ".boltignore"))
+			mockReadFile.mockResolvedValue("secrets/**")
+			await controller.initialize()
+
+			const instructions = controller.getInstructions()
+
+			expect(instructions).toContain("# .boltignore")
+			expect(instructions).not.toContain("# .rooignore")
 		})
 
 		/**

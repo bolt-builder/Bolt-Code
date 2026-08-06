@@ -236,8 +236,9 @@ export async function loadRuleFiles(cwd: string, enableSubfolderRules: boolean =
 		return "\n# Rules from .roo directories:\n\n" + rules.join("\n\n")
 	}
 
-	// Fall back to existing behavior for legacy .roorules/.clinerules files
-	const ruleFiles = [".roorules", ".clinerules"]
+	// Fall back to root-level rules files: .boltrules (native), then the
+	// legacy .roorules/.clinerules names for compatibility
+	const ruleFiles = [".boltrules", ".roorules", ".clinerules"]
 
 	for (const file of ruleFiles) {
 		const content = await safeReadFile(path.join(cwd, file))
@@ -434,16 +435,14 @@ export async function addCustomInstructions(
 			modeRuleContent = "\n" + modeRules.join("\n\n")
 			usedRuleFile = `rules-${mode} directories`
 		} else {
-			// Fall back to existing behavior for legacy files
-			const rooModeRuleFile = `.roorules-${mode}`
-			modeRuleContent = await safeReadFile(path.join(cwd, rooModeRuleFile))
-			if (modeRuleContent) {
-				usedRuleFile = rooModeRuleFile
-			} else {
-				const clineModeRuleFile = `.clinerules-${mode}`
-				modeRuleContent = await safeReadFile(path.join(cwd, clineModeRuleFile))
+			// Fall back to root-level mode rules files: .boltrules-{mode}
+			// (native), then the legacy names for compatibility
+			const modeRuleFiles = [`.boltrules-${mode}`, `.roorules-${mode}`, `.clinerules-${mode}`]
+			for (const modeRuleFile of modeRuleFiles) {
+				modeRuleContent = await safeReadFile(path.join(cwd, modeRuleFile))
 				if (modeRuleContent) {
-					usedRuleFile = clineModeRuleFile
+					usedRuleFile = modeRuleFile
+					break
 				}
 			}
 		}

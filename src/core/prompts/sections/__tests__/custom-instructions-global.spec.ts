@@ -179,8 +179,10 @@ describe("custom-instructions global .roo support", () => {
 				.mockRejectedValueOnce(new Error("ENOENT")) // global rules dir doesn't exist
 				.mockRejectedValueOnce(new Error("ENOENT")) // project rules dir doesn't exist
 
-			// Mock legacy file reading
-			mockReadFile.mockResolvedValueOnce("legacy rule content")
+			// Mock legacy file reading: .boltrules missing (empty), .roorules has content
+			mockReadFile
+				.mockResolvedValueOnce("") // .boltrules returns empty (simulating ENOENT caught by safeReadFile)
+				.mockResolvedValueOnce("legacy rule content") // .roorules
 
 			const result = await loadRuleFiles(mockCwd)
 
@@ -198,6 +200,7 @@ describe("custom-instructions global .roo support", () => {
 			// The safeReadFile function catches ENOENT errors and returns empty string
 			// So we don't need to mock rejections, just empty responses
 			mockReadFile
+				.mockResolvedValueOnce("") // .boltrules returns empty (simulating ENOENT caught by safeReadFile)
 				.mockResolvedValueOnce("") // .roorules returns empty (simulating ENOENT caught by safeReadFile)
 				.mockResolvedValueOnce("") // .clinerules returns empty (simulating ENOENT caught by safeReadFile)
 

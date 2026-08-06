@@ -117,7 +117,7 @@ describe("loadRuleFiles", () => {
 		readFileMock.mockResolvedValue("  content with spaces  ")
 		const result = await loadRuleFiles("/fake/path")
 		expect(readFileMock).toHaveBeenCalled()
-		expect(result).toBe("\n# Rules from .roorules:\ncontent with spaces\n")
+		expect(result).toBe("\n# Rules from .boltrules:\ncontent with spaces\n")
 	})
 
 	it("should handle ENOENT error", async () => {
@@ -534,7 +534,7 @@ describe("addCustomInstructions", () => {
 		expect(result).toContain("(es)") // Check for language code in parentheses
 		expect(result).toContain("Global Instructions:\nglobal instructions")
 		expect(result).toContain("Mode-specific Instructions:\nmode instructions")
-		expect(result).toContain("Rules from .roorules-test-mode:\nmode specific rules")
+		expect(result).toContain("Rules from .boltrules-test-mode:\nmode specific rules")
 	})
 
 	it("should load AGENTS.md when settings.useAgentRules is true", async () => {
@@ -1251,7 +1251,7 @@ describe("Directory existence checks", () => {
 		const result = await loadRuleFiles("/fake/path")
 
 		// Verify it fell back to reading rule files directly
-		expect(result).toBe("\n# Rules from .roorules:\nfallback content\n")
+		expect(result).toBe("\n# Rules from .boltrules:\nfallback content\n")
 	})
 })
 
@@ -1762,7 +1762,7 @@ describe("Rules directory reading", () => {
 		readFileMock.mockResolvedValueOnce("fallback content")
 
 		const result = await loadRuleFiles("/fake/path")
-		expect(result).toBe("\n# Rules from .roorules:\nfallback content\n")
+		expect(result).toBe("\n# Rules from .boltrules:\nfallback content\n")
 	})
 
 	it("should load AGENTS.local.md alongside AGENTS.md for personal overrides", async () => {

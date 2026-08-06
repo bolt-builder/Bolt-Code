@@ -33,6 +33,15 @@ describe("RooProtectedController", () => {
 			expect(controller.isWriteProtected(".roorules.md")).toBe(true)
 		})
 
+		it("should protect .boltignore file", () => {
+			expect(controller.isWriteProtected(".boltignore")).toBe(true)
+		})
+
+		it("should protect .boltrules* files", () => {
+			expect(controller.isWriteProtected(".boltrules")).toBe(true)
+			expect(controller.isWriteProtected(".boltrules-code")).toBe(true)
+		})
+
 		it("should protect .clinerules* files", () => {
 			expect(controller.isWriteProtected(".clinerules")).toBe(true)
 			expect(controller.isWriteProtected(".clinerules.md")).toBe(true)
@@ -155,7 +164,9 @@ describe("RooProtectedController", () => {
 			const patterns = RooProtectedController.getProtectedPatterns()
 
 			expect(patterns).toEqual([
+				".boltignore",
 				".rooignore",
+				".boltrules*",
 				".roomodes",
 				".roorules*",
 				".clinerules*",

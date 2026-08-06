@@ -34,9 +34,9 @@ export const formatResponse = {
 		JSON.stringify({
 			status: "error",
 			type: "access_denied",
-			message: "Access blocked by .rooignore",
+			message: "Access blocked by the ignore file (.boltignore or .rooignore)",
 			path,
-			suggestion: "Try to continue without this file, or ask the user to update the .rooignore file",
+			suggestion: "Try to continue without this file, or ask the user to update the ignore file",
 		}),
 
 	noToolsUsed: () => {
