@@ -10,5 +10,9 @@
 		"goBack": "返回",
 		"finish": "完成"
 	},
+	"telemetry": {
+		"helpImprove": "幫助改進 Bolt Code",
+		"helpImproveMessage": "遙測預設為關閉。如果您願意，可以在<settingsLink>設定</settingsLink>中啟用匿名錯誤和使用情況回報，協助我們修復錯誤並改進擴充功能。絕不會收集程式碼、提示詞或個人資訊。"
+	},
 	"importSettings": "匯入設定"
 }

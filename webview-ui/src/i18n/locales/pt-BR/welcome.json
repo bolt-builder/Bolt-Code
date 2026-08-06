@@ -10,5 +10,9 @@
 		"goBack": "Voltar",
 		"finish": "Concluir"
 	},
+	"telemetry": {
+		"helpImprove": "Ajude a melhorar o Bolt Code",
+		"helpImproveMessage": "A telemetria está desativada por padrão. Se quiser, você pode nos ajudar a corrigir bugs e melhorar a extensão ativando o relatório anônimo de erros e uso nas <settingsLink>configurações</settingsLink>. Nunca são coletados código, prompts ou informações pessoais."
+	},
 	"importSettings": "Importar configurações"
 }

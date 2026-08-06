@@ -10,5 +10,9 @@
 		"goBack": "Kembali",
 		"finish": "Selesai"
 	},
+	"telemetry": {
+		"helpImprove": "Bantu Tingkatkan Bolt Code",
+		"helpImproveMessage": "Telemetri dimatikan secara default. Jika Anda mau, Anda dapat membantu kami memperbaiki bug dan meningkatkan ekstensi dengan mengaktifkan pelaporan anonim terkait kesalahan dan penggunaan di <settingsLink>pengaturan</settingsLink>. Kode, prompt, atau informasi pribadi tidak pernah dikumpulkan."
+	},
 	"importSettings": "Impor Pengaturan"
 }

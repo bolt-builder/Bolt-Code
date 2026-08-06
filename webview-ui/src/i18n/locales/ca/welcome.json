@@ -10,5 +10,9 @@
 		"goBack": "Enrere",
 		"finish": "Finalitza"
 	},
+	"telemetry": {
+		"helpImprove": "Ajuda a millorar Bolt Code",
+		"helpImproveMessage": "La telemetria està desactivada per defecte. Si vols, pots ajudar-nos a corregir errors i millorar l'extensió activant l'informe anònim d'errors i ús a la <settingsLink>configuració</settingsLink>. Mai no es recopila codi, indicacions ni informació personal."
+	},
 	"importSettings": "Importa la configuració"
 }
