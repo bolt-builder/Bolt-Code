@@ -13,29 +13,6 @@ Bolt Code is a fork of [Zoo Code](https://github.com/Zoo-Code-Org/Zoo-Code), whi
 
 Bugs and feature requests for this fork belong in [our issue tracker](https://github.com/bolt-builder/Bolt-Code/issues), not upstream's.
 
-## What's New in v3.74.0
-
-**Bolt Gateway is live!**
-
-The gateway is a single endpoint for all providers, with one balance and per-request spending/usage breakdown.
-
-**Setup:**
-
-- Add credits: https://www.zoocode.dev/dashboard/credits
-- Sign in from the extension.
-- In the settings, select Bolt Gateway as the provider when creating profiles for different models
-
-Usage and charges can be viewed in the [dashboard](https://www.zoocode.dev/dashboard).
-
-Models: https://www.zoocode.dev/dashboard/models
-
-- **More OpenAI controls** — use Fast priority mode with OpenAI Codex and choose higher reasoning effort for OpenAI-compatible models.
-- **More reliable providers and models** — improved router metadata handling, Ollama model refresh, Bedrock proxy support, and Friendli reasoning controls.
-- **Smoother settings and developer workflows** — settings now preserve unsaved edits, short terminal commands complete cleanly, architect plans use workspace-relative paths, and remaining user-facing Roo branding is updated to Bolt.
-- **Stronger task foundations** — new task registry and semaphore-based scheduler primitives prepare Bolt Code for safer task coordination.
-- **Consistent provider architecture** — provider identifiers and service-tier primitives are now centralized across the API, core, shared types, and webview.
-- Security, dependency, lint, visual-regression, and end-to-end test improvements.
-
 <details>
   <summary>🌐 Available languages</summary>
 
@@ -101,18 +78,12 @@ Learn more: [Using Modes](https://docs.zoocode.dev/basic-usage/using-modes) •
 
 ## Resources
 
-- **[Documentation](https://docs.zoocode.dev):** The official guide to
-  installing, configuring, and mastering Bolt Code.
-- **[YouTube Channel](https://youtube.com/@roocodeyt?feature=shared):** Watch
-  tutorials and see features in action.
-- **[Discord Server](https://discord.gg/VxfP4Vx3gX):** Join the community for
-  real-time help and discussion.
-- **[Reddit Community](https://www.reddit.com/r/ZooCode/):** Share your
-  experiences and see what others are building.
 - **[GitHub Issues](https://github.com/bolt-builder/Bolt-Code/issues):** Report
-  bugs and track development.
-- **[Feature Requests](https://github.com/bolt-builder/Bolt-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop):**
-  Have an idea? Share it with the developers.
+  bugs and track development for this fork.
+- **[GitHub Discussions](https://github.com/bolt-builder/Bolt-Code/discussions):**
+  Ask questions and share feature ideas.
+- **[Upstream documentation](https://docs.zoocode.dev):** Bolt Code tracks Zoo
+  Code closely, so the upstream docs apply to most features.
 
 ---
 
@@ -213,12 +184,12 @@ We love community contributions! Get started by reading our
 
 ## License
 
-[Apache 2.0 © 2026 Bolt Code Org](./LICENSE)
+[Apache 2.0 © 2026 bolt-builder](./LICENSE)
 
 ---
 
 **Enjoy Bolt Code!** Whether you keep it on a short leash or let it roam
-autonomously, we can’t wait to see what you build. If you have questions or
-feature ideas, drop by our [Reddit community](https://www.reddit.com/r/ZooCode/)
-or [Discord](https://discord.gg/VxfP4Vx3gX), or open an
-[issue](https://github.com/bolt-builder/Bolt-Code/issues). Happy coding!
+autonomously, we can't wait to see what you build. If you have questions or
+feature ideas, open an
+[issue](https://github.com/bolt-builder/Bolt-Code/issues) or start a
+[discussion](https://github.com/bolt-builder/Bolt-Code/discussions). Happy coding!
