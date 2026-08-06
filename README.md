@@ -1,43 +1,21 @@
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=ZooCodeOrganization.zoo-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
-  <a href="https://x.com/ZooCodeDev"><img src="https://img.shields.io/badge/ZooCode-000000?style=flat&logo=x&logoColor=white" alt="X"></a>
-  <a href="https://youtube.com/@roocodeyt?feature=shared"><img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube"></a>
-  <a href="https://discord.gg/VxfP4Vx3gX"><img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Join Discord"></a>
-  <a href="https://www.reddit.com/r/ZooCode/"><img src="https://img.shields.io/badge/Join%20r%2FZooCode-FF4500?style=flat&logo=reddit&logoColor=white" alt="Join r/ZooCode"></a>
-  <a href="https://github.com/Zoo-Code-Org/Zoo-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
-</p>
-<p align="center">
-  <em>Get help fast → <a href="https://discord.gg/VxfP4Vx3gX">Join Discord</a> • Prefer async? → <a href="https://www.reddit.com/r/ZooCode/">Join r/ZooCode</a></em>
+  <a href="https://marketplace.visualstudio.com/items?itemName=bolt-builder.bolt-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
+  <a href="https://github.com/bolt-builder/Bolt-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
 </p>
 
-# Zoo Code
+# Bolt Code
 
 > Your AI-Powered Dev Team, Right in Your Editor
 
-## We are Zoo Code
+## About this fork
 
-> Zoo Code continues development of this project after the Roo team wound down
-> active Roo Code work to focus on [Roomote](https://roomote.dev/). Thank you
-> to the Roo team for everything they built.
->
-> The core team is a group of developers who contributed to Roo previously and
-> care deeply about this plugin. We will continue to make model updates, fix
-> bugs, and release features, and we plan to listen closely to the community
-> that made this plugin so special. Join us on
-> [Discord](https://discord.gg/VxfP4Vx3gX),
-> [Reddit](https://www.reddit.com/r/ZooCode), or
-> [open a PR or issue](https://github.com/Zoo-Code-Org/Zoo-Code).
->
-> _-Zoo Code Team_
+Bolt Code is a fork of [Zoo Code](https://github.com/Zoo-Code-Org/Zoo-Code), which itself continues the work of [Roo Code](https://github.com/RooCodeInc/Roo-Code). Full credit and thanks to the Roo Code and Zoo Code teams and their communities for everything they built. Bolt Code is maintained by [bolt-builder](https://github.com/bolt-builder) under the same Apache-2.0 license.
 
-## Roo Code to Zoo Code migration
-
-You can find a quick guide for migrating from Roo Code to Zoo Code in the [Roo→Zoo migration guide](https://docs.zoocode.dev/roo-to-zoo-migration). We plan to try and help users as they transition over, we have our [Reddit](https://www.reddit.com/r/ZooCode) and [Discord](https://discord.gg/VxfP4Vx3gX)
-for this exact support, so if you are having problems or if you have question, jump on and ask.
+Bugs and feature requests for this fork belong in [our issue tracker](https://github.com/bolt-builder/Bolt-Code/issues), not upstream's.
 
 ## What's New in v3.74.0
 
-**Zoo Gateway is live!**
+**Bolt Gateway is live!**
 
 The gateway is a single endpoint for all providers, with one balance and per-request spending/usage breakdown.
 
@@ -45,7 +23,7 @@ The gateway is a single endpoint for all providers, with one balance and per-req
 
 - Add credits: https://www.zoocode.dev/dashboard/credits
 - Sign in from the extension.
-- In the settings, select Zoo Gateway as the provider when creating profiles for different models
+- In the settings, select Bolt Gateway as the provider when creating profiles for different models
 
 Usage and charges can be viewed in the [dashboard](https://www.zoocode.dev/dashboard).
 
@@ -53,8 +31,8 @@ Models: https://www.zoocode.dev/dashboard/models
 
 - **More OpenAI controls** — use Fast priority mode with OpenAI Codex and choose higher reasoning effort for OpenAI-compatible models.
 - **More reliable providers and models** — improved router metadata handling, Ollama model refresh, Bedrock proxy support, and Friendli reasoning controls.
-- **Smoother settings and developer workflows** — settings now preserve unsaved edits, short terminal commands complete cleanly, architect plans use workspace-relative paths, and remaining user-facing Roo branding is updated to Zoo.
-- **Stronger task foundations** — new task registry and semaphore-based scheduler primitives prepare Zoo Code for safer task coordination.
+- **Smoother settings and developer workflows** — settings now preserve unsaved edits, short terminal commands complete cleanly, architect plans use workspace-relative paths, and remaining user-facing Roo branding is updated to Bolt.
+- **Stronger task foundations** — new task registry and semaphore-based scheduler primitives prepare Bolt Code for safer task coordination.
 - **Consistent provider architecture** — provider identifiers and service-tier primitives are now centralized across the API, core, shared types, and webview.
 - Security, dependency, lint, visual-regression, and end-to-end test improvements.
 
@@ -84,7 +62,7 @@ Models: https://www.zoocode.dev/dashboard/models
 
 ---
 
-## What Can Zoo Code Do For YOU?
+## What Can Bolt Code Do For YOU?
 
 - Generate Code from natural language descriptions and specs
 - Adapt with Modes: Code, Architect, Ask, Debug, and Custom Modes
@@ -96,7 +74,7 @@ Models: https://www.zoocode.dev/dashboard/models
 
 ## Modes
 
-Zoo Code adapts to how you work:
+Bolt Code adapts to how you work:
 
 - Code Mode: everyday coding, edits, and file ops
 - Architect Mode: plan systems, specs, and migrations
@@ -124,16 +102,16 @@ Learn more: [Using Modes](https://docs.zoocode.dev/basic-usage/using-modes) •
 ## Resources
 
 - **[Documentation](https://docs.zoocode.dev):** The official guide to
-  installing, configuring, and mastering Zoo Code.
+  installing, configuring, and mastering Bolt Code.
 - **[YouTube Channel](https://youtube.com/@roocodeyt?feature=shared):** Watch
   tutorials and see features in action.
 - **[Discord Server](https://discord.gg/VxfP4Vx3gX):** Join the community for
   real-time help and discussion.
 - **[Reddit Community](https://www.reddit.com/r/ZooCode/):** Share your
   experiences and see what others are building.
-- **[GitHub Issues](https://github.com/Zoo-Code-Org/Zoo-Code/issues):** Report
+- **[GitHub Issues](https://github.com/bolt-builder/Bolt-Code/issues):** Report
   bugs and track development.
-- **[Feature Requests](https://github.com/Zoo-Code-Org/Zoo-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop):**
+- **[Feature Requests](https://github.com/bolt-builder/Bolt-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop):**
   Have an idea? Share it with the developers.
 
 ---
@@ -143,7 +121,7 @@ Learn more: [Using Modes](https://docs.zoocode.dev/basic-usage/using-modes) •
 1. **Clone** the repo:
 
 ```sh
-git clone https://github.com/Zoo-Code-Org/Zoo-Code.git
+git clone https://github.com/bolt-builder/Bolt-Code.git
 ```
 
 2. **Install dependencies**:
@@ -154,14 +132,14 @@ pnpm install
 
 3. **Run the extension**:
 
-There are several ways to run the Zoo Code extension:
+There are several ways to run the Bolt Code extension:
 
 ### Development Mode (F5)
 
 For active development, use VSCode's built-in debugging:
 
 Press `F5` (or go to **Run** → **Start Debugging**) in VSCode. This will open a
-new VSCode window with the Zoo Code extension running.
+new VSCode window with the Bolt Code extension running.
 
 - Changes to the webview will appear immediately.
 - Changes to the core extension will also hot reload automatically.
@@ -198,10 +176,10 @@ If you prefer to install the VSIX package manually:
     pnpm vsix
     ```
 2. A `.vsix` file will be generated in the `bin/` directory (e.g.,
-   `bin/zoo-code-<version>.vsix`).
+   `bin/bolt-code-<version>.vsix`).
 3. Install it manually using the VSCode CLI:
     ```sh
-    code --install-extension bin/zoo-code-<version>.vsix
+    code --install-extension bin/bolt-code-<version>.vsix
     ```
 
 ---
@@ -213,9 +191,9 @@ publishing. Check our `CHANGELOG.md` for release notes.
 
 ## Disclaimer
 
-**Please note** that Zoo Code does **not** make any representations or
+**Please note** that Bolt Code does **not** make any representations or
 warranties regarding any code, models, or other tools provided or made available
-in connection with Zoo Code, any associated third-party tools, or any resulting
+in connection with Bolt Code, any associated third-party tools, or any resulting
 outputs. You assume **all risks** associated with the use of any such tools or
 outputs; such tools are provided on an **"AS IS"** and **"AS AVAILABLE"** basis.
 Such risks may include, without limitation, intellectual property infringement,
@@ -235,12 +213,12 @@ We love community contributions! Get started by reading our
 
 ## License
 
-[Apache 2.0 © 2026 Zoo Code Org](./LICENSE)
+[Apache 2.0 © 2026 Bolt Code Org](./LICENSE)
 
 ---
 
-**Enjoy Zoo Code!** Whether you keep it on a short leash or let it roam
+**Enjoy Bolt Code!** Whether you keep it on a short leash or let it roam
 autonomously, we can’t wait to see what you build. If you have questions or
 feature ideas, drop by our [Reddit community](https://www.reddit.com/r/ZooCode/)
 or [Discord](https://discord.gg/VxfP4Vx3gX), or open an
-[issue](https://github.com/Zoo-Code-Org/Zoo-Code/issues). Happy coding!
+[issue](https://github.com/bolt-builder/Bolt-Code/issues). Happy coding!

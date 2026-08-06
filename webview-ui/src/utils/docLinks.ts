@@ -1,5 +1,5 @@
 /**
- * Utility for building Zoo Code documentation links with UTM telemetry.
+ * Utility for building Bolt Code documentation links with UTM telemetry.
  *
  * GitHub is the only extension-facing support destination for now.
  */

@@ -1,5 +1,5 @@
 {
-	"greeting": "Welcome to Zoo Code!",
+	"greeting": "Welcome to Bolt Code!",
 	"task": {
 		"title": "Task",
 		"expand": "Expand task",
@@ -125,7 +125,7 @@
 	},
 	"scrollToBottom": "Scroll to bottom of chat",
 	"scrollToLatestCheckpoint": "Scroll to previous checkpoint",
-	"about": "Zoo is a whole AI dev team in your editor",
+	"about": "Bolt is a whole AI dev team in your editor",
 	"docs": "Check our <DocsLink>docs</DocsLink> to get started",
 	"onboarding": "What would you like to do?",
 	"rooTips": {
@@ -135,7 +135,7 @@
 		},
 		"modelAgnostic": {
 			"title": "Bring your own model, no markup or lock-in",
-			"description": "Use your own provider key or even run local inference — Zoo doesn't charge for it"
+			"description": "Use your own provider key or even run local inference — Bolt doesn't charge for it"
 		}
 	},
 	"selectMode": "Select mode for interaction",
@@ -147,7 +147,7 @@
 		"title": "Modes",
 		"marketplace": "Mode Marketplace",
 		"settings": "Mode Settings",
-		"description": "Specialized personas that tailor Zoo's behavior.",
+		"description": "Specialized personas that tailor Bolt's behavior.",
 		"searchPlaceholder": "Search modes...",
 		"noResults": "No results found"
 	},
@@ -185,7 +185,7 @@
 			"docs": "Docs",
 			"goToSettings": "Settings",
 			"connection": "Connection error. Make sure you have a working internet connection.",
-			"unknown": "Unknown API error. Please contact Zoo Code support.",
+			"unknown": "Unknown API error. Please contact Bolt Code support.",
 			"claudeCodeNotAuthenticated": "You need to sign in to use Claude Code. Go to Settings and click \"Sign in to Claude Code\" to authenticate."
 		}
 	},
@@ -224,46 +224,46 @@
 		}
 	},
 	"skill": {
-		"wantsToLoad": "Zoo wants to load a skill",
-		"didLoad": "Zoo loaded a skill"
+		"wantsToLoad": "Bolt wants to load a skill",
+		"didLoad": "Bolt loaded a skill"
 	},
 	"fileOperations": {
-		"wantsToRead": "Zoo wants to read this file",
-		"wantsToReadMultiple": "Zoo wants to read multiple files",
-		"wantsToReadAndXMore": "Zoo wants to read this file and {{count}} more",
-		"wantsToReadOutsideWorkspace": "Zoo wants to read this file outside of the workspace",
-		"didRead": "Zoo read this file",
-		"wantsToEdit": "Zoo wants to edit this file",
-		"wantsToEditOutsideWorkspace": "Zoo wants to edit this file outside of the workspace",
-		"wantsToEditProtected": "Zoo wants to edit a protected configuration file",
-		"wantsToApplyBatchChanges": "Zoo wants to apply changes to multiple files",
-		"wantsToGenerateImage": "Zoo wants to generate an image",
-		"wantsToGenerateImageOutsideWorkspace": "Zoo wants to generate an image outside of the workspace",
-		"wantsToGenerateImageProtected": "Zoo wants to generate an image in a protected location",
-		"didGenerateImage": "Zoo generated an image",
-		"wantsToCreate": "Zoo wants to create a new file",
-		"wantsToInsert": "Zoo wants to insert content into this file",
-		"wantsToInsertWithLineNumber": "Zoo wants to insert content into this file at line {{lineNumber}}",
-		"wantsToInsertAtEnd": "Zoo wants to append content to the end of this file"
+		"wantsToRead": "Bolt wants to read this file",
+		"wantsToReadMultiple": "Bolt wants to read multiple files",
+		"wantsToReadAndXMore": "Bolt wants to read this file and {{count}} more",
+		"wantsToReadOutsideWorkspace": "Bolt wants to read this file outside of the workspace",
+		"didRead": "Bolt read this file",
+		"wantsToEdit": "Bolt wants to edit this file",
+		"wantsToEditOutsideWorkspace": "Bolt wants to edit this file outside of the workspace",
+		"wantsToEditProtected": "Bolt wants to edit a protected configuration file",
+		"wantsToApplyBatchChanges": "Bolt wants to apply changes to multiple files",
+		"wantsToGenerateImage": "Bolt wants to generate an image",
+		"wantsToGenerateImageOutsideWorkspace": "Bolt wants to generate an image outside of the workspace",
+		"wantsToGenerateImageProtected": "Bolt wants to generate an image in a protected location",
+		"didGenerateImage": "Bolt generated an image",
+		"wantsToCreate": "Bolt wants to create a new file",
+		"wantsToInsert": "Bolt wants to insert content into this file",
+		"wantsToInsertWithLineNumber": "Bolt wants to insert content into this file at line {{lineNumber}}",
+		"wantsToInsertAtEnd": "Bolt wants to append content to the end of this file"
 	},
 	"directoryOperations": {
-		"wantsToViewTopLevel": "Zoo wants to view the top level files in this directory",
-		"didViewTopLevel": "Zoo viewed the top level files in this directory",
-		"wantsToViewTopLevelOutsideWorkspace": "Zoo wants to view the top level files in this directory (outside workspace)",
-		"didViewTopLevelOutsideWorkspace": "Zoo viewed the top level files in this directory (outside workspace)",
-		"wantsToViewRecursive": "Zoo wants to recursively view all files in this directory",
-		"didViewRecursive": "Zoo recursively viewed all files in this directory",
-		"wantsToViewRecursiveOutsideWorkspace": "Zoo wants to recursively view all files in this directory (outside workspace)",
-		"didViewRecursiveOutsideWorkspace": "Zoo recursively viewed all files in this directory (outside workspace)",
-		"wantsToViewMultipleDirectories": "Zoo wants to view multiple directories",
-		"wantsToSearch": "Zoo wants to search this directory for <code>{{regex}}</code>",
-		"didSearch": "Zoo searched this directory for <code>{{regex}}</code>",
-		"wantsToSearchOutsideWorkspace": "Zoo wants to search this directory (outside workspace) for <code>{{regex}}</code>",
-		"didSearchOutsideWorkspace": "Zoo searched this directory (outside workspace) for <code>{{regex}}</code>"
+		"wantsToViewTopLevel": "Bolt wants to view the top level files in this directory",
+		"didViewTopLevel": "Bolt viewed the top level files in this directory",
+		"wantsToViewTopLevelOutsideWorkspace": "Bolt wants to view the top level files in this directory (outside workspace)",
+		"didViewTopLevelOutsideWorkspace": "Bolt viewed the top level files in this directory (outside workspace)",
+		"wantsToViewRecursive": "Bolt wants to recursively view all files in this directory",
+		"didViewRecursive": "Bolt recursively viewed all files in this directory",
+		"wantsToViewRecursiveOutsideWorkspace": "Bolt wants to recursively view all files in this directory (outside workspace)",
+		"didViewRecursiveOutsideWorkspace": "Bolt recursively viewed all files in this directory (outside workspace)",
+		"wantsToViewMultipleDirectories": "Bolt wants to view multiple directories",
+		"wantsToSearch": "Bolt wants to search this directory for <code>{{regex}}</code>",
+		"didSearch": "Bolt searched this directory for <code>{{regex}}</code>",
+		"wantsToSearchOutsideWorkspace": "Bolt wants to search this directory (outside workspace) for <code>{{regex}}</code>",
+		"didSearchOutsideWorkspace": "Bolt searched this directory (outside workspace) for <code>{{regex}}</code>"
 	},
 	"codebaseSearch": {
-		"wantsToSearch": "Zoo wants to search the codebase for <code>{{query}}</code>",
-		"wantsToSearchWithPath": "Zoo wants to search the codebase for <code>{{query}}</code> in <code>{{path}}</code>",
+		"wantsToSearch": "Bolt wants to search the codebase for <code>{{query}}</code>",
+		"wantsToSearchWithPath": "Bolt wants to search the codebase for <code>{{query}}</code> in <code>{{path}}</code>",
 		"didSearch_one": "Found 1 result",
 		"didSearch_other": "Found {{count}} results",
 		"resultTooltip": "Similarity score: {{score}} (click to open file)"
@@ -290,24 +290,24 @@
 	"response": "Response",
 	"arguments": "Arguments",
 	"text": {
-		"rooSaid": "Zoo said"
+		"rooSaid": "Bolt said"
 	},
 	"feedback": {
 		"youSaid": "You said"
 	},
 	"mcp": {
-		"wantsToUseTool": "Zoo wants to use a tool on the {{serverName}} MCP server",
-		"wantsToAccessResource": "Zoo wants to access a resource on the {{serverName}} MCP server"
+		"wantsToUseTool": "Bolt wants to use a tool on the {{serverName}} MCP server",
+		"wantsToAccessResource": "Bolt wants to access a resource on the {{serverName}} MCP server"
 	},
 	"modes": {
-		"wantsToSwitch": "Zoo wants to switch to {{mode}} mode",
-		"wantsToSwitchWithReason": "Zoo wants to switch to {{mode}} mode because: {{reason}}",
-		"didSwitch": "Zoo switched to {{mode}} mode",
-		"didSwitchWithReason": "Zoo switched to {{mode}} mode because: {{reason}}"
+		"wantsToSwitch": "Bolt wants to switch to {{mode}} mode",
+		"wantsToSwitchWithReason": "Bolt wants to switch to {{mode}} mode because: {{reason}}",
+		"didSwitch": "Bolt switched to {{mode}} mode",
+		"didSwitchWithReason": "Bolt switched to {{mode}} mode because: {{reason}}"
 	},
 	"subtasks": {
-		"wantsToCreate": "Zoo wants to create a new subtask in {{mode}} mode",
-		"wantsToFinish": "Zoo wants to mark this as completed",
+		"wantsToCreate": "Bolt wants to create a new subtask in {{mode}} mode",
+		"wantsToFinish": "Bolt wants to mark this as completed",
 		"newTaskContent": "Subtask Instructions",
 		"resultContent": "Subtask completed",
 		"defaultResult": "Please continue to the next task.",
@@ -315,7 +315,7 @@
 		"goToSubtask": "View task"
 	},
 	"questions": {
-		"hasQuestion": "Zoo has a question"
+		"hasQuestion": "Bolt has a question"
 	},
 	"taskCompleted": "Task Completed",
 	"error": "Error",
@@ -332,12 +332,12 @@
 		"copyToClipboard": "Copy basic error info",
 		"copied": "Copied!",
 		"diagnostics": "Get detailed error info",
-		"proxyProvider": "You seem to be using a proxy-based provider. Make sure to check its logs and to ensure it's not rewriting Zoo's requests."
+		"proxyProvider": "You seem to be using a proxy-based provider. Make sure to check its logs and to ensure it's not rewriting Bolt's requests."
 	},
 	"diffError": {
 		"title": "Edit Unsuccessful"
 	},
-	"troubleMessage": "Zoo is having trouble...",
+	"troubleMessage": "Bolt is having trouble...",
 	"powershell": {
 		"issues": "It seems like you're having Windows PowerShell issues, please see this"
 	},
@@ -359,13 +359,13 @@
 		"triggerLabelAll": "BRRR"
 	},
 	"announcement": {
-		"title": "Zoo Code {{version}} Released",
-		"support": "Please support Zoo Code by starring us on <githubLink>GitHub</githubLink>.",
+		"title": "Bolt Code {{version}} Released",
+		"support": "Please support Bolt Code by starring us on <githubLink>GitHub</githubLink>.",
 		"release": {
 			"heading": "What's New:",
 			"highlight1": "More OpenAI controls — use Fast priority mode with OpenAI Codex and choose higher reasoning effort for OpenAI-compatible models.",
 			"highlight2": "More reliable providers and models — improved router metadata handling, Ollama model refresh, Bedrock proxy support, and Friendli reasoning controls.",
-			"highlight3": "Smoother settings and developer workflows — settings now preserve unsaved edits, short terminal commands complete cleanly, architect plans use workspace-relative paths, and remaining user-facing Roo branding is updated to Zoo."
+			"highlight3": "Smoother settings and developer workflows — settings now preserve unsaved edits, short terminal commands complete cleanly, architect plans use workspace-relative paths, and remaining user-facing Roo branding is updated to Bolt."
 		},
 		"cloudAgents": {
 			"heading": "New in the Cloud:",
@@ -397,18 +397,18 @@
 	"profileViolationWarning": "The current profile isn't compatible with your organization's settings",
 	"shellIntegration": {
 		"title": "Command Execution Warning",
-		"description": "Your command is being executed without VSCode terminal shell integration. To suppress this warning you can disable shell integration in the <strong>Terminal</strong> section of the <settingsLink>Zoo Code settings</settingsLink> or troubleshoot VSCode terminal integration using the link below.",
+		"description": "Your command is being executed without VSCode terminal shell integration. To suppress this warning you can disable shell integration in the <strong>Terminal</strong> section of the <settingsLink>Bolt Code settings</settingsLink> or troubleshoot VSCode terminal integration using the link below.",
 		"troubleshooting": "Click here for shell integration documentation."
 	},
 	"ask": {
 		"autoApprovedRequestLimitReached": {
 			"title": "Auto-Approved Request Limit Reached",
-			"description": "Zoo has reached the auto-approved limit of {{count}} API request(s). Would you like to reset the count and proceed with the task?",
+			"description": "Bolt has reached the auto-approved limit of {{count}} API request(s). Would you like to reset the count and proceed with the task?",
 			"button": "Reset and Continue"
 		},
 		"autoApprovedCostLimitReached": {
 			"title": "Auto-Approved Cost Limit Reached",
-			"description": "Zoo has reached the auto-approved cost limit of ${{count}}. Would you like to reset the cost and proceed with the task?",
+			"description": "Bolt has reached the auto-approved cost limit of ${{count}}. Would you like to reset the cost and proceed with the task?",
 			"button": "Reset and Continue"
 		}
 	},
@@ -447,8 +447,8 @@
 		}
 	},
 	"slashCommand": {
-		"wantsToRun": "Zoo wants to run a slash command",
-		"didRun": "Zoo ran a slash command"
+		"wantsToRun": "Bolt wants to run a slash command",
+		"didRun": "Bolt ran a slash command"
 	},
 	"queuedMessages": {
 		"title": "Queued Messages",
@@ -477,7 +477,7 @@
 		"openMcpSettings": "Open MCP Settings"
 	},
 	"readCommandOutput": {
-		"title": "Zoo read command output"
+		"title": "Bolt read command output"
 	},
 	"retiredProvider": {
 		"title": "Provider no longer supported",

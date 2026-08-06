@@ -1,23 +1,23 @@
 <p align="center">
-          <a href="https://marketplace.visualstudio.com/items?itemName=ZooCodeOrganization.zoo-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
+          <a href="https://marketplace.visualstudio.com/items?itemName=bolt-builder.bolt-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
           <a href="https://x.com/ZooCodeDev"><img src="https://img.shields.io/badge/ZooCode-000000?style=flat&logo=x&logoColor=white" alt="X"></a>
           <a href="https://youtube.com/@roocodeyt?feature=shared"><img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube"></a>
           <a href="https://discord.gg/VxfP4Vx3gX"><img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Join Discord"></a>
           <a href="https://www.reddit.com/r/ZooCode/"><img src="https://img.shields.io/badge/Join%20r%2FZooCode-FF4500?style=flat&logo=reddit&logoColor=white" alt="Join r/ZooCode"></a>
-          <a href="https://github.com/Zoo-Code-Org/Zoo-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
+          <a href="https://github.com/bolt-builder/Bolt-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
         </p>
         <p align="center">
           <em>빠르게 도움받기 → <a href="https://discord.gg/VxfP4Vx3gX">Discord 참여하기</a> • 비동기가 더 좋아요? → <a href="https://www.reddit.com/r/ZooCode/">r/ZooCode 참여하기</a></em>
         </p>
 
-        # Zoo Code
+        # Bolt Code
 
         > AI로 강화된 너의 개발 팀, 네 에디터 안에
 
-        ## 우리는 Zoo Code입니다
+        ## 우리는 Bolt Code입니다
 
 > Roo 팀이 [Roomote](https://roomote.dev/)에 집중하기 위해 Roo Code의 적극적인
-> 개발을 중단한 뒤, Zoo Code가 이 프로젝트의 개발을 이어가고 있어. 그동안
+> 개발을 중단한 뒤, Bolt Code가 이 프로젝트의 개발을 이어가고 있어. 그동안
 > 쌓아 온 모든 것에 대해 Roo 팀에게 고마워.
 >
 > 핵심 팀은 이전에 Roo에 기여했고 이 플러그인을 깊이 아끼는 개발자들로
@@ -26,17 +26,17 @@
 > 귀 기울일 계획이야. 우리와 함께해
 > [Discord](https://discord.gg/VxfP4Vx3gX),
 > [Reddit](https://www.reddit.com/r/ZooCode), 또는
-> [PR이나 issue 열기](https://github.com/Zoo-Code-Org/Zoo-Code).
+> [PR이나 issue 열기](https://github.com/bolt-builder/Bolt-Code).
 >
-> _-Zoo Code Team_
+> _-Bolt Code Team_
 
-## Roo Code에서 Zoo Code로 마이그레이션
+## Roo Code에서 Bolt Code로 마이그레이션
 
-Roo Code에서 Zoo Code로 옮겨오는 빠른 가이드는 [Roo→Zoo 마이그레이션 가이드](https://docs.zoocode.dev/roo-to-zoo-migration)에서 확인할 수 있어. 전환하는 동안 사용자들을 최대한 돕고 싶고, 바로 그 지원을 위해 [Reddit](https://www.reddit.com/r/ZooCode)와 [Discord](https://discord.gg/VxfP4Vx3gX)를 운영하고 있어. 문제가 있거나 궁금한 점이 있으면 들어와서 편하게 물어봐.
+Roo Code에서 Bolt Code로 옮겨오는 빠른 가이드는 [Roo→Bolt 마이그레이션 가이드](https://docs.zoocode.dev/roo-to-zoo-migration)에서 확인할 수 있어. 전환하는 동안 사용자들을 최대한 돕고 싶고, 바로 그 지원을 위해 [Reddit](https://www.reddit.com/r/ZooCode)와 [Discord](https://discord.gg/VxfP4Vx3gX)를 운영하고 있어. 문제가 있거나 궁금한 점이 있으면 들어와서 편하게 물어봐.
 
 ## v3.74.0의 새로운 기능
 
-**Zoo Gateway가 출시되었습니다!**
+**Bolt Gateway가 출시되었습니다!**
 
 게이트웨이는 모든 제공업체를 위한 단일 엔드포인트로, 하나의 잔액과 요청별 지출/사용량 내역을 제공합니다.
 
@@ -44,7 +44,7 @@ Roo Code에서 Zoo Code로 옮겨오는 빠른 가이드는 [Roo→Zoo 마이그
 
 - 크레딧 추가: https://www.zoocode.dev/dashboard/credits
 - 확장 프로그램에서 로그인하세요.
-- 설정에서 다양한 모델의 프로필을 만들 때 Zoo Gateway를 제공업체로 선택하세요
+- 설정에서 다양한 모델의 프로필을 만들 때 Bolt Gateway를 제공업체로 선택하세요
 
 사용량과 요금은 [대시보드](https://www.zoocode.dev/dashboard)에서 확인할 수 있습니다.
 
@@ -52,12 +52,12 @@ Roo Code에서 Zoo Code로 옮겨오는 빠른 가이드는 [Roo→Zoo 마이그
 
 - **더 다양한 OpenAI 제어** — OpenAI Codex에서 Fast 우선 모드를 사용하고 OpenAI 호환 모델의 reasoning effort를 더 높게 선택하세요.
 - **더 안정적인 프로바이더와 모델** — router 메타데이터 처리, Ollama 모델 새로고침, Bedrock 프록시 지원, Friendli reasoning 제어가 개선되었습니다.
-- **더 매끄러운 설정 및 개발 워크플로우** — 설정에서 저장하지 않은 편집을 유지하고, 짧은 터미널 명령을 올바르게 완료하며, Architect 계획에 워크스페이스 상대 경로를 사용합니다. 남아 있던 사용자용 Roo 브랜드도 Zoo로 업데이트했습니다.
-- **더 강력한 작업 기반** — 새로운 작업 레지스트리와 세마포어 기반 스케줄러가 Zoo Code의 작업 조정을 더 안전하게 준비합니다.
+- **더 매끄러운 설정 및 개발 워크플로우** — 설정에서 저장하지 않은 편집을 유지하고, 짧은 터미널 명령을 올바르게 완료하며, Architect 계획에 워크스페이스 상대 경로를 사용합니다. 남아 있던 사용자용 Roo 브랜드도 Bolt로 업데이트했습니다.
+- **더 강력한 작업 기반** — 새로운 작업 레지스트리와 세마포어 기반 스케줄러가 Bolt Code의 작업 조정을 더 안전하게 준비합니다.
 - **일관된 프로바이더 아키텍처** — 프로바이더 식별자와 service tier 구성 요소를 API, 코어, 공유 타입, webview 전체에서 중앙화했습니다.
 - 보안, 의존성, lint, 시각적 회귀 및 엔드투엔드 테스트를 개선했습니다.
 
-## Zoo Code가 당신을 위해 무엇을 할 수 있을까요?
+## Bolt Code가 당신을 위해 무엇을 할 수 있을까요?
 
 - 자연어 설명으로 코드 생성
 - 모드로 적응: 코드, 아키텍트, 질문, 디버그 및 사용자 지정 모드
@@ -69,7 +69,7 @@ Roo Code에서 Zoo Code로 옮겨오는 빠른 가이드는 [Roo→Zoo 마이그
 
 ## 모드
 
-Zoo Code는 당신의 작업 방식에 맞춰 적응합니다.
+Bolt Code는 당신의 작업 방식에 맞춰 적응합니다.
 
 - 코드 모드: 일상적인 코딩, 편집 및 파일 작업
 - 아키텍트 모드: 시스템, 사양 및 마이그레이션 계획
@@ -83,10 +83,10 @@ Zoo Code는 당신의 작업 방식에 맞춰 적응합니다.
 
 <div align="center">
 
-|                                                                                                                                                                         |                                                                                                                                                                       |                                                                                                                                                                         |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <a href="https://www.youtube.com/watch?v=Mcq3r1EPZ-4"><img src="https://img.youtube.com/vi/Mcq3r1EPZ-4/maxresdefault.jpg" width="100%"></a><br><b>Zoo Code 설치하기</b> | <a href="https://www.youtube.com/watch?v=ZBML8h5cCgo"><img src="https://img.youtube.com/vi/ZBML8h5cCgo/maxresdefault.jpg" width="100%"></a><br><b>프로필 구성하기</b> | <a href="https://www.youtube.com/watch?v=r1bpod1VWhg"><img src="https://img.youtube.com/vi/r1bpod1VWhg/maxresdefault.jpg" width="100%"></a><br><b>코드베이스 인덱싱</b> |
-| <a href="https://www.youtube.com/watch?v=iiAv1eKOaxk"><img src="https://img.youtube.com/vi/iiAv1eKOaxk/maxresdefault.jpg" width="100%"></a><br><b>사용자 지정 모드</b>  |   <a href="https://www.youtube.com/watch?v=Ho30nyY332E"><img src="https://img.youtube.com/vi/Ho30nyY332E/maxresdefault.jpg" width="100%"></a><br><b>체크포인트</b>    |   <a href="https://www.youtube.com/watch?v=HmnNSasv7T8"><img src="https://img.youtube.com/vi/HmnNSasv7T8/maxresdefault.jpg" width="100%"></a><br><b>컨텍스트 관리</b>   |
+|                                                                                                                                                                          |                                                                                                                                                                       |                                                                                                                                                                         |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <a href="https://www.youtube.com/watch?v=Mcq3r1EPZ-4"><img src="https://img.youtube.com/vi/Mcq3r1EPZ-4/maxresdefault.jpg" width="100%"></a><br><b>Bolt Code 설치하기</b> | <a href="https://www.youtube.com/watch?v=ZBML8h5cCgo"><img src="https://img.youtube.com/vi/ZBML8h5cCgo/maxresdefault.jpg" width="100%"></a><br><b>프로필 구성하기</b> | <a href="https://www.youtube.com/watch?v=r1bpod1VWhg"><img src="https://img.youtube.com/vi/r1bpod1VWhg/maxresdefault.jpg" width="100%"></a><br><b>코드베이스 인덱싱</b> |
+|  <a href="https://www.youtube.com/watch?v=iiAv1eKOaxk"><img src="https://img.youtube.com/vi/iiAv1eKOaxk/maxresdefault.jpg" width="100%"></a><br><b>사용자 지정 모드</b>  |   <a href="https://www.youtube.com/watch?v=Ho30nyY332E"><img src="https://img.youtube.com/vi/Ho30nyY332E/maxresdefault.jpg" width="100%"></a><br><b>체크포인트</b>    |   <a href="https://www.youtube.com/watch?v=HmnNSasv7T8"><img src="https://img.youtube.com/vi/HmnNSasv7T8/maxresdefault.jpg" width="100%"></a><br><b>컨텍스트 관리</b>   |
 
 </div>
 <p align="center">
@@ -95,12 +95,12 @@ Zoo Code는 당신의 작업 방식에 맞춰 적응합니다.
 
 ## 리소스
 
-- **[문서](https://docs.zoocode.dev):** Zoo Code 설치, 구성 및 마스터하기 위한 공식 가이드.
+- **[문서](https://docs.zoocode.dev):** Bolt Code 설치, 구성 및 마스터하기 위한 공식 가이드.
 - **[YouTube 채널](https://youtube.com/@roocodeyt?feature=shared):** 튜토리얼을 시청하고 실제 기능을 확인하세요.
 - **[Discord 서버](https://discord.gg/VxfP4Vx3gX):** 커뮤니티에 가입하여 실시간 도움과 토론에 참여하세요.
 - **[Reddit 커뮤니티](https://www.reddit.com/r/ZooCode):** 경험을 공유하고 다른 사람들이 무엇을 만들고 있는지 확인하세요.
-- **[GitHub 문제](https://github.com/Zoo-Code-Org/Zoo-Code/issues):** 버그를 보고하고 개발을 추적하세요.
-- **[기능 요청](https://github.com/Zoo-Code-Org/Zoo-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop):** 아이디어가 있으신가요? 개발자들과 공유하세요.
+- **[GitHub 문제](https://github.com/bolt-builder/Bolt-Code/issues):** 버그를 보고하고 개발을 추적하세요.
+- **[기능 요청](https://github.com/bolt-builder/Bolt-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop):** 아이디어가 있으신가요? 개발자들과 공유하세요.
 
 ---
 
@@ -109,7 +109,7 @@ Zoo Code는 당신의 작업 방식에 맞춰 적응합니다.
 1. **리포지토리 복제**:
 
 ```sh
-git clone https://github.com/Zoo-Code-Org/Zoo-Code.git
+git clone https://github.com/bolt-builder/Bolt-Code.git
 ```
 
 2. **의존성 설치**:
@@ -120,13 +120,13 @@ pnpm install
 
 3. **확장 프로그램 실행**:
 
-Zoo Code 확장 프로그램을 실행하는 방법에는 여러 가지가 있습니다:
+Bolt Code 확장 프로그램을 실행하는 방법에는 여러 가지가 있습니다:
 
 ### 개발 모드 (F5)
 
 활성 개발을 위해 VSCode의 내장 디버깅을 사용하세요:
 
-VSCode에서 `F5`를 누르거나 **실행** → **디버깅 시작**으로 이동하세요. 그러면 Zoo Code 확장 프로그램이 실행되는 새 VSCode 창이 열립니다.
+VSCode에서 `F5`를 누르거나 **실행** → **디버깅 시작**으로 이동하세요. 그러면 Bolt Code 확장 프로그램이 실행되는 새 VSCode 창이 열립니다.
 
 - 웹뷰 변경 사항은 즉시 나타납니다.
 - 핵심 확장 프로그램 변경 사항도 자동으로 핫 리로드됩니다.
@@ -160,10 +160,10 @@ VSIX 패키지를 수동으로 설치하려면:
     ```sh
     pnpm vsix
     ```
-2.  `.vsix` 파일이 `bin/` 디렉터리에 생성됩니다(예: `bin/zoo-code-<version>.vsix`).
+2.  `.vsix` 파일이 `bin/` 디렉터리에 생성됩니다(예: `bin/bolt-code-<version>.vsix`).
 3.  VSCode CLI를 사용하여 수동으로 설치합니다:
     ```sh
-    code --install-extension bin/zoo-code-<version>.vsix
+    code --install-extension bin/bolt-code-<version>.vsix
     ```
 
 ---
@@ -174,7 +174,7 @@ VSIX 패키지를 수동으로 설치하려면:
 
 ## 면책 조항
 
-**참고:** Zoo Code는 Zoo Code, 관련 타사 도구 또는 그 결과물과 관련하여 제공되거나 사용 가능하게 된 어떠한 코드, 모델 또는 기타 도구에 대해서도 어떠한 진술이나 보증을 하지 **않습니다**. 귀하는 그러한 도구나 결과물의 사용과 관련된 **모든 위험**을 부담합니다. 해당 도구는 **"있는 그대로"** 및 **"사용 가능한 대로"** 제공됩니다. 그러한 위험에는 지적 재산권 침해, 사이버 취약성 또는 공격, 편견, 부정확성, 오류, 결함, 바이러스, 다운타임, 재산 손실 또는 손상 및/또는 개인 상해가 포함될 수 있으며 이에 국한되지 않습니다. 귀하는 그러한 도구 또는 결과물의 사용(합법성, 적절성 및 그 결과를 포함하되 이에 국한되지 않음)에 대해 전적으로 책임을 집니다.
+**참고:** Bolt Code는 Bolt Code, 관련 타사 도구 또는 그 결과물과 관련하여 제공되거나 사용 가능하게 된 어떠한 코드, 모델 또는 기타 도구에 대해서도 어떠한 진술이나 보증을 하지 **않습니다**. 귀하는 그러한 도구나 결과물의 사용과 관련된 **모든 위험**을 부담합니다. 해당 도구는 **"있는 그대로"** 및 **"사용 가능한 대로"** 제공됩니다. 그러한 위험에는 지적 재산권 침해, 사이버 취약성 또는 공격, 편견, 부정확성, 오류, 결함, 바이러스, 다운타임, 재산 손실 또는 손상 및/또는 개인 상해가 포함될 수 있으며 이에 국한되지 않습니다. 귀하는 그러한 도구 또는 결과물의 사용(합법성, 적절성 및 그 결과를 포함하되 이에 국한되지 않음)에 대해 전적으로 책임을 집니다.
 
 ---
 
@@ -186,8 +186,8 @@ VSIX 패키지를 수동으로 설치하려면:
 
 ## 라이선스
 
-[Apache 2.0 © 2025 Zoo Code Org](../../LICENSE)
+[Apache 2.0 © 2025 Bolt Code Org](../../LICENSE)
 
 ---
 
-**Zoo Code를 즐겨 보세요!** 짧은 리드줄로 가까이 두든 자율적으로 돌아다니게 하든, 여러분이 무엇을 만들지 기대하고 있습니다. 질문이나 기능 아이디어가 있다면 [issue](https://github.com/Zoo-Code-Org/Zoo-Code/issues)를 열거나 [discussion](https://github.com/Zoo-Code-Org/Zoo-Code/discussions)을 시작해 주세요. 즐거운 코딩 되세요!
+**Bolt Code를 즐겨 보세요!** 짧은 리드줄로 가까이 두든 자율적으로 돌아다니게 하든, 여러분이 무엇을 만들지 기대하고 있습니다. 질문이나 기능 아이디어가 있다면 [issue](https://github.com/bolt-builder/Bolt-Code/issues)를 열거나 [discussion](https://github.com/bolt-builder/Bolt-Code/discussions)을 시작해 주세요. 즐거운 코딩 되세요!

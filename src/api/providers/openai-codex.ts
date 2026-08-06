@@ -1204,9 +1204,9 @@ export class OpenAiCodexHandler extends BaseProvider implements SingleCompletion
 		accountId?: string | null,
 	): Record<string, string> {
 		return {
-			originator: "zoo-code",
+			originator: "bolt-code",
 			session_id: effectiveSessionId,
-			"User-Agent": `zoo-code/${Package.version} (${os.platform()} ${os.release()}; ${os.arch()}) node/${process.version.slice(1)}`,
+			"User-Agent": `bolt-code/${Package.version} (${os.platform()} ${os.release()}; ${os.arch()}) node/${process.version.slice(1)}`,
 			...(accountId ? { "ChatGPT-Account-Id": accountId } : {}),
 			...(model.id === LUNA_MODEL_ID
 				? {

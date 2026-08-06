@@ -11,9 +11,9 @@
 </sub>
 </div>
 
-# Contributing to Zoo Code
+# Contributing to Bolt Code
 
-Zoo Code is a community-driven project, and we deeply value every contribution. To streamline collaboration, we operate on an [Issue-First](#issue-first-approach) basis, meaning all [Pull Requests (PRs)](#submitting-a-pull-request) must first be linked to a GitHub Issue. Please review this guide carefully.
+Bolt Code is a community-driven project, and we deeply value every contribution. To streamline collaboration, we operate on an [Issue-First](#issue-first-approach) basis, meaning all [Pull Requests (PRs)](#submitting-a-pull-request) must first be linked to a GitHub Issue. Please review this guide carefully.
 
 ## Table of Contents
 
@@ -54,7 +54,7 @@ Our roadmap guides the project's direction. Align your contributions with these 
 
 Mention alignment with these areas in your PRs.
 
-### 3. Join the Zoo Code Community
+### 3. Join the Bolt Code Community
 
 - **Discord:** Join our [Discord](https://discord.gg/VxfP4Vx3gX).
 - **Reddit:** Join our [Reddit](https://www.reddit.com/r/ZooCode/).
@@ -71,7 +71,7 @@ Mention alignment with these areas in your PRs.
 
 All contributions start with a GitHub Issue using our skinny templates.
 
-- **Check existing issues**: Search [GitHub Issues](https://github.com/Zoo-Code-Org/Zoo-Code/issues).
+- **Check existing issues**: Search [GitHub Issues](https://github.com/bolt-builder/Bolt-Code/issues).
 - **Create an issue** using:
     - **Enhancements:** "Enhancement Request" template (plain language focused on user benefit).
     - **Bugs:** "Bug Report" template (minimal repro + expected vs actual + version).
@@ -80,17 +80,17 @@ All contributions start with a GitHub Issue using our skinny templates.
 
 ### Deciding What to Work On
 
-- Check the [GitHub Issues page](https://github.com/Zoo-Code-Org/Zoo-Code/issues) for issues.
-- For docs, visit [Zoo Code Docs](https://github.com/Zoo-Code-Org/Zoo-Code-Docs).
+- Check the [GitHub Issues page](https://github.com/bolt-builder/Bolt-Code/issues) for issues.
+- For docs, visit [Bolt Code Docs](https://github.com/bolt-builder/Bolt-Code-Docs).
 
 ### Reporting Bugs
 
 - Check for existing reports first.
-- Create a new bug using the ["Bug Report" template](https://github.com/Zoo-Code-Org/Zoo-Code/issues/new/choose) with:
+- Create a new bug using the ["Bug Report" template](https://github.com/bolt-builder/Bolt-Code/issues/new/choose) with:
     - Clear, numbered reproduction steps
     - Expected vs actual result
-    - Zoo Code version (required); API provider/model if relevant
-- **Security issues**: Report privately via [security advisories](https://github.com/Zoo-Code-Org/Zoo-Code/security/advisories/new).
+    - Bolt Code version (required); API provider/model if relevant
+- **Security issues**: Report privately via [security advisories](https://github.com/bolt-builder/Bolt-Code/security/advisories/new).
 
 ## Development & Submission Process
 
@@ -99,7 +99,7 @@ All contributions start with a GitHub Issue using our skinny templates.
 1. **Fork & Clone:**
 
 ```
-git clone https://github.com/YOUR_USERNAME/Zoo-Code.git
+git clone https://github.com/YOUR_USERNAME/Bolt-Code.git
 ```
 
 2. **Install Dependencies:**
@@ -173,4 +173,4 @@ Please do not submit AI-generated changes that you do not understand or cannot m
 
 ## Legal
 
-By contributing, you agree your contributions will be licensed under the Apache 2.0 License, consistent with Zoo Code's licensing.
+By contributing, you agree your contributions will be licensed under the Apache 2.0 License, consistent with Bolt Code's licensing.

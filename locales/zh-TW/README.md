@@ -1,40 +1,40 @@
 <p align="center">
-          <a href="https://marketplace.visualstudio.com/items?itemName=ZooCodeOrganization.zoo-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
+          <a href="https://marketplace.visualstudio.com/items?itemName=bolt-builder.bolt-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
           <a href="https://x.com/ZooCodeDev"><img src="https://img.shields.io/badge/ZooCode-000000?style=flat&logo=x&logoColor=white" alt="X"></a>
           <a href="https://youtube.com/@roocodeyt?feature=shared"><img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube"></a>
           <a href="https://discord.gg/VxfP4Vx3gX"><img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Join Discord"></a>
           <a href="https://www.reddit.com/r/ZooCode/"><img src="https://img.shields.io/badge/Join%20r%2FZooCode-FF4500?style=flat&logo=reddit&logoColor=white" alt="Join r/ZooCode"></a>
-          <a href="https://github.com/Zoo-Code-Org/Zoo-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
+          <a href="https://github.com/bolt-builder/Bolt-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
         </p>
         <p align="center">
           <em>快速取得協助 → <a href="https://discord.gg/VxfP4Vx3gX">加入 Discord</a> • 比較喜歡非同步？→ <a href="https://www.reddit.com/r/ZooCode/">加入 r/ZooCode</a></em>
         </p>
 
-        # Zoo Code
+        # Bolt Code
 
         > 您的 AI 驅動開發團隊，就在您的編輯器中
 
-        ## 我們是 Zoo Code
+        ## 我們是 Bolt Code
 
 > 在 Roo 團隊停止 Roo Code 的積極開發、轉而專注於 [Roomote](https://roomote.dev/)
-> 之後，Zoo Code 將繼續開發這個專案。感謝 Roo 團隊所建立的一切。
+> 之後，Bolt Code 將繼續開發這個專案。感謝 Roo 團隊所建立的一切。
 >
 > 核心團隊由先前曾為 Roo 做出貢獻、並且非常在乎這個外掛的開發者所組成。
 > 我們會持續更新模型、修正 bug，並推出新功能，也計劃仔細傾聽讓這個外掛
 > 如此特別的社群。歡迎加入我們，一起在
 > [Discord](https://discord.gg/VxfP4Vx3gX)、
 > [Reddit](https://www.reddit.com/r/ZooCode)，或是
-> [建立 PR 或 issue](https://github.com/Zoo-Code-Org/Zoo-Code)。
+> [建立 PR 或 issue](https://github.com/bolt-builder/Bolt-Code)。
 >
-> _-Zoo Code Team_
+> _-Bolt Code Team_
 
-## 從 Roo Code 遷移到 Zoo Code
+## 從 Roo Code 遷移到 Bolt Code
 
-你可以在 [Roo→Zoo 遷移指南](https://docs.zoocode.dev/roo-to-zoo-migration) 中找到從 Roo Code 遷移到 Zoo Code 的快速說明。我們希望在大家轉移過程中盡可能提供協助，這也是我們設立 [Reddit](https://www.reddit.com/r/ZooCode) 和 [Discord](https://discord.gg/VxfP4Vx3gX) 社群的原因。如果你遇到問題或有任何疑問，歡迎加入後直接提問。
+你可以在 [Roo→Bolt 遷移指南](https://docs.zoocode.dev/roo-to-zoo-migration) 中找到從 Roo Code 遷移到 Bolt Code 的快速說明。我們希望在大家轉移過程中盡可能提供協助，這也是我們設立 [Reddit](https://www.reddit.com/r/ZooCode) 和 [Discord](https://discord.gg/VxfP4Vx3gX) 社群的原因。如果你遇到問題或有任何疑問，歡迎加入後直接提問。
 
 ## v3.74.0 新功能
 
-**Zoo Gateway 正式上線！**
+**Bolt Gateway 正式上線！**
 
 此閘道是所有供應商的單一端點，共用一個餘額，並提供逐請求的費用/用量明細。
 
@@ -42,7 +42,7 @@
 
 - 新增額度：https://www.zoocode.dev/dashboard/credits
 - 從擴充功能登入。
-- 在設定中，為不同模型建立設定檔時選擇 Zoo Gateway 作為供應商
+- 在設定中，為不同模型建立設定檔時選擇 Bolt Gateway 作為供應商
 
 用量與費用可在[儀表板](https://www.zoocode.dev/dashboard)中查看。
 
@@ -50,12 +50,12 @@
 
 - **更多 OpenAI 控制選項** — 在 OpenAI Codex 中使用 Fast 優先模式，並為 OpenAI 相容模型選擇更高的 reasoning effort。
 - **更可靠的供應商與模型** — 改善 router 中繼資料處理、Ollama 模型重新整理、Bedrock Proxy 支援與 Friendli reasoning 控制。
-- **更順暢的設定與開發工作流程** — 設定現在會保留未儲存的編輯，短終端機命令可正確完成，Architect 計畫使用相對於工作區的路徑，剩餘面向使用者的 Roo 品牌也已更新為 Zoo。
-- **更強大的任務基礎** — 新的任務登錄與以 semaphore 為基礎的排程器，讓 Zoo Code 能更安全地協調任務。
+- **更順暢的設定與開發工作流程** — 設定現在會保留未儲存的編輯，短終端機命令可正確完成，Architect 計畫使用相對於工作區的路徑，剩餘面向使用者的 Roo 品牌也已更新為 Bolt。
+- **更強大的任務基礎** — 新的任務登錄與以 semaphore 為基礎的排程器，讓 Bolt Code 能更安全地協調任務。
 - **一致的供應商架構** — 供應商識別碼與 service tier 元件現已集中到 API、核心、共用型別和 webview 中。
 - 安全性、相依套件、lint、視覺迴歸與端對端測試改善。
 
-## Zoo Code 能為您做什麼？
+## Bolt Code 能為您做什麼？
 
 - 從自然語言描述生成程式碼
 - 使用模式進行調整：程式碼、架構師、詢問、偵錯和自訂模式
@@ -67,7 +67,7 @@
 
 ## 模式
 
-Zoo Code 會配合您的工作方式，而非要您配合它：
+Bolt Code 會配合您的工作方式，而非要您配合它：
 
 - 程式碼模式：日常開發、編輯和檔案操作
 - 架構師模式：規劃系統、規格和遷移
@@ -81,10 +81,10 @@ Zoo Code 會配合您的工作方式，而非要您配合它：
 
 <div align="center">
 
-|                                                                                                                                                                     |                                                                                                                                                                  |                                                                                                                                                                    |
-| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <a href="https://www.youtube.com/watch?v=Mcq3r1EPZ-4"><img src="https://img.youtube.com/vi/Mcq3r1EPZ-4/maxresdefault.jpg" width="100%"></a><br><b>安裝 Zoo Code</b> | <a href="https://www.youtube.com/watch?v=ZBML8h5cCgo"><img src="https://img.youtube.com/vi/ZBML8h5cCgo/maxresdefault.jpg" width="100%"></a><br><b>設定設定檔</b> | <a href="https://www.youtube.com/watch?v=r1bpod1VWhg"><img src="https://img.youtube.com/vi/r1bpod1VWhg/maxresdefault.jpg" width="100%"></a><br><b>程式碼庫索引</b> |
-|   <a href="https://www.youtube.com/watch?v=iiAv1eKOaxk"><img src="https://img.youtube.com/vi/iiAv1eKOaxk/maxresdefault.jpg" width="100%"></a><br><b>自訂模式</b>    |   <a href="https://www.youtube.com/watch?v=Ho30nyY332E"><img src="https://img.youtube.com/vi/Ho30nyY332E/maxresdefault.jpg" width="100%"></a><br><b>檢查點</b>   |  <a href="https://www.youtube.com/watch?v=HmnNSasv7T8"><img src="https://img.youtube.com/vi/HmnNSasv7T8/maxresdefault.jpg" width="100%"></a><br><b>上下文管理</b>  |
+|                                                                                                                                                                      |                                                                                                                                                                  |                                                                                                                                                                    |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <a href="https://www.youtube.com/watch?v=Mcq3r1EPZ-4"><img src="https://img.youtube.com/vi/Mcq3r1EPZ-4/maxresdefault.jpg" width="100%"></a><br><b>安裝 Bolt Code</b> | <a href="https://www.youtube.com/watch?v=ZBML8h5cCgo"><img src="https://img.youtube.com/vi/ZBML8h5cCgo/maxresdefault.jpg" width="100%"></a><br><b>設定設定檔</b> | <a href="https://www.youtube.com/watch?v=r1bpod1VWhg"><img src="https://img.youtube.com/vi/r1bpod1VWhg/maxresdefault.jpg" width="100%"></a><br><b>程式碼庫索引</b> |
+|    <a href="https://www.youtube.com/watch?v=iiAv1eKOaxk"><img src="https://img.youtube.com/vi/iiAv1eKOaxk/maxresdefault.jpg" width="100%"></a><br><b>自訂模式</b>    |   <a href="https://www.youtube.com/watch?v=Ho30nyY332E"><img src="https://img.youtube.com/vi/Ho30nyY332E/maxresdefault.jpg" width="100%"></a><br><b>檢查點</b>   |  <a href="https://www.youtube.com/watch?v=HmnNSasv7T8"><img src="https://img.youtube.com/vi/HmnNSasv7T8/maxresdefault.jpg" width="100%"></a><br><b>上下文管理</b>  |
 
 </div>
 <p align="center">
@@ -93,12 +93,12 @@ Zoo Code 會配合您的工作方式，而非要您配合它：
 
 ## 資源
 
-- **[文件](https://docs.zoocode.dev):** 安裝、設定和掌握 Zoo Code 的官方指南。
+- **[文件](https://docs.zoocode.dev):** 安裝、設定和掌握 Bolt Code 的官方指南。
 - **[YouTube 頻道](https://youtube.com/@roocodeyt?feature=shared):** 觀看教學和功能實際操作。
 - **[Discord 伺服器](https://discord.gg/VxfP4Vx3gX):** 加入社群以獲得即時協助和討論。
 - **[Reddit 社群](https://www.reddit.com/r/ZooCode):** 分享您的經驗，看看其他人正在建立什麼。
-- **[GitHub Issues](https://github.com/Zoo-Code-Org/Zoo-Code/issues):** 回報問題並追蹤開發進度。
-- **[功能請求](https://github.com/Zoo-Code-Org/Zoo-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop):** 有想法嗎？與開發人員分享。
+- **[GitHub Issues](https://github.com/bolt-builder/Bolt-Code/issues):** 回報問題並追蹤開發進度。
+- **[功能請求](https://github.com/bolt-builder/Bolt-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop):** 有想法嗎？與開發人員分享。
 
 ---
 
@@ -107,7 +107,7 @@ Zoo Code 會配合您的工作方式，而非要您配合它：
 1. **複製**儲存庫：
 
 ```sh
-git clone https://github.com/Zoo-Code-Org/Zoo-Code.git
+git clone https://github.com/bolt-builder/Bolt-Code.git
 ```
 
 2. **安裝相依套件**:
@@ -118,13 +118,13 @@ pnpm install
 
 3. **執行擴充功能**:
 
-有幾種方法可以執行 Zoo Code 擴充功能：
+有幾種方法可以執行 Bolt Code 擴充功能：
 
 ### 開發模式（F5）
 
 若要進行開發，請使用 VSCode 的內建偵錯功能：
 
-在 VSCode 中按 `F5`（或前往 **執行** → **開始偵錯**）。這將在執行 Zoo Code 擴充功能的新 VSCode 視窗中開啟。
+在 VSCode 中按 `F5`（或前往 **執行** → **開始偵錯**）。這將在執行 Bolt Code 擴充功能的新 VSCode 視窗中開啟。
 
 - 對 webview 的變更將立即顯示。
 - 對核心擴充功能的變更也將自動熱重載。
@@ -158,10 +158,10 @@ pnpm install:vsix [-y] [--editor=<command>]
     ```sh
     pnpm vsix
     ```
-2.  將在 `bin/` 目錄中產生一個 `.vsix` 檔案（例如 `bin/zoo-code-<version>.vsix`）。
+2.  將在 `bin/` 目錄中產生一個 `.vsix` 檔案（例如 `bin/bolt-code-<version>.vsix`）。
 3.  使用 VSCode CLI 手動安裝：
     ```sh
-    code --install-extension bin/zoo-code-<version>.vsix
+    code --install-extension bin/bolt-code-<version>.vsix
     ```
 
 ---
@@ -172,7 +172,7 @@ pnpm install:vsix [-y] [--editor=<command>]
 
 ## 免責聲明
 
-**請注意**，Zoo Code **不**對與 Zoo Code 相關的任何程式碼、模型或其他工具、任何相關的第三方工具或任何由此產生的輸出作出任何陳述或保證。您承擔使用任何此類工具或輸出的**所有風險**；此類工具均按**「原樣」**和**「可用」**的基礎提供。此類風險可能包括但不限於智慧財產權侵權、網路漏洞或攻擊、偏見、不準確、錯誤、缺陷、病毒、停機、財產損失或損害和/或人身傷害。您對自己使用任何此類工具或輸出負全部責任（包括但不限於其合法性、適當性和結果）。
+**請注意**，Bolt Code **不**對與 Bolt Code 相關的任何程式碼、模型或其他工具、任何相關的第三方工具或任何由此產生的輸出作出任何陳述或保證。您承擔使用任何此類工具或輸出的**所有風險**；此類工具均按**「原樣」**和**「可用」**的基礎提供。此類風險可能包括但不限於智慧財產權侵權、網路漏洞或攻擊、偏見、不準確、錯誤、缺陷、病毒、停機、財產損失或損害和/或人身傷害。您對自己使用任何此類工具或輸出負全部責任（包括但不限於其合法性、適當性和結果）。
 
 ---
 
@@ -184,8 +184,8 @@ pnpm install:vsix [-y] [--editor=<command>]
 
 ## 授權
 
-[Apache 2.0 © 2025 Zoo Code Org](../../LICENSE)
+[Apache 2.0 © 2025 Bolt Code Org](../../LICENSE)
 
 ---
 
-**盡情享受 Zoo Code！** 不論你是讓它保持短牽繩控制，還是讓它自主行動，我們都迫不及待想看看你會打造出什麼。如果你有問題或功能想法，請開一個 [issue](https://github.com/Zoo-Code-Org/Zoo-Code/issues) 或發起一個 [discussion](https://github.com/Zoo-Code-Org/Zoo-Code/discussions)。祝你寫程式愉快！
+**盡情享受 Bolt Code！** 不論你是讓它保持短牽繩控制，還是讓它自主行動，我們都迫不及待想看看你會打造出什麼。如果你有問題或功能想法，請開一個 [issue](https://github.com/bolt-builder/Bolt-Code/issues) 或發起一個 [discussion](https://github.com/bolt-builder/Bolt-Code/discussions)。祝你寫程式愉快！

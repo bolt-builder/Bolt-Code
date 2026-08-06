@@ -118,8 +118,8 @@ describe("OpenAiHandler", () => {
 				baseURL: expect.any(String),
 				apiKey: expect.any(String),
 				defaultHeaders: {
-					"HTTP-Referer": "https://github.com/Zoo-Code-Org/Zoo-Code",
-					"X-Title": "Zoo Code",
+					"HTTP-Referer": "https://github.com/bolt-builder/Bolt-Code",
+					"X-Title": "Bolt Code",
 					"User-Agent": `ZooCode/${Package.version}`,
 				},
 				timeout: MOCK_TIMEOUT_MS,

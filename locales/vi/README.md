@@ -1,22 +1,22 @@
 <p align="center">
-          <a href="https://marketplace.visualstudio.com/items?itemName=ZooCodeOrganization.zoo-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
+          <a href="https://marketplace.visualstudio.com/items?itemName=bolt-builder.bolt-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
           <a href="https://x.com/ZooCodeDev"><img src="https://img.shields.io/badge/ZooCode-000000?style=flat&logo=x&logoColor=white" alt="X"></a>
           <a href="https://youtube.com/@roocodeyt?feature=shared"><img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube"></a>
           <a href="https://discord.gg/VxfP4Vx3gX"><img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Join Discord"></a>
           <a href="https://www.reddit.com/r/ZooCode/"><img src="https://img.shields.io/badge/Join%20r%2FZooCode-FF4500?style=flat&logo=reddit&logoColor=white" alt="Join r/ZooCode"></a>
-          <a href="https://github.com/Zoo-Code-Org/Zoo-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
+          <a href="https://github.com/bolt-builder/Bolt-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
         </p>
         <p align="center">
           <em>Cần trợ giúp nhanh → <a href="https://discord.gg/VxfP4Vx3gX">Tham gia Discord</a> • Thích trao đổi không đồng bộ hơn? → <a href="https://www.reddit.com/r/ZooCode/">Tham gia r/ZooCode</a></em>
         </p>
 
-        # Zoo Code
+        # Bolt Code
 
         > Đội ngũ dev dùng AI của bạn, ngay trong trình chỉnh sửa
 
-        ## Chúng tôi là Zoo Code
+        ## Chúng tôi là Bolt Code
 
-> Zoo Code tiếp tục phát triển dự án này sau khi đội ngũ Roo dừng việc phát
+> Bolt Code tiếp tục phát triển dự án này sau khi đội ngũ Roo dừng việc phát
 > triển tích cực Roo Code để tập trung vào [Roomote](https://roomote.dev/).
 > Cảm ơn đội ngũ Roo vì tất cả những gì họ đã xây dựng.
 >
@@ -27,17 +27,17 @@
 > tôi trên
 > [Discord](https://discord.gg/VxfP4Vx3gX),
 > [Reddit](https://www.reddit.com/r/ZooCode), hoặc
-> [mở PR hay issue](https://github.com/Zoo-Code-Org/Zoo-Code).
+> [mở PR hay issue](https://github.com/bolt-builder/Bolt-Code).
 >
-> _-Zoo Code Team_
+> _-Bolt Code Team_
 
-## Chuyển từ Roo Code sang Zoo Code
+## Chuyển từ Roo Code sang Bolt Code
 
-Bạn có thể xem hướng dẫn nhanh để chuyển từ Roo Code sang Zoo Code trong [hướng dẫn chuyển đổi Roo→Zoo](https://docs.zoocode.dev/roo-to-zoo-migration). Chúng tôi muốn hỗ trợ người dùng nhiều nhất có thể trong quá trình chuyển đổi, và đó chính là lý do chúng tôi có [Reddit](https://www.reddit.com/r/ZooCode) và [Discord](https://discord.gg/VxfP4Vx3gX). Nếu bạn gặp vấn đề hoặc có câu hỏi, cứ vào hỏi nhé.
+Bạn có thể xem hướng dẫn nhanh để chuyển từ Roo Code sang Bolt Code trong [hướng dẫn chuyển đổi Roo→Bolt](https://docs.zoocode.dev/roo-to-zoo-migration). Chúng tôi muốn hỗ trợ người dùng nhiều nhất có thể trong quá trình chuyển đổi, và đó chính là lý do chúng tôi có [Reddit](https://www.reddit.com/r/ZooCode) và [Discord](https://discord.gg/VxfP4Vx3gX). Nếu bạn gặp vấn đề hoặc có câu hỏi, cứ vào hỏi nhé.
 
 ## Điểm mới trong v3.74.0
 
-**Zoo Gateway đã ra mắt!**
+**Bolt Gateway đã ra mắt!**
 
 Gateway là một điểm cuối duy nhất cho tất cả các nhà cung cấp, với một số dư và bảng phân tích chi tiêu/mức sử dụng theo từng yêu cầu.
 
@@ -45,7 +45,7 @@ Gateway là một điểm cuối duy nhất cho tất cả các nhà cung cấp,
 
 - Thêm tín dụng: https://www.zoocode.dev/dashboard/credits
 - Đăng nhập từ tiện ích mở rộng.
-- Trong phần cài đặt, chọn Zoo Gateway làm nhà cung cấp khi tạo hồ sơ cho các mô hình khác nhau
+- Trong phần cài đặt, chọn Bolt Gateway làm nhà cung cấp khi tạo hồ sơ cho các mô hình khác nhau
 
 Bạn có thể xem mức sử dụng và phí trong [bảng điều khiển](https://www.zoocode.dev/dashboard).
 
@@ -53,12 +53,12 @@ Mô hình: https://www.zoocode.dev/dashboard/models
 
 - **Nhiều tùy chọn điều khiển OpenAI hơn** — dùng chế độ ưu tiên Fast với OpenAI Codex và chọn reasoning effort cao hơn cho các model tương thích OpenAI.
 - **Provider và model đáng tin cậy hơn** — cải thiện xử lý metadata của router, làm mới model Ollama, hỗ trợ proxy Bedrock và điều khiển reasoning của Friendli.
-- **Cài đặt và workflow phát triển mượt mà hơn** — cài đặt giữ lại các chỉnh sửa chưa lưu, lệnh terminal ngắn hoàn tất đúng cách, kế hoạch architect dùng đường dẫn tương đối với workspace và các nhãn Roo còn hiển thị cho người dùng đã được cập nhật thành Zoo.
-- **Nền tảng tác vụ vững chắc hơn** — task registry mới và scheduler dựa trên semaphore chuẩn bị cho Zoo Code phối hợp tác vụ an toàn hơn.
+- **Cài đặt và workflow phát triển mượt mà hơn** — cài đặt giữ lại các chỉnh sửa chưa lưu, lệnh terminal ngắn hoàn tất đúng cách, kế hoạch architect dùng đường dẫn tương đối với workspace và các nhãn Roo còn hiển thị cho người dùng đã được cập nhật thành Bolt.
+- **Nền tảng tác vụ vững chắc hơn** — task registry mới và scheduler dựa trên semaphore chuẩn bị cho Bolt Code phối hợp tác vụ an toàn hơn.
 - **Kiến trúc provider nhất quán** — identifier của provider và các thành phần service tier giờ được tập trung trong API, core, shared types và webview.
 - Cải tiến bảo mật, phụ thuộc, lint, hồi quy hình ảnh và kiểm thử end-to-end.
 
-## Zoo Code có thể làm gì cho BẠN?
+## Bolt Code có thể làm gì cho BẠN?
 
 - Tạo mã từ mô tả ngôn ngữ tự nhiên
 - Thích ứng với các Chế độ: Mã, Kiến trúc sư, Hỏi, Gỡ lỗi và Chế độ tùy chỉnh
@@ -70,7 +70,7 @@ Mô hình: https://www.zoocode.dev/dashboard/models
 
 ## Chế độ
 
-Zoo Code thích ứng với cách bạn làm việc, chứ không phải ngược lại:
+Bolt Code thích ứng với cách bạn làm việc, chứ không phải ngược lại:
 
 - Chế độ Mã: viết mã hàng ngày, chỉnh sửa và các thao tác với tệp
 - Chế độ Kiến trúc sư: lập kế hoạch hệ thống, thông số kỹ thuật và di chuyển
@@ -84,10 +84,10 @@ Xem thêm: [Sử dụng Chế độ](https://docs.zoocode.dev/basic-usage/using-
 
 <div align="center">
 
-|                                                                                                                                                                        |                                                                                                                                                                           |                                                                                                                                                                            |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <a href="https://www.youtube.com/watch?v=Mcq3r1EPZ-4"><img src="https://img.youtube.com/vi/Mcq3r1EPZ-4/maxresdefault.jpg" width="100%"></a><br><b>Cài đặt Zoo Code</b> | <a href="https://www.youtube.com/watch?v=ZBML8h5cCgo"><img src="https://img.youtube.com/vi/ZBML8h5cCgo/maxresdefault.jpg" width="100%"></a><br><b>Định cấu hình Hồ sơ</b> | <a href="https://www.youtube.com/watch?v=r1bpod1VWhg"><img src="https://img.youtube.com/vi/r1bpod1VWhg/maxresdefault.jpg" width="100%"></a><br><b>Lập chỉ mục cơ sở mã</b> |
-| <a href="https://www.youtube.com/watch?v=iiAv1eKOaxk"><img src="https://img.youtube.com/vi/iiAv1eKOaxk/maxresdefault.jpg" width="100%"></a><br><b>Chế độ tùy chỉnh</b> |    <a href="https://www.youtube.com/watch?v=Ho30nyY332E"><img src="https://img.youtube.com/vi/Ho30nyY332E/maxresdefault.jpg" width="100%"></a><br><b>Điểm kiểm tra</b>    |   <a href="https://www.youtube.com/watch?v=HmnNSasv7T8"><img src="https://img.youtube.com/vi/HmnNSasv7T8/maxresdefault.jpg" width="100%"></a><br><b>Quản lý Ngữ cảnh</b>   |
+|                                                                                                                                                                         |                                                                                                                                                                           |                                                                                                                                                                            |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <a href="https://www.youtube.com/watch?v=Mcq3r1EPZ-4"><img src="https://img.youtube.com/vi/Mcq3r1EPZ-4/maxresdefault.jpg" width="100%"></a><br><b>Cài đặt Bolt Code</b> | <a href="https://www.youtube.com/watch?v=ZBML8h5cCgo"><img src="https://img.youtube.com/vi/ZBML8h5cCgo/maxresdefault.jpg" width="100%"></a><br><b>Định cấu hình Hồ sơ</b> | <a href="https://www.youtube.com/watch?v=r1bpod1VWhg"><img src="https://img.youtube.com/vi/r1bpod1VWhg/maxresdefault.jpg" width="100%"></a><br><b>Lập chỉ mục cơ sở mã</b> |
+| <a href="https://www.youtube.com/watch?v=iiAv1eKOaxk"><img src="https://img.youtube.com/vi/iiAv1eKOaxk/maxresdefault.jpg" width="100%"></a><br><b>Chế độ tùy chỉnh</b>  |    <a href="https://www.youtube.com/watch?v=Ho30nyY332E"><img src="https://img.youtube.com/vi/Ho30nyY332E/maxresdefault.jpg" width="100%"></a><br><b>Điểm kiểm tra</b>    |   <a href="https://www.youtube.com/watch?v=HmnNSasv7T8"><img src="https://img.youtube.com/vi/HmnNSasv7T8/maxresdefault.jpg" width="100%"></a><br><b>Quản lý Ngữ cảnh</b>   |
 
 </div>
 <p align="center">
@@ -96,12 +96,12 @@ Xem thêm: [Sử dụng Chế độ](https://docs.zoocode.dev/basic-usage/using-
 
 ## Tài nguyên
 
-- **[Tài liệu](https://docs.zoocode.dev):** Hướng dẫn chính thức để cài đặt, cấu hình và sử dụng thành thạo Zoo Code.
+- **[Tài liệu](https://docs.zoocode.dev):** Hướng dẫn chính thức để cài đặt, cấu hình và sử dụng thành thạo Bolt Code.
 - **[Kênh YouTube](https://youtube.com/@roocodeyt?feature=shared):** Xem các video hướng dẫn và các tính năng đang hoạt động.
 - **[Máy chủ Discord](https://discord.gg/VxfP4Vx3gX):** Tham gia cộng đồng để được trợ giúp và thảo luận trong thời gian thực.
 - **[Cộng đồng Reddit](https://www.reddit.com/r/ZooCode):** Chia sẻ kinh nghiệm của bạn và xem những người khác đang xây dựng gì.
-- **[Vấn đề trên GitHub](https://github.com/Zoo-Code-Org/Zoo-Code/issues):** Báo cáo lỗi và theo dõi quá trình phát triển.
-- **[Yêu cầu tính năng](https://github.com/Zoo-Code-Org/Zoo-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop):** Có ý tưởng? Hãy chia sẻ với các nhà phát triển.
+- **[Vấn đề trên GitHub](https://github.com/bolt-builder/Bolt-Code/issues):** Báo cáo lỗi và theo dõi quá trình phát triển.
+- **[Yêu cầu tính năng](https://github.com/bolt-builder/Bolt-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop):** Có ý tưởng? Hãy chia sẻ với các nhà phát triển.
 
 ---
 
@@ -110,7 +110,7 @@ Xem thêm: [Sử dụng Chế độ](https://docs.zoocode.dev/basic-usage/using-
 1. **Sao chép** kho lưu trữ:
 
 ```sh
-git clone https://github.com/Zoo-Code-Org/Zoo-Code.git
+git clone https://github.com/bolt-builder/Bolt-Code.git
 ```
 
 2. **Cài đặt các dependency**:
@@ -121,13 +121,13 @@ pnpm install
 
 3. **Chạy phần mở rộng**:
 
-Có một số cách để chạy phần mở rộng Zoo Code:
+Có một số cách để chạy phần mở rộng Bolt Code:
 
 ### Chế độ phát triển (F5)
 
 Để phát triển tích cực, hãy sử dụng tính năng gỡ lỗi tích hợp của VSCode:
 
-Nhấn `F5` (hoặc vào **Run** → **Start Debugging**) trong VSCode. Thao tác này sẽ mở một cửa sổ VSCode mới với phần mở rộng Zoo Code đang chạy.
+Nhấn `F5` (hoặc vào **Run** → **Start Debugging**) trong VSCode. Thao tác này sẽ mở một cửa sổ VSCode mới với phần mở rộng Bolt Code đang chạy.
 
 - Các thay đổi đối với webview sẽ xuất hiện ngay lập tức.
 - Các thay đổi đối với phần mở rộng cốt lõi cũng sẽ tự động được tải lại nóng.
@@ -161,10 +161,10 @@ Nếu bạn muốn cài đặt gói VSIX theo cách thủ công:
     ```sh
     pnpm vsix
     ```
-2.  Một tệp `.vsix` sẽ được tạo trong thư mục `bin/` (ví dụ: `bin/zoo-code-<version>.vsix`).
+2.  Một tệp `.vsix` sẽ được tạo trong thư mục `bin/` (ví dụ: `bin/bolt-code-<version>.vsix`).
 3.  Cài đặt thủ công bằng VSCode CLI:
     ```sh
-    code --install-extension bin/zoo-code-<version>.vsix
+    code --install-extension bin/bolt-code-<version>.vsix
     ```
 
 ---
@@ -175,7 +175,7 @@ Chúng tôi sử dụng [changesets](https://github.com/changesets/changesets) �
 
 ## Tuyên bố miễn trừ trách nhiệm
 
-**Xin lưu ý** rằng Zoo Code **không** đưa ra bất kỳ tuyên bố hay bảo đảm nào liên quan đến bất kỳ mã, mô hình hoặc công cụ nào khác được cung cấp hoặc cung cấp liên quan đến Zoo Code, bất kỳ công cụ nào của bên thứ ba được liên kết hoặc bất kỳ kết quả đầu ra nào. Bạn chịu **mọi rủi ro** liên quan đến việc sử dụng bất kỳ công cụ hoặc kết quả đầu ra nào như vậy; các công cụ đó được cung cấp trên cơ sở **"NGUYÊN TRẠNG"** và **"NHƯ HIỆN CÓ"**. Những rủi ro đó có thể bao gồm, nhưng không giới hạn ở, vi phạm sở hữu trí tuệ, các lỗ hổng hoặc tấn công mạng, thiên vị, không chính xác, lỗi, khiếm khuyết, vi-rút, thời gian ngừng hoạt động, mất mát hoặc hư hỏng tài sản và/hoặc thương tích cá nhân. Bạn hoàn toàn chịu trách nhiệm về việc sử dụng bất kỳ công cụ hoặc kết quả đầu ra nào đó (bao gồm, nhưng không giới hạn ở, tính hợp pháp, tính phù hợp và kết quả của chúng).
+**Xin lưu ý** rằng Bolt Code **không** đưa ra bất kỳ tuyên bố hay bảo đảm nào liên quan đến bất kỳ mã, mô hình hoặc công cụ nào khác được cung cấp hoặc cung cấp liên quan đến Bolt Code, bất kỳ công cụ nào của bên thứ ba được liên kết hoặc bất kỳ kết quả đầu ra nào. Bạn chịu **mọi rủi ro** liên quan đến việc sử dụng bất kỳ công cụ hoặc kết quả đầu ra nào như vậy; các công cụ đó được cung cấp trên cơ sở **"NGUYÊN TRẠNG"** và **"NHƯ HIỆN CÓ"**. Những rủi ro đó có thể bao gồm, nhưng không giới hạn ở, vi phạm sở hữu trí tuệ, các lỗ hổng hoặc tấn công mạng, thiên vị, không chính xác, lỗi, khiếm khuyết, vi-rút, thời gian ngừng hoạt động, mất mát hoặc hư hỏng tài sản và/hoặc thương tích cá nhân. Bạn hoàn toàn chịu trách nhiệm về việc sử dụng bất kỳ công cụ hoặc kết quả đầu ra nào đó (bao gồm, nhưng không giới hạn ở, tính hợp pháp, tính phù hợp và kết quả của chúng).
 
 ---
 
@@ -187,8 +187,8 @@ Chúng tôi yêu thích những đóng góp của cộng đồng! Bắt đầu b
 
 ## Giấy phép
 
-[Apache 2.0 © 2025 Zoo Code Org](../../LICENSE)
+[Apache 2.0 © 2025 Bolt Code Org](../../LICENSE)
 
 ---
 
-**Hãy tận hưởng Zoo Code!** Dù bạn giữ nó trong tầm kiểm soát hay để nó tự do hoạt động, chúng tôi rất nóng lòng muốn xem bạn sẽ xây dựng điều gì. Nếu bạn có câu hỏi hoặc ý tưởng tính năng, hãy mở một [issue](https://github.com/Zoo-Code-Org/Zoo-Code/issues) hoặc bắt đầu một [discussion](https://github.com/Zoo-Code-Org/Zoo-Code/discussions). Chúc bạn code vui vẻ!
+**Hãy tận hưởng Bolt Code!** Dù bạn giữ nó trong tầm kiểm soát hay để nó tự do hoạt động, chúng tôi rất nóng lòng muốn xem bạn sẽ xây dựng điều gì. Nếu bạn có câu hỏi hoặc ý tưởng tính năng, hãy mở một [issue](https://github.com/bolt-builder/Bolt-Code/issues) hoặc bắt đầu một [discussion](https://github.com/bolt-builder/Bolt-Code/discussions). Chúc bạn code vui vẻ!

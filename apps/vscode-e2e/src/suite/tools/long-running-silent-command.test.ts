@@ -17,7 +17,7 @@
  * instead of exit code 0), it means the fix would falsely terminate long-running
  * silent commands — the core concern raised when the original 15s idle timeout was reverted.
  *
- * See: https://github.com/Zoo-Code-Org/Zoo-Code/issues/800
+ * See: https://github.com/bolt-builder/Bolt-Code/issues/800
  */
 import * as assert from "assert"
 

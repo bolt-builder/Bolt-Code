@@ -33,7 +33,7 @@ async function main() {
 		sourcesContent: false,
 		platform: "node",
 		define: {
-			"process.env.PKG_NAME": '"zoo-code-nightly"',
+			"process.env.PKG_NAME": '"bolt-code-nightly"',
 			"process.env.PKG_VERSION": `"${overrideJson.version}"`,
 			"process.env.PKG_OUTPUT_CHANNEL": '"Zoo-Code-Nightly"',
 			"process.env.PKG_RELEASE_CHANNEL": '"prerelease"',
@@ -90,7 +90,7 @@ async function main() {
 					const generatedPackageJson = generatePackageJson({
 						packageJson,
 						overrideJson,
-						substitution: ["zoo-code", "zoo-code-nightly"],
+						substitution: ["bolt-code", "bolt-code-nightly"],
 					})
 
 					fs.writeFileSync(path.join(buildDir, "package.json"), JSON.stringify(generatedPackageJson, null, 2))

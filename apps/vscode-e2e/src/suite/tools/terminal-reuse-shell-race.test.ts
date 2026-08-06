@@ -11,7 +11,7 @@
  *  2. The second command also completes (via the same idle-timeout path),
  *     confirming the terminal is in a clean state after reuse.
  *
- * See: https://github.com/Zoo-Code-Org/Zoo-Code/issues/800
+ * See: https://github.com/bolt-builder/Bolt-Code/issues/800
  */
 import * as assert from "assert"
 

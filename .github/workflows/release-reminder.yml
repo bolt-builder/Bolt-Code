@@ -35,7 +35,7 @@ jobs:
                   message=$(cat <<EOF
                   **Weekly release reminder**
 
-                  **${owner}** is on deck for this week's Zoo Code release.
+                  **${owner}** is on deck for this week's Bolt Code release.
 
                   1. Create the release branch and prepare the release with \`.roo/commands/release.md\`.
                   2. Get the release PR approved.

@@ -1,6 +1,6 @@
 {
 	"extension": {
-		"name": "Zoo Code",
+		"name": "Bolt Code",
 		"description": "エディター内のAIデベロッパーチーム全体。"
 	},
 	"number_format": {
@@ -151,11 +151,11 @@
 	"warnings": {
 		"no_terminal_content": "選択されたターミナルコンテンツがありません",
 		"missing_task_files": "このタスクのファイルが見つかりません。タスクリストから削除しますか？",
-		"auto_import_failed": "ZooCode設定の自動インポートに失敗しました：{{error}}",
+		"auto_import_failed": "Bolt Code設定の自動インポートに失敗しました：{{error}}",
 		"rooHistoryImport": {
 			"nothingFound": "{{domain}}からインポートするRoo Codeのタスク履歴が見つかりませんでした。",
-			"alreadyImported_one": "{{count}}件のRoo Codeタスク履歴はすでにZoo Codeにインポート済みです。",
-			"alreadyImported_other": "{{count}}件のRoo Codeタスク履歴はすでにZoo Codeにインポート済みです。"
+			"alreadyImported_one": "{{count}}件のRoo Codeタスク履歴はすでにBolt Codeにインポート済みです。",
+			"alreadyImported_other": "{{count}}件のRoo Codeタスク履歴はすでにBolt Codeにインポート済みです。"
 		}
 	},
 	"info": {
@@ -165,7 +165,7 @@
 		"custom_storage_path_set": "カスタムストレージパスが設定されました：{{path}}",
 		"default_storage_path": "デフォルトのストレージパスに戻りました",
 		"settings_imported": "設定が正常にインポートされました。",
-		"auto_import_success": "ZooCode設定が{{filename}}から自動インポートされました",
+		"auto_import_success": "Bolt Code設定が{{filename}}から自動インポートされました",
 		"share_link_copied": "共有リンクがクリップボードにコピーされました",
 		"image_copied_to_clipboard": "画像データURIがクリップボードにコピーされました",
 		"image_saved": "画像を{{path}}に保存しました",
@@ -177,8 +177,8 @@
 			"signInUnavailable": "Roo Code Cloud へのサインインは現在利用できません。続行するには別のプロバイダーを設定してください。"
 		},
 		"rooHistoryImport": {
-			"success_one": "{{count}}件のRoo CodeタスクをZoo Codeにインポートしました。",
-			"success_other": "{{count}}件のRoo CodeタスクをZoo Codeにインポートしました。"
+			"success_one": "{{count}}件のRoo CodeタスクをBolt Codeにインポートしました。",
+			"success_other": "{{count}}件のRoo CodeタスクをBolt Codeにインポートしました。"
 		}
 	},
 	"answers": {
@@ -210,7 +210,7 @@
 		"enter_valid_path": "有効なパスを入力してください"
 	},
 	"input": {
-		"task_prompt": "Zooにどんなことをさせますか？",
+		"task_prompt": "Boltにどんなことをさせますか？",
 		"task_placeholder": "タスクをここに入力してください"
 	},
 	"settings": {
@@ -240,8 +240,8 @@
 	},
 	"mdm": {
 		"errors": {
-			"cloud_auth_required": "あなたの組織では Zoo Code Cloud 認証が必要です。続行するにはサインインしてください。",
-			"organization_mismatch": "組織の Zoo Code Cloud アカウントで認証する必要があります。",
+			"cloud_auth_required": "あなたの組織では Bolt Code Cloud 認証が必要です。続行するにはサインインしてください。",
+			"organization_mismatch": "組織の Bolt Code Cloud アカウントで認証する必要があります。",
 			"manual_url_empty": "有効なコールバック URL を入力してください",
 			"manual_url_no_query": "無効なコールバック URL：クエリパラメータがありません",
 			"manual_url_missing_params": "無効なコールバック URL：必要なパラメータ（code と state）がありません",
@@ -272,18 +272,18 @@
 	},
 	"zooAuth": {
 		"errors": {
-			"invalid_token_received": "Zoo Code: 無効な認証 token を受信しました。",
-			"token_verification_failed": "Zoo Code: Token の検証に失敗しました。",
-			"invalid_token": "Zoo Code: 無効な token です。",
-			"could_not_verify_token": "Zoo Code: Token を検証できませんでした。",
-			"session_expired": "Zoo Codeのセッションの有効期限が切れました。Zoo Gatewayを引き続き使用するには、再度サインインしてください。",
-			"out_of_credits": "Zoo Gateway: クレジットが不足しています。続行するにはクレジットを追加してください。",
-			"account_unavailable": "Zoo Gateway: 現在アカウントを利用できません。サポートまでお問い合わせください。",
-			"budget_exceeded": "Zoo Gateway: 利用予算に達しました。リセットを待つかチャージしてください。"
+			"invalid_token_received": "Bolt Code: 無効な認証 token を受信しました。",
+			"token_verification_failed": "Bolt Code: Token の検証に失敗しました。",
+			"invalid_token": "Bolt Code: 無効な token です。",
+			"could_not_verify_token": "Bolt Code: Token を検証できませんでした。",
+			"session_expired": "Bolt Codeのセッションの有効期限が切れました。Bolt Gatewayを引き続き使用するには、再度サインインしてください。",
+			"out_of_credits": "Bolt Gateway: クレジットが不足しています。続行するにはクレジットを追加してください。",
+			"account_unavailable": "Bolt Gateway: 現在アカウントを利用できません。サポートまでお問い合わせください。",
+			"budget_exceeded": "Bolt Gateway: 利用予算に達しました。リセットを待つかチャージしてください。"
 		},
 		"info": {
-			"connected": "Zoo Code: 接続に成功しました！Zoo Code を AI プロバイダーとして使用できます。",
-			"disconnected": "Zoo Code: 正常に切断されました。"
+			"connected": "Bolt Code: 接続に成功しました！Bolt Code を AI プロバイダーとして使用できます。",
+			"disconnected": "Bolt Code: 正常に切断されました。"
 		},
 		"buttons": {
 			"sign_in": "サインイン",
@@ -292,9 +292,9 @@
 		}
 	},
 	"codeActions": {
-		"explain": "Zoo Codeで説明",
-		"fix": "Zoo Codeで修正",
-		"improve": "Zoo Codeで改善",
-		"addToContext": "Zoo Codeに追加"
+		"explain": "Bolt Codeで説明",
+		"fix": "Bolt Codeで修正",
+		"improve": "Bolt Codeで改善",
+		"addToContext": "Bolt Codeに追加"
 	}
 }

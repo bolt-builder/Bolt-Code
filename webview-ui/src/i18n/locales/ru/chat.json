@@ -1,5 +1,5 @@
 {
-	"greeting": "Добро пожаловать в Zoo Code!",
+	"greeting": "Добро пожаловать в Bolt Code!",
 	"task": {
 		"title": "Задача",
 		"expand": "Развернуть задачу",
@@ -98,7 +98,7 @@
 	"enqueueMessage": "Добавить сообщение в очередь (будет отправлено после завершения текущей задачи)",
 	"scrollToBottom": "Прокрутить чат вниз",
 	"scrollToLatestCheckpoint": "Прокрутить к предыдущему чекпоинту",
-	"about": "Zoo Code — это целая команда разработчиков ИИ в вашем редакторе.",
+	"about": "Bolt Code — это целая команда разработчиков ИИ в вашем редакторе.",
 	"docs": "Ознакомьтесь с нашей <DocsLink>документацией</DocsLink>, чтобы узнать больше.",
 	"onboarding": "Ваш список задач в этом рабочем пространстве пуст.",
 	"rooTips": {
@@ -121,7 +121,7 @@
 		"title": "Режимы",
 		"marketplace": "Маркетплейс режимов",
 		"settings": "Настройки режимов",
-		"description": "Специализированные персоны, которые настраивают поведение Zoo.",
+		"description": "Специализированные персоны, которые настраивают поведение Bolt.",
 		"searchPlaceholder": "Поиск режимов...",
 		"noResults": "Ничего не найдено"
 	},
@@ -157,7 +157,7 @@
 			"500": "Ошибка сервера провайдера. На стороне провайдера что-то пошло не так, с вашим запросом все в порядке.",
 			"docs": "Документация",
 			"goToSettings": "Настройки",
-			"unknown": "Неизвестная ошибка API. Пожалуйста, свяжитесь с поддержкой Zoo Code.",
+			"unknown": "Неизвестная ошибка API. Пожалуйста, свяжитесь с поддержкой Bolt Code.",
 			"connection": "Ошибка подключения. Убедитесь, что у вас есть рабочее подключение к Интернету.",
 			"claudeCodeNotAuthenticated": "Вам необходимо войти в систему, чтобы использовать Claude Code. Перейдите в Настройки и нажмите «Войти в Claude Code» для аутентификации."
 		}
@@ -182,43 +182,43 @@
 		"current": "Текущая"
 	},
 	"instructions": {
-		"wantsToFetch": "Zoo хочет получить подробные инструкции для помощи с текущей задачей"
+		"wantsToFetch": "Bolt хочет получить подробные инструкции для помощи с текущей задачей"
 	},
 	"fileOperations": {
-		"wantsToRead": "Zoo хочет прочитать этот файл",
-		"wantsToReadOutsideWorkspace": "Zoo хочет прочитать этот файл вне рабочей области",
-		"didRead": "Zoo прочитал этот файл",
-		"wantsToEdit": "Zoo хочет отредактировать этот файл",
-		"wantsToEditOutsideWorkspace": "Zoo хочет отредактировать этот файл вне рабочей области",
-		"wantsToEditProtected": "Zoo хочет отредактировать защищённый файл конфигурации",
-		"wantsToCreate": "Zoo хочет создать новый файл",
-		"wantsToSearchReplace": "Zoo хочет выполнить поиск и замену в этом файле",
-		"didSearchReplace": "Zoo выполнил поиск и замену в этом файле",
-		"wantsToInsert": "Zoo хочет вставить содержимое в этот файл",
-		"wantsToInsertWithLineNumber": "Zoo хочет вставить содержимое в этот файл на строку {{lineNumber}}",
-		"wantsToInsertAtEnd": "Zoo хочет добавить содержимое в конец этого файла",
-		"wantsToReadAndXMore": "Zoo хочет прочитать этот файл и еще {{count}}",
-		"wantsToReadMultiple": "Zoo хочет прочитать несколько файлов",
-		"wantsToApplyBatchChanges": "Zoo хочет применить изменения к нескольким файлам",
-		"wantsToGenerateImage": "Zoo хочет сгенерировать изображение",
-		"wantsToGenerateImageOutsideWorkspace": "Zoo хочет сгенерировать изображение вне рабочего пространства",
-		"wantsToGenerateImageProtected": "Zoo хочет сгенерировать изображение в защищённом месте",
-		"didGenerateImage": "Zoo сгенерировал изображение"
+		"wantsToRead": "Bolt хочет прочитать этот файл",
+		"wantsToReadOutsideWorkspace": "Bolt хочет прочитать этот файл вне рабочей области",
+		"didRead": "Bolt прочитал этот файл",
+		"wantsToEdit": "Bolt хочет отредактировать этот файл",
+		"wantsToEditOutsideWorkspace": "Bolt хочет отредактировать этот файл вне рабочей области",
+		"wantsToEditProtected": "Bolt хочет отредактировать защищённый файл конфигурации",
+		"wantsToCreate": "Bolt хочет создать новый файл",
+		"wantsToSearchReplace": "Bolt хочет выполнить поиск и замену в этом файле",
+		"didSearchReplace": "Bolt выполнил поиск и замену в этом файле",
+		"wantsToInsert": "Bolt хочет вставить содержимое в этот файл",
+		"wantsToInsertWithLineNumber": "Bolt хочет вставить содержимое в этот файл на строку {{lineNumber}}",
+		"wantsToInsertAtEnd": "Bolt хочет добавить содержимое в конец этого файла",
+		"wantsToReadAndXMore": "Bolt хочет прочитать этот файл и еще {{count}}",
+		"wantsToReadMultiple": "Bolt хочет прочитать несколько файлов",
+		"wantsToApplyBatchChanges": "Bolt хочет применить изменения к нескольким файлам",
+		"wantsToGenerateImage": "Bolt хочет сгенерировать изображение",
+		"wantsToGenerateImageOutsideWorkspace": "Bolt хочет сгенерировать изображение вне рабочего пространства",
+		"wantsToGenerateImageProtected": "Bolt хочет сгенерировать изображение в защищённом месте",
+		"didGenerateImage": "Bolt сгенерировал изображение"
 	},
 	"directoryOperations": {
-		"wantsToViewTopLevel": "Zoo хочет просмотреть файлы верхнего уровня в этой директории",
-		"didViewTopLevel": "Zoo просмотрел файлы верхнего уровня в этой директории",
-		"wantsToViewRecursive": "Zoo хочет рекурсивно просмотреть все файлы в этой директории",
-		"didViewRecursive": "Zoo рекурсивно просмотрел все файлы в этой директории",
-		"wantsToSearch": "Zoo хочет выполнить поиск в этой директории по <code>{{regex}}</code>",
-		"didSearch": "Zoo выполнил поиск в этой директории по <code>{{regex}}</code>",
-		"wantsToSearchOutsideWorkspace": "Zoo хочет выполнить поиск в этой директории (вне рабочего пространства) по <code>{{regex}}</code>",
-		"didSearchOutsideWorkspace": "Zoo выполнил поиск в этой директории (вне рабочего пространства) по <code>{{regex}}</code>",
-		"wantsToViewTopLevelOutsideWorkspace": "Zoo хочет просмотреть файлы верхнего уровня в этой директории (вне рабочего пространства)",
-		"didViewTopLevelOutsideWorkspace": "Zoo просмотрел файлы верхнего уровня в этой директории (вне рабочего пространства)",
-		"wantsToViewRecursiveOutsideWorkspace": "Zoo хочет рекурсивно просмотреть все файлы в этой директории (вне рабочего пространства)",
-		"didViewRecursiveOutsideWorkspace": "Zoo рекурсивно просмотрел все файлы в этой директории (вне рабочего пространства)",
-		"wantsToViewMultipleDirectories": "Zoo хочет просмотреть несколько директорий"
+		"wantsToViewTopLevel": "Bolt хочет просмотреть файлы верхнего уровня в этой директории",
+		"didViewTopLevel": "Bolt просмотрел файлы верхнего уровня в этой директории",
+		"wantsToViewRecursive": "Bolt хочет рекурсивно просмотреть все файлы в этой директории",
+		"didViewRecursive": "Bolt рекурсивно просмотрел все файлы в этой директории",
+		"wantsToSearch": "Bolt хочет выполнить поиск в этой директории по <code>{{regex}}</code>",
+		"didSearch": "Bolt выполнил поиск в этой директории по <code>{{regex}}</code>",
+		"wantsToSearchOutsideWorkspace": "Bolt хочет выполнить поиск в этой директории (вне рабочего пространства) по <code>{{regex}}</code>",
+		"didSearchOutsideWorkspace": "Bolt выполнил поиск в этой директории (вне рабочего пространства) по <code>{{regex}}</code>",
+		"wantsToViewTopLevelOutsideWorkspace": "Bolt хочет просмотреть файлы верхнего уровня в этой директории (вне рабочего пространства)",
+		"didViewTopLevelOutsideWorkspace": "Bolt просмотрел файлы верхнего уровня в этой директории (вне рабочего пространства)",
+		"wantsToViewRecursiveOutsideWorkspace": "Bolt хочет рекурсивно просмотреть все файлы в этой директории (вне рабочего пространства)",
+		"didViewRecursiveOutsideWorkspace": "Bolt рекурсивно просмотрел все файлы в этой директории (вне рабочего пространства)",
+		"wantsToViewMultipleDirectories": "Bolt хочет просмотреть несколько директорий"
 	},
 	"commandOutput": "Вывод команды",
 	"commandExecution": {
@@ -243,24 +243,24 @@
 	"response": "Ответ",
 	"arguments": "Аргументы",
 	"text": {
-		"rooSaid": "Zoo сказал"
+		"rooSaid": "Bolt сказал"
 	},
 	"feedback": {
 		"youSaid": "Вы сказали"
 	},
 	"mcp": {
-		"wantsToUseTool": "Zoo хочет использовать инструмент на сервере MCP {{serverName}}",
-		"wantsToAccessResource": "Zoo хочет получить доступ к ресурсу на сервере MCP {{serverName}}"
+		"wantsToUseTool": "Bolt хочет использовать инструмент на сервере MCP {{serverName}}",
+		"wantsToAccessResource": "Bolt хочет получить доступ к ресурсу на сервере MCP {{serverName}}"
 	},
 	"modes": {
-		"wantsToSwitch": "Zoo хочет переключиться в режим {{mode}}",
-		"wantsToSwitchWithReason": "Zoo хочет переключиться в режим {{mode}}, потому что: {{reason}}",
-		"didSwitch": "Zoo переключился в режим {{mode}}",
-		"didSwitchWithReason": "Zoo переключился в режим {{mode}}, потому что: {{reason}}"
+		"wantsToSwitch": "Bolt хочет переключиться в режим {{mode}}",
+		"wantsToSwitchWithReason": "Bolt хочет переключиться в режим {{mode}}, потому что: {{reason}}",
+		"didSwitch": "Bolt переключился в режим {{mode}}",
+		"didSwitchWithReason": "Bolt переключился в режим {{mode}}, потому что: {{reason}}"
 	},
 	"subtasks": {
-		"wantsToCreate": "Zoo хочет создать новую подзадачу в режиме {{mode}}",
-		"wantsToFinish": "Zoo хочет завершить эту подзадачу",
+		"wantsToCreate": "Bolt хочет создать новую подзадачу в режиме {{mode}}",
+		"wantsToFinish": "Bolt хочет завершить эту подзадачу",
 		"newTaskContent": "Инструкции по подзадаче",
 		"completionContent": "Подзадача завершена",
 		"resultContent": "Результаты подзадачи",
@@ -269,7 +269,7 @@
 		"goToSubtask": "Просмотреть задачу"
 	},
 	"questions": {
-		"hasQuestion": "У Zoo есть вопрос"
+		"hasQuestion": "У Bolt есть вопрос"
 	},
 	"taskCompleted": "Задача завершена",
 	"error": "Ошибка",
@@ -283,14 +283,14 @@
 	"diffError": {
 		"title": "Не удалось выполнить редактирование"
 	},
-	"troubleMessage": "У Zoo возникли проблемы...",
+	"troubleMessage": "У Bolt возникли проблемы...",
 	"errorDetails": {
 		"link": "Подробности",
 		"title": "Детали ошибки",
 		"copyToClipboard": "Скопировать в буфер обмена",
 		"copied": "Скопировано!",
 		"diagnostics": "Получить подробную информацию об ошибке",
-		"proxyProvider": "Похоже, ты используешь провайдера на основе прокси. Убедись, что ты проверил его логи и что он не переписывает запросы Zoo."
+		"proxyProvider": "Похоже, ты используешь провайдера на основе прокси. Убедись, что ты проверил его логи и что он не переписывает запросы Bolt."
 	},
 	"powershell": {
 		"issues": "Похоже, у вас проблемы с Windows PowerShell, пожалуйста, ознакомьтесь с этим"
@@ -314,13 +314,13 @@
 		"triggerLabelAll": "BRRR"
 	},
 	"announcement": {
-		"title": "Выпущен Zoo Code {{version}}",
-		"support": "Поддержите Zoo Code, поставив нам звезду на <githubLink>GitHub</githubLink>.",
+		"title": "Выпущен Bolt Code {{version}}",
+		"support": "Поддержите Bolt Code, поставив нам звезду на <githubLink>GitHub</githubLink>.",
 		"release": {
 			"heading": "Что нового:",
 			"highlight1": "Больше настроек OpenAI — используйте режим приоритета Fast с OpenAI Codex и выбирайте повышенный reasoning effort для OpenAI-совместимых моделей.",
 			"highlight2": "Более надёжные провайдеры и модели — улучшена обработка метаданных router, обновление моделей Ollama, поддержка прокси в Bedrock и управление reasoning в Friendli.",
-			"highlight3": "Более удобные настройки и рабочие процессы разработки — настройки сохраняют несохранённые правки, короткие команды терминала корректно завершаются, планы архитектора используют пути относительно рабочей области, а оставшиеся видимые упоминания Roo заменены на Zoo."
+			"highlight3": "Более удобные настройки и рабочие процессы разработки — настройки сохраняют несохранённые правки, короткие команды терминала корректно завершаются, планы архитектора используют пути относительно рабочей области, а оставшиеся видимые упоминания Roo заменены на Bolt."
 		},
 		"cloudAgents": {
 			"heading": "Новое в облаке:",
@@ -349,8 +349,8 @@
 		}
 	},
 	"skill": {
-		"wantsToLoad": "Zoo хочет загрузить навык",
-		"didLoad": "Zoo загрузил навык"
+		"wantsToLoad": "Bolt хочет загрузить навык",
+		"didLoad": "Bolt загрузил навык"
 	},
 	"followUpSuggest": {
 		"copyToInput": "Скопировать во ввод (то же, что shift + клик)",
@@ -371,24 +371,24 @@
 	"profileViolationWarning": "Текущий профиль несовместим с настройками вашей организации",
 	"shellIntegration": {
 		"title": "Предупреждение о выполнении команды",
-		"description": "Ваша команда выполняется без интеграции оболочки терминала VSCode. Чтобы скрыть это предупреждение, вы можете отключить интеграцию оболочки в разделе <strong>Terminal</strong> в <settingsLink>настройках Zoo Code</settingsLink> или устранить проблемы с интеграцией терминала VSCode, используя ссылку ниже.",
+		"description": "Ваша команда выполняется без интеграции оболочки терминала VSCode. Чтобы скрыть это предупреждение, вы можете отключить интеграцию оболочки в разделе <strong>Terminal</strong> в <settingsLink>настройках Bolt Code</settingsLink> или устранить проблемы с интеграцией терминала VSCode, используя ссылку ниже.",
 		"troubleshooting": "Нажмите здесь для просмотра документации по интеграции оболочки."
 	},
 	"ask": {
 		"autoApprovedRequestLimitReached": {
 			"title": "Достигнут лимит автоматически одобренных запросов",
-			"description": "Zoo достиг автоматически одобренного лимита в {{count}} API-запрос(ов). Хотите сбросить счетчик и продолжить задачу?",
+			"description": "Bolt достиг автоматически одобренного лимита в {{count}} API-запрос(ов). Хотите сбросить счетчик и продолжить задачу?",
 			"button": "Сбросить и продолжить"
 		},
 		"autoApprovedCostLimitReached": {
 			"title": "Достигнут лимит автоматически одобряемых расходов",
 			"button": "Сбросить и продолжить",
-			"description": "Zoo достиг автоматически утвержденного лимита расходов в размере ${{count}}. Хотите сбросить расходы и продолжить выполнение задачи?"
+			"description": "Bolt достиг автоматически утвержденного лимита расходов в размере ${{count}}. Хотите сбросить расходы и продолжить выполнение задачи?"
 		}
 	},
 	"codebaseSearch": {
-		"wantsToSearch": "Zoo хочет выполнить поиск в кодовой базе по <code>{{query}}</code>",
-		"wantsToSearchWithPath": "Zoo хочет выполнить поиск в кодовой базе по <code>{{query}}</code> в <code>{{path}}</code>",
+		"wantsToSearch": "Bolt хочет выполнить поиск в кодовой базе по <code>{{query}}</code>",
+		"wantsToSearchWithPath": "Bolt хочет выполнить поиск в кодовой базе по <code>{{query}}</code> в <code>{{path}}</code>",
 		"didSearch_one": "Найден 1 результат",
 		"didSearch_other": "Найдено {{count}} результатов",
 		"resultTooltip": "Оценка схожести: {{score}} (нажмите, чтобы открыть файл)"
@@ -429,7 +429,7 @@
 		"ariaLabel": "Версия {{version}} - Нажмите, чтобы просмотреть примечания к выпуску"
 	},
 	"rooCloudCTA": {
-		"title": "Zoo Code Cloud развивается!",
+		"title": "Bolt Code Cloud развивается!",
 		"description": "Запускайте удаленные агенты в облаке, получайте доступ к своим задачам из любого места, сотрудничайте с другими и многое другое.",
 		"joinWaitlist": "Зарегистрируйтесь, чтобы получать последние обновления."
 	},
@@ -470,8 +470,8 @@
 		"clickToEdit": "Нажмите, чтобы редактировать сообщение"
 	},
 	"slashCommand": {
-		"wantsToRun": "Zoo хочет выполнить слеш-команду",
-		"didRun": "Zoo выполнил слеш-команду"
+		"wantsToRun": "Bolt хочет выполнить слеш-команду",
+		"didRun": "Bolt выполнил слеш-команду"
 	},
 	"todo": {
 		"partial": "{{completed}} из {{total}} задач выполнено",
@@ -490,7 +490,7 @@
 		"openMcpSettings": "Открыть настройки MCP"
 	},
 	"readCommandOutput": {
-		"title": "Zoo read command output"
+		"title": "Bolt read command output"
 	},
 	"retiredProvider": {
 		"title": "Провайдер больше не поддерживается",
