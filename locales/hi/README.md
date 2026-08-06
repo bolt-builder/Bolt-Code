@@ -1,7 +1,6 @@
 <p align="center">
           <a href="https://marketplace.visualstudio.com/items?itemName=bolt-builder.bolt-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
           <a href="https://x.com/ZooCodeDev"><img src="https://img.shields.io/badge/ZooCode-000000?style=flat&logo=x&logoColor=white" alt="X"></a>
-          <a href="https://youtube.com/@roocodeyt?feature=shared"><img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube"></a>
           <a href="https://discord.gg/VxfP4Vx3gX"><img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Join Discord"></a>
           <a href="https://www.reddit.com/r/ZooCode/"><img src="https://img.shields.io/badge/Join%20r%2FZooCode-FF4500?style=flat&logo=reddit&logoColor=white" alt="Join r/ZooCode"></a>
           <a href="https://github.com/bolt-builder/Bolt-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
@@ -35,13 +34,19 @@
 
 Roo Code से Bolt Code में आने के लिए एक quick guide तुम्हें [Roo→Bolt migration guide](https://docs.zoocode.dev/roo-to-zoo-migration) में मिल जाएगी। We plan to help users as much as possible during the transition, और उसी support के लिए हमारा [Reddit](https://www.reddit.com/r/ZooCode) और [Discord](https://discord.gg/VxfP4Vx3gX) है। अगर तुम्हें कोई problem हो या कोई question हो, आकर पूछो।
 
-## v3.74.0 में नया क्या है
+## Roo Code के बाद Zoo Code ने क्या जोड़ा है
 
 **Bolt Gateway लाइव है!**
 
-गेटवे सभी प्रदाताओं के लिए एक ही एंडपॉइंट है, जिसमें एक बैलेंस और प्रति-अनुरोध खर्च/उपयोग का विवरण है।
+- **Semble codebase intelligence** — तेज़, on-demand semantic code search, automatic setup के साथ और बिना किसी अलग indexing workflow के।
+- **ज़्यादा मज़बूत Orchestrator workflows** — अधिक सुरक्षित delegation, parallel task coordination, parent/child tasks की भरोसेमंद recovery और subtasks व provider profiles के बीच बेहतर isolation।
+- **Destructive Command Guard (DCG) के साथ लंबे autonomous runs** — भरोसेमंद काम को बिना बार-बार approval मांगे जारी रखते हुए खतरनाक commands को अपने-आप block करता है।
+- **नवीनतम models** — नए Claude, GPT, Gemini, Kimi, GLM, Grok, MiniMax और अन्य model families के लिए लगातार support।
+- **Connect करने के और तरीके** — Zoo Gateway, Moonshot, Kimi Code, Kenari, Friendli, OpenCode Go और कई अन्य नए व विस्तारित providers।
+- **ज़्यादा भरोसेमंद terminal और editing workflows** — terminal के समय से पहले पूरा होने, task-state race conditions, context management, diff editing और provider-specific tool use से जुड़ी समस्याओं के fixes।
+- **अपने workspace पर ज़्यादा control** — rules management, हर mode के लिए MCP restrictions, multi-root path controls, model reasoning options और completion changes की review actions।
 
-**सेटअप:**
+## v3.76.0 में नया क्या है
 
 - क्रेडिट जोड़ें: https://www.zoocode.dev/dashboard/credits
 - एक्सटेंशन से साइन इन करें।
@@ -79,20 +84,6 @@ Roo Code से Bolt Code में आने के लिए एक quick guid
 - कस्टम मोड: अपनी टीम या वर्कफ़्लो के लिए विशेष मोड बनाएं
 
 और जानो: [मोड्स का इस्तेमाल](https://docs.zoocode.dev/basic-usage/using-modes) • [कस्टम मोड्स](https://docs.zoocode.dev/advanced-usage/custom-modes)
-
-## ट्यूटोरियल और फ़ीचर वीडियो
-
-<div align="center">
-
-|                                                                                                                                                                           |                                                                                                                                                                               |                                                                                                                                                                         |
-| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <a href="https://www.youtube.com/watch?v=Mcq3r1EPZ-4"><img src="https://img.youtube.com/vi/Mcq3r1EPZ-4/maxresdefault.jpg" width="100%"></a><br><b>रू कोड इंस्टॉल करना</b> | <a href="https://www.youtube.com/watch?v=ZBML8h5cCgo"><img src="https://img.youtube.com/vi/ZBML8h5cCgo/maxresdefault.jpg" width="100%"></a><br><b>प्रोफाइल कॉन्फ़िगर करना</b> | <a href="https://www.youtube.com/watch?v=r1bpod1VWhg"><img src="https://img.youtube.com/vi/r1bpod1VWhg/maxresdefault.jpg" width="100%"></a><br><b>कोडबेस इंडेक्सिंग</b> |
-|      <a href="https://www.youtube.com/watch?v=iiAv1eKOaxk"><img src="https://img.youtube.com/vi/iiAv1eKOaxk/maxresdefault.jpg" width="100%"></a><br><b>कस्टम मोड</b>      |       <a href="https://www.youtube.com/watch?v=Ho30nyY332E"><img src="https://img.youtube.com/vi/Ho30nyY332E/maxresdefault.jpg" width="100%"></a><br><b>चेकपॉइंट्स</b>        |  <a href="https://www.youtube.com/watch?v=HmnNSasv7T8"><img src="https://img.youtube.com/vi/HmnNSasv7T8/maxresdefault.jpg" width="100%"></a><br><b>संदर्भ प्रबंधन</b>   |
-
-</div>
-<p align="center">
-<a href="https://docs.zoocode.dev/tutorial-videos">अधिक त्वरित ट्यूटोरियल और फ़ीचर वीडियो...</a>
-</p>
 
 ## संसाधन
 

@@ -1,7 +1,6 @@
 <p align="center">
           <a href="https://marketplace.visualstudio.com/items?itemName=bolt-builder.bolt-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
           <a href="https://x.com/ZooCodeDev"><img src="https://img.shields.io/badge/ZooCode-000000?style=flat&logo=x&logoColor=white" alt="X"></a>
-          <a href="https://youtube.com/@roocodeyt?feature=shared"><img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube"></a>
           <a href="https://discord.gg/VxfP4Vx3gX"><img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Join Discord"></a>
           <a href="https://www.reddit.com/r/ZooCode/"><img src="https://img.shields.io/badge/Join%20r%2FZooCode-FF4500?style=flat&logo=reddit&logoColor=white" alt="Join r/ZooCode"></a>
           <a href="https://github.com/bolt-builder/Bolt-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
@@ -34,13 +33,19 @@
 
 Roo Code에서 Bolt Code로 옮겨오는 빠른 가이드는 [Roo→Bolt 마이그레이션 가이드](https://docs.zoocode.dev/roo-to-zoo-migration)에서 확인할 수 있어. 전환하는 동안 사용자들을 최대한 돕고 싶고, 바로 그 지원을 위해 [Reddit](https://www.reddit.com/r/ZooCode)와 [Discord](https://discord.gg/VxfP4Vx3gX)를 운영하고 있어. 문제가 있거나 궁금한 점이 있으면 들어와서 편하게 물어봐.
 
-## v3.74.0의 새로운 기능
+## Roo Code 이후 Zoo Code가 추가한 기능
 
 **Bolt Gateway가 출시되었습니다!**
 
-게이트웨이는 모든 제공업체를 위한 단일 엔드포인트로, 하나의 잔액과 요청별 지출/사용량 내역을 제공합니다.
+- **Semble 코드베이스 인텔리전스** — 자동 설정을 지원하고 별도 인덱싱 워크플로우 없이 사용할 수 있는 빠른 온디맨드 시맨틱 코드 검색.
+- **더 강력한 Orchestrator 워크플로우** — 더 안전한 위임, 병렬 작업 조정, 안정적인 상위/하위 작업 복구, 하위 작업과 프로바이더 프로필 간 격리 강화.
+- **Destructive Command Guard(DCG)를 통한 더 긴 자율 실행** — 신뢰할 수 있는 작업을 승인 요청 반복 없이 계속하면서 위험한 명령은 자동으로 차단.
+- **최신 모델** — 새로운 Claude, GPT, Gemini, Kimi, GLM, Grok, MiniMax 등 다양한 모델 제품군을 지속적으로 지원.
+- **더 다양한 연결 방식** — Zoo Gateway, Moonshot, Kimi Code, Kenari, Friendli, OpenCode Go 등 새롭게 추가되거나 확장된 프로바이더 지원.
+- **더 안정적인 터미널 및 편집 워크플로우** — 터미널 조기 완료, 작업 상태 경합, 컨텍스트 관리, diff 편집, 프로바이더별 도구 사용 문제를 수정.
+- **워크스페이스를 더 세밀하게 제어** — 규칙 관리, 모드별 MCP 제한, 멀티 루트 경로 제어, 모델 reasoning 옵션, 완료 시 변경 사항 검토 작업을 제공.
 
-**설정:**
+## v3.76.0의 새로운 기능
 
 - 크레딧 추가: https://www.zoocode.dev/dashboard/credits
 - 확장 프로그램에서 로그인하세요.
