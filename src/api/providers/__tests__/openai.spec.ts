@@ -120,7 +120,7 @@ describe("OpenAiHandler", () => {
 				defaultHeaders: {
 					"HTTP-Referer": "https://github.com/bolt-builder/Bolt-Code",
 					"X-Title": "Bolt Code",
-					"User-Agent": `ZooCode/${Package.version}`,
+					"User-Agent": `BoltCode/${Package.version}`,
 				},
 				timeout: MOCK_TIMEOUT_MS,
 			})

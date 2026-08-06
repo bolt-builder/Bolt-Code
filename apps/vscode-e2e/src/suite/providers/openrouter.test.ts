@@ -167,8 +167,8 @@ suite("OpenRouter provider", function () {
 				"HTTP-Referer header should point to the Bolt Code repository",
 			)
 			assert.ok(
-				captured.userAgent?.startsWith("ZooCode/"),
-				`User-Agent should start with "ZooCode/" — got: ${captured.userAgent}`,
+				captured.userAgent?.startsWith("BoltCode/"),
+				`User-Agent should start with "BoltCode/" - got: ${captured.userAgent}`,
 			)
 		}
 	})

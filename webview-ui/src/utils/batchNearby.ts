@@ -50,6 +50,8 @@ export function batchNearby<T>(items: T[], options: BatchNearbyOptions<T>): T[] 
 				}
 				if (isTarget(items[j])) {
 					batch.push(items[j])
+					// Ignorable items bridged between targets are metadata consumed by the batch
+					pendingIgnorable.length = 0
 					j++
 				} else if (isIgnorableBetweenTargets(items[j])) {
 					pendingIgnorable.push(items[j]) // track but don't commit yet
@@ -60,14 +62,15 @@ export function batchNearby<T>(items: T[], options: BatchNearbyOptions<T>): T[] 
 			}
 
 			if (batch.length > 1) {
-				// Bridge succeeded — pending ignorable items are metadata consumed by the batch
 				result.push(synthesize(batch))
 			} else {
-				// Bridge failed — restore pending ignorable items to preserve in-order semantics
 				result.push(batch[0])
-				if (pendingIgnorable.length > 0) {
-					result.push(...pendingIgnorable)
-				}
+			}
+
+			// Trailing ignorable items were never bridged to another target —
+			// restore them to preserve in-order semantics
+			if (pendingIgnorable.length > 0) {
+				result.push(...pendingIgnorable)
 			}
 
 			i = j // items[j] was not consumed — re-examine it on next iteration

@@ -147,7 +147,7 @@ describe("VercelAiGatewayHandler", () => {
 			defaultHeaders: expect.objectContaining({
 				"HTTP-Referer": "https://github.com/bolt-builder/Bolt-Code",
 				"X-Title": "Bolt Code",
-				"User-Agent": expect.stringContaining("ZooCode/"),
+				"User-Agent": expect.stringContaining("BoltCode/"),
 			}),
 			timeout: expect.any(Number),
 		})

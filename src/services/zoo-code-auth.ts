@@ -44,27 +44,30 @@ export async function initZooCodeAuth(context: vscode.ExtensionContext): Promise
 
 	// Watch for secret changes and update cache
 	context.secrets.onDidChange((e) => {
-		if (e.key === ZOO_CODE_TOKEN_KEY) {
-			secretStorage?.get(ZOO_CODE_TOKEN_KEY).then((token) => {
-				_cachedToken = token
-			})
-		}
-		if (e.key === ZOO_CODE_USER_NAME_KEY) {
-			secretStorage?.get(ZOO_CODE_USER_NAME_KEY).then((name) => {
-				_cachedUserName = name
-			})
-		}
-		if (e.key === ZOO_CODE_USER_EMAIL_KEY) {
-			secretStorage?.get(ZOO_CODE_USER_EMAIL_KEY).then((email) => {
-				_cachedUserEmail = email
-			})
-		}
-		if (e.key === ZOO_CODE_USER_IMAGE_KEY) {
-			secretStorage?.get(ZOO_CODE_USER_IMAGE_KEY).then((image) => {
-				_cachedUserImage = image
-			})
-		}
+		void refreshCachedSecret(e.key)
 	})
+}
+
+/**
+ * Refresh the in-memory cache for a single secret after a change event.
+ * Reads are awaited so a rejected read is caught (instead of leaving a
+ * floating promise and a silently stale cache) and updates stay ordered.
+ */
+async function refreshCachedSecret(key: string): Promise<void> {
+	if (!secretStorage) return
+	try {
+		if (key === ZOO_CODE_TOKEN_KEY) {
+			_cachedToken = await secretStorage.get(ZOO_CODE_TOKEN_KEY)
+		} else if (key === ZOO_CODE_USER_NAME_KEY) {
+			_cachedUserName = await secretStorage.get(ZOO_CODE_USER_NAME_KEY)
+		} else if (key === ZOO_CODE_USER_EMAIL_KEY) {
+			_cachedUserEmail = await secretStorage.get(ZOO_CODE_USER_EMAIL_KEY)
+		} else if (key === ZOO_CODE_USER_IMAGE_KEY) {
+			_cachedUserImage = await secretStorage.get(ZOO_CODE_USER_IMAGE_KEY)
+		}
+	} catch (error) {
+		console.error(`Failed to refresh cached secret "${key}" after change event:`, error)
+	}
 }
 
 // Synchronous getter for use in ZooCodeHandler (called in hot path during API requests)
