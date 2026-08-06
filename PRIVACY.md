@@ -32,14 +32,15 @@ go—and, importantly, where they don't.
 - **API Keys & Credentials**: If you enter an API key (e.g., to connect an AI
   model), it is stored locally on your device and never sent to us or any third
   party, except the provider you have chosen.
-- **Telemetry (Usage Data)**: We collect feature usage and error data to help
+- **Telemetry (Usage Data)**: Telemetry is **off by default**. If you explicitly
+  opt in through the settings, we collect feature usage and error data to help
   us improve Bolt Code. This telemetry is powered by PostHog and includes your
   VS Code machine ID, feature usage patterns, and exception reports. The VS Code
   machine ID is a persistent identifier and may be considered personal data in
   some jurisdictions; we use it only for product analytics and error grouping.
   We retain telemetry only as long as needed for product analytics and debugging.
-  Telemetry does **not** collect your code or AI prompts, and you can opt out at
-  any time through the settings.
+  Telemetry does **not** collect your code or AI prompts, and you can opt back
+  out at any time through the settings.
 - **Marketplace Requests**: When you browse or search the Marketplace for Model
   Configuration Profiles (MCPs) or Custom Modes, Bolt Code makes a secure API
   call to Bolt Code's backend servers to retrieve listing information. These
@@ -56,8 +57,8 @@ go—and, importantly, where they don't.
 ## **Your Choices & Control**
 
 - You can run models locally to prevent data being sent to third-parties.
-- Telemetry collection is enabled by default to help us improve Bolt Code, but
-  you can opt out at any time through the settings.
+- Telemetry collection is disabled by default. You can opt in, and back out,
+  at any time through the settings.
 - You can delete Bolt Code to stop all data collection.
 
 ## **Security & Updates**

@@ -31,8 +31,8 @@ describe("Telemetry Settings Tracking", () => {
 			const newSetting = "disabled" as TelemetrySetting
 
 			// Simulate the logic from webviewMessageHandler
-			const isOptedIn = newSetting !== "disabled"
-			const wasPreviouslyOptedIn = previousSetting !== "disabled"
+			const isOptedIn = newSetting === "enabled"
+			const wasPreviouslyOptedIn = previousSetting === "enabled"
 
 			// If turning telemetry OFF, fire event BEFORE disabling
 			if (wasPreviouslyOptedIn && !isOptedIn && TelemetryService.hasInstance()) {
@@ -50,12 +50,12 @@ describe("Telemetry Settings Tracking", () => {
 			expect(mockTelemetryService.updateTelemetryState).toHaveBeenCalledWith(false)
 		})
 
-		it("should fire event when going from unset to disabled", () => {
+		it("should not fire event when going from unset to disabled", () => {
 			const previousSetting = "unset" as TelemetrySetting
 			const newSetting = "disabled" as TelemetrySetting
 
-			const isOptedIn = newSetting !== "disabled"
-			const wasPreviouslyOptedIn = previousSetting !== "disabled"
+			const isOptedIn = newSetting === "enabled"
+			const wasPreviouslyOptedIn = previousSetting === "enabled"
 
 			if (wasPreviouslyOptedIn && !isOptedIn && TelemetryService.hasInstance()) {
 				TelemetryService.instance.captureTelemetrySettingsChanged(previousSetting, newSetting)
@@ -63,7 +63,10 @@ describe("Telemetry Settings Tracking", () => {
 
 			TelemetryService.instance.updateTelemetryState(isOptedIn)
 
-			expect(mockTelemetryService.captureTelemetrySettingsChanged).toHaveBeenCalledWith("unset", "disabled")
+			// Telemetry is opt-in, so "unset" was never opted in; nothing was on,
+			// so there is no transition event to capture (and nothing to send it).
+			expect(mockTelemetryService.captureTelemetrySettingsChanged).not.toHaveBeenCalled()
+			expect(mockTelemetryService.updateTelemetryState).toHaveBeenCalledWith(false)
 		})
 	})
 
@@ -72,8 +75,8 @@ describe("Telemetry Settings Tracking", () => {
 			const previousSetting = "disabled" as TelemetrySetting
 			const newSetting = "enabled" as TelemetrySetting
 
-			const isOptedIn = newSetting !== "disabled"
-			const wasPreviouslyOptedIn = previousSetting !== "disabled"
+			const isOptedIn = newSetting === "enabled"
+			const wasPreviouslyOptedIn = previousSetting === "enabled"
 
 			// Update the telemetry state first
 			TelemetryService.instance.updateTelemetryState(isOptedIn)
@@ -95,8 +98,8 @@ describe("Telemetry Settings Tracking", () => {
 			const previousSetting = "enabled" as TelemetrySetting
 			const newSetting = "enabled" as TelemetrySetting
 
-			const isOptedIn = newSetting !== "disabled"
-			const wasPreviouslyOptedIn = previousSetting !== "disabled"
+			const isOptedIn = newSetting === "enabled"
+			const wasPreviouslyOptedIn = previousSetting === "enabled"
 
 			// Neither condition should be met
 			if (wasPreviouslyOptedIn && !isOptedIn && TelemetryService.hasInstance()) {
@@ -114,14 +117,13 @@ describe("Telemetry Settings Tracking", () => {
 			expect(mockTelemetryService.updateTelemetryState).toHaveBeenCalledWith(true)
 		})
 
-		it("should fire event when going from unset to enabled (telemetry banner close)", () => {
+		it("should fire event AFTER enabling when going from unset to enabled (explicit opt-in)", () => {
 			const previousSetting = "unset" as TelemetrySetting
 			const newSetting = "enabled" as TelemetrySetting
 
-			const isOptedIn = newSetting !== "disabled"
-			const wasPreviouslyOptedIn = previousSetting !== "disabled"
+			const isOptedIn = newSetting === "enabled"
+			const wasPreviouslyOptedIn = previousSetting === "enabled"
 
-			// For unset -> enabled, both are opted in, so no event should fire
 			if (wasPreviouslyOptedIn && !isOptedIn && TelemetryService.hasInstance()) {
 				TelemetryService.instance.captureTelemetrySettingsChanged(previousSetting, newSetting)
 			}
@@ -132,8 +134,13 @@ describe("Telemetry Settings Tracking", () => {
 				TelemetryService.instance.captureTelemetrySettingsChanged(previousSetting, newSetting)
 			}
 
-			// unset is treated as opted-in, so no event should fire
-			expect(mockTelemetryService.captureTelemetrySettingsChanged).not.toHaveBeenCalled()
+			// "unset" is off under opt-in semantics, so enabling is a real
+			// transition and the event fires after telemetry is turned on.
+			expect(mockTelemetryService.updateTelemetryState).toHaveBeenCalledWith(true)
+			expect(mockTelemetryService.captureTelemetrySettingsChanged).toHaveBeenCalledWith("unset", "enabled")
+			expect(mockTelemetryService.updateTelemetryState).toHaveBeenCalledBefore(
+				mockTelemetryService.captureTelemetrySettingsChanged,
+			)
 		})
 	})
 

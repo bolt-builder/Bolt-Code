@@ -9,7 +9,8 @@ class TelemetryClient {
 	public updateTelemetryState(telemetrySetting: TelemetrySetting, apiKey?: string, distinctId?: string) {
 		posthog.reset()
 
-		if (telemetrySetting !== "disabled" && apiKey && distinctId) {
+		// Opt-in semantics: only an explicit "enabled" turns telemetry on.
+		if (telemetrySetting === "enabled" && apiKey && distinctId) {
 			TelemetryClient.telemetryEnabled = true
 
 			posthog.init(apiKey, {

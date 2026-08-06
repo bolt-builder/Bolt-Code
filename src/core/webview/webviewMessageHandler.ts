@@ -633,10 +633,11 @@ export const webviewMessageHandler = async (
 					),
 				)
 
-			// Enable telemetry by default (when unset) or when explicitly enabled
+			// Telemetry is opt-in: only enabled when the user explicitly turned it on.
+			// "unset" (the default) and "disabled" both keep telemetry off.
 			await provider.getStateToPostToWebview().then((state) => {
 				const { telemetrySetting } = state
-				const isOptedIn = telemetrySetting !== "disabled"
+				const isOptedIn = telemetrySetting === "enabled"
 				TelemetryService.instance.updateTelemetryState(isOptedIn)
 			})
 
@@ -2569,8 +2570,9 @@ export const webviewMessageHandler = async (
 		case "telemetrySetting": {
 			const telemetrySetting = message.text as TelemetrySetting
 			const previousSetting = getGlobalState("telemetrySetting") || "unset"
-			const isOptedIn = telemetrySetting !== "disabled"
-			const wasPreviouslyOptedIn = previousSetting !== "disabled"
+			// Opt-in semantics: only an explicit "enabled" turns telemetry on.
+			const isOptedIn = telemetrySetting === "enabled"
+			const wasPreviouslyOptedIn = previousSetting === "enabled"
 
 			// If turning telemetry OFF, fire event BEFORE disabling
 			if (wasPreviouslyOptedIn && !isOptedIn && TelemetryService.hasInstance()) {
