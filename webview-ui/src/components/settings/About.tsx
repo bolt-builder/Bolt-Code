@@ -108,7 +108,7 @@ export const About = ({ telemetrySetting, setTelemetrySetting, debug, setDebug, 
 					section="about"
 					label={t("settings:footer.telemetry.label")}>
 					<VSCodeCheckbox
-						checked={telemetrySetting !== "disabled"}
+						checked={telemetrySetting === "enabled"}
 						onChange={(e: any) => {
 							const checked = e.target.checked === true
 							setTelemetrySetting(checked ? "enabled" : "disabled")

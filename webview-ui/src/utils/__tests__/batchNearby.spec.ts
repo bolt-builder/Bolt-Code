@@ -338,6 +338,45 @@ describe("batchNearby", () => {
 		expect(result[0].text).toBe("BATCH:match-1,match-2")
 	})
 
+	test("trailing ignorable messages after a batch of >=2 targets are preserved", () => {
+		const messages = [
+			msg("match-1", "ask"),
+			msg("match-2", "ask"),
+			msg("", "say", "api_req_started"),
+			msg("", "say", "reasoning"),
+			msg("visible text", "say", "text"), // boundary
+		]
+		const result = batchNearby(messages, {
+			isTarget: isMatch,
+			isIgnorableBetweenTargets,
+			isBoundary,
+			synthesize: synthesizeBatch,
+		})
+		expect(result).toHaveLength(4)
+		expect(result[0].text).toBe("BATCH:match-1,match-2")
+		expect(result[1].say).toBe("api_req_started")
+		expect(result[2].say).toBe("reasoning")
+		expect(result[3].text).toBe("visible text")
+	})
+
+	test("trailing ignorable messages at the end of the array are preserved after a batch", () => {
+		const messages = [
+			msg("match-1", "ask"),
+			msg("", "say", "api_req_started"),
+			msg("match-2", "ask"),
+			msg("", "say", "reasoning"), // trailing, never bridged
+		]
+		const result = batchNearby(messages, {
+			isTarget: isMatch,
+			isIgnorableBetweenTargets,
+			isBoundary,
+			synthesize: synthesizeBatch,
+		})
+		expect(result).toHaveLength(2)
+		expect(result[0].text).toBe("BATCH:match-1,match-2") // bridged api_req_started consumed
+		expect(result[1].say).toBe("reasoning") // trailing row restored
+	})
+
 	test("realistic qwen scenario: tool calls with api_req rows between them", () => {
 		const messages = [
 			msg('{"tool":"readFile","path":"a.ts"}', "ask"),
