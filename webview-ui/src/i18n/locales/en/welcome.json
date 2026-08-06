@@ -12,7 +12,7 @@
 	},
 	"telemetry": {
 		"helpImprove": "Help Improve Bolt Code",
-		"helpImproveMessage": "Bolt Code collects error and usage data to help us fix bugs and improve the extension. This telemetry does not collect code, prompts or personal information. You can turn this off in <settingsLink>settings</settingsLink>."
+		"helpImproveMessage": "Telemetry is off by default. If you like, you can help us fix bugs and improve the extension by enabling anonymous error and usage reporting in <settingsLink>settings</settingsLink>. No code, prompts, or personal information is ever collected."
 	},
 	"importSettings": "Import Settings"
 }

@@ -13,7 +13,9 @@ const TelemetryBanner = () => {
 
 	const handleClose = () => {
 		setIsDismissed(true)
-		vscode.postMessage({ type: "telemetrySetting", text: "enabled" satisfies TelemetrySetting })
+		// Telemetry is opt-in; dismissing the banner records an explicit decline
+		// rather than silently opting the user in.
+		vscode.postMessage({ type: "telemetrySetting", text: "disabled" satisfies TelemetrySetting })
 	}
 
 	const handleOpenSettings = () => {

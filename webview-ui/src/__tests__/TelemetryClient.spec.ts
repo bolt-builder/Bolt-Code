@@ -84,6 +84,14 @@ describe("TelemetryClient", () => {
 			// Assert
 			expect(posthog.init).not.toHaveBeenCalled()
 		})
+
+		it("doesn't initialize PostHog when telemetry is unset even with an API key and distinct ID", () => {
+			// Regression test for opt-in semantics: the default "unset" state must
+			// stay off even when a build ships a real key.
+			telemetryClient.updateTelemetryState("unset", "test-key", "test-user")
+
+			expect(posthog.init).not.toHaveBeenCalled()
+		})
 	})
 
 	/**
