@@ -5,8 +5,10 @@ describe("Built-in Commands", () => {
 		it("should return all built-in commands", async () => {
 			const commands = await getBuiltInCommands()
 
-			expect(commands).toHaveLength(1)
-			expect(commands.map((cmd) => cmd.name)).toEqual(expect.arrayContaining(["init"]))
+			expect(commands).toHaveLength(6)
+			expect(commands.map((cmd) => cmd.name)).toEqual(
+				expect.arrayContaining(["init", "review", "commit", "test", "fix", "docs"]),
+			)
 
 			// Verify all commands have required properties
 			commands.forEach((command) => {
@@ -63,10 +65,10 @@ describe("Built-in Commands", () => {
 		it("should return all built-in command names", async () => {
 			const names = await getBuiltInCommandNames()
 
-			expect(names).toHaveLength(1)
+			expect(names).toHaveLength(6)
 			expect(names).toEqual(expect.arrayContaining(["init"]))
 			// Order doesn't matter since it's based on filesystem order
-			expect(names.sort()).toEqual(["init"])
+			expect(names.sort()).toEqual(["commit", "docs", "fix", "init", "review", "test"])
 		})
 
 		it("should return array of strings", async () => {
@@ -80,6 +82,33 @@ describe("Built-in Commands", () => {
 	})
 
 	describe("Command Content Validation", () => {
+		it("every non-init command should describe a task, a workflow, and argument handling", async () => {
+			const commands = await getBuiltInCommands()
+			const names = ["review", "commit", "test", "fix", "docs"]
+
+			for (const name of names) {
+				const command = commands.find((cmd) => cmd.name === name)
+				expect(command, name).toBeDefined()
+				expect(command!.content, name).toContain("<task>")
+				expect(command!.content, name).toContain("<workflow>")
+				// Arguments are not templated; each prompt must explain how to
+				// interpret text following the slash command.
+				expect(command!.content, name).toContain(`/${name}`)
+				expect(command!.argumentHint, name).toBeDefined()
+			}
+		})
+
+		it("review command should be read-only", async () => {
+			const command = await getBuiltInCommand("review")
+			expect(command!.content).toContain("Do not modify any files")
+		})
+
+		it("commit command should forbid history rewrites and pushing by default", async () => {
+			const command = await getBuiltInCommand("commit")
+			expect(command!.content).toContain("Do not push unless the user asked")
+			expect(command!.content).toContain("Never amend, rebase, or force-push")
+		})
+
 		it("init command should have comprehensive content", async () => {
 			const command = await getBuiltInCommand("init")
 			const content = command!.content
