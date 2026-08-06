@@ -1,8 +1,8 @@
 name: Publish Pre-release Extension
 
 on:
-  push:
-    branches: [main]
+  # Manual-only: the fork does not auto-publish a pre-release on every push to
+  # main. Trigger a nightly deliberately from the Actions tab when wanted.
   workflow_dispatch: # Allows manual triggering.
 
 permissions:
