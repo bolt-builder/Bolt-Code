@@ -12,7 +12,7 @@
 	},
 	"telemetry": {
 		"helpImprove": "Aiuta a migliorare Bolt Code",
-		"helpImproveMessage": "La telemetria è disattivata per impostazione predefinita. Se vuoi, puoi aiutarci a correggere i bug e migliorare l'estensione attivando la segnalazione anonima di errori e utilizzo in <settingsLink>impostazioni</settingsLink>. Codice, prompt o informazioni personali non vengono mai raccolti."
+		"helpImproveMessage": "La telemetria è disattivata per impostazione predefinita. Se vuoi, puoi aiutarci a correggere i bug e migliorare l'estensione attivando la segnalazione anonima di errori e utilizzo nelle <settingsLink>impostazioni</settingsLink>. Codice, prompt o informazioni personali non vengono mai raccolti."
 	},
 	"importSettings": "Importa impostazioni"
 }

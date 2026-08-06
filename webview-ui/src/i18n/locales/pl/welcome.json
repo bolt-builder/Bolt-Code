@@ -12,7 +12,7 @@
 	},
 	"telemetry": {
 		"helpImprove": "Pomóż ulepszyć Bolt Code",
-		"helpImproveMessage": "Telemetria jest domyślnie wyłączona. Jeśli chcesz, możesz pomóc nam naprawiać błędy i ulepszać rozszerzenie, włączając anonimowe raportowanie błędów i użytkowania w <settingsLink>ustawieniach</settingsLink>. Kod, podpowiedzi ani dane osobowe nigdy nie są zbierane."
+		"helpImproveMessage": "Telemetria jest domyślnie wyłączona. Jeśli chcesz, możesz pomóc nam naprawiać błędy i ulepszać rozszerzenie, włączając anonimowe raportowanie błędów i użytkowania w <settingsLink>ustawieniach</settingsLink>. Kod, prompty ani dane osobowe nigdy nie są zbierane."
 	},
 	"importSettings": "Importuj ustawienia"
 }

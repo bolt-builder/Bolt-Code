@@ -12,7 +12,7 @@
 	},
 	"telemetry": {
 		"helpImprove": "Help Bolt Code te verbeteren",
-		"helpImproveMessage": "Telemetrie staat standaard uit. Als je wilt, kun je ons helpen bugs op te lossen en de extensie te verbeteren door anonieme fout- en gebruiksrapportage in te schakelen in <settingsLink>instellingen</settingsLink>. Er wordt nooit code, prompts of persoonlijke informatie verzameld."
+		"helpImproveMessage": "Telemetrie staat standaard uit. Als je wilt, kun je ons helpen bugs op te lossen en de extensie te verbeteren door anonieme fout- en gebruiksrapportage in te schakelen in de <settingsLink>instellingen</settingsLink>. Er wordt nooit code, prompts of persoonlijke informatie verzameld."
 	},
 	"importSettings": "Instellingen importeren"
 }
