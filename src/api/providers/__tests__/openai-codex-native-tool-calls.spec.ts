@@ -386,7 +386,7 @@ describe("OpenAiCodexHandler native tool calls", () => {
 		expect(textChunks.map((c) => c.text).join("")).toBe("hello world")
 	})
 
-	it("identifies SDK requests as Zoo Code", async () => {
+	it("identifies SDK requests as Bolt Code", async () => {
 		vi.spyOn(openAiCodexOAuthManager, "getAccessToken").mockResolvedValue("test-token")
 		vi.spyOn(openAiCodexOAuthManager, "getAccountId").mockResolvedValue("acct_test")
 
@@ -416,16 +416,16 @@ describe("OpenAiCodexHandler native tool calls", () => {
 			expect.anything(),
 			expect.objectContaining({
 				headers: expect.objectContaining({
-					originator: "zoo-code",
+					originator: "bolt-code",
 					session_id: "task-123",
 					"ChatGPT-Account-Id": "acct_test",
-					"User-Agent": expect.stringContaining(`zoo-code/${Package.version}`),
+					"User-Agent": expect.stringContaining(`bolt-code/${Package.version}`),
 				}),
 			}),
 		)
 	})
 
-	it("identifies fetch fallback requests as Zoo Code", async () => {
+	it("identifies fetch fallback requests as Bolt Code", async () => {
 		vi.spyOn(openAiCodexOAuthManager, "getAccessToken").mockResolvedValue("test-token")
 		vi.spyOn(openAiCodexOAuthManager, "getAccountId").mockResolvedValue("acct_test")
 
@@ -462,16 +462,16 @@ describe("OpenAiCodexHandler native tool calls", () => {
 			expect.stringContaining("/responses"),
 			expect.objectContaining({
 				headers: expect.objectContaining({
-					originator: "zoo-code",
+					originator: "bolt-code",
 					session_id: "task-456",
 					"ChatGPT-Account-Id": "acct_test",
-					"User-Agent": expect.stringContaining(`zoo-code/${Package.version}`),
+					"User-Agent": expect.stringContaining(`bolt-code/${Package.version}`),
 				}),
 			}),
 		)
 	})
 
-	it("identifies completePrompt requests as Zoo Code", async () => {
+	it("identifies completePrompt requests as Bolt Code", async () => {
 		vi.spyOn(openAiCodexOAuthManager, "getAccessToken").mockResolvedValue("test-token")
 		vi.spyOn(openAiCodexOAuthManager, "getAccountId").mockResolvedValue("acct_test")
 
@@ -510,9 +510,9 @@ describe("OpenAiCodexHandler native tool calls", () => {
 			expect.stringContaining("/responses"),
 			expect.objectContaining({
 				headers: expect.objectContaining({
-					originator: "zoo-code",
+					originator: "bolt-code",
 					"ChatGPT-Account-Id": "acct_test",
-					"User-Agent": expect.stringContaining(`zoo-code/${Package.version}`),
+					"User-Agent": expect.stringContaining(`bolt-code/${Package.version}`),
 					session_id: expect.any(String),
 				}),
 			}),

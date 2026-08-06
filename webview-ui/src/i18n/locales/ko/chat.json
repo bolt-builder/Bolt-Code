@@ -1,5 +1,5 @@
 {
-	"greeting": "Zoo Code에 오신 것을 환영합니다!",
+	"greeting": "Bolt Code에 오신 것을 환영합니다!",
 	"task": {
 		"title": "작업",
 		"expand": "작업 펼치기",
@@ -98,7 +98,7 @@
 	"enqueueMessage": "메시지를 대기열에 추가 (현재 작업 완료 후 전송)",
 	"scrollToBottom": "채팅 하단으로 스크롤",
 	"scrollToLatestCheckpoint": "이전 체크포인트로 스크롤",
-	"about": "Zoo Code는 편집기 안에 있는 전체 AI 개발팀입니다.",
+	"about": "Bolt Code는 편집기 안에 있는 전체 AI 개발팀입니다.",
 	"docs": "더 알아보려면 <DocsLink>문서</DocsLink>를 확인하세요.",
 	"onboarding": "이 작업 공간의 작업 목록이 비어 있습니다.",
 	"rooTips": {
@@ -130,7 +130,7 @@
 		"title": "모드",
 		"marketplace": "모드 마켓플레이스",
 		"settings": "모드 설정",
-		"description": "Zoo의 행동을 맞춤화하는 전문화된 페르소나.",
+		"description": "Bolt의 행동을 맞춤화하는 전문화된 페르소나.",
 		"searchPlaceholder": "모드 검색...",
 		"noResults": "결과를 찾을 수 없습니다"
 	},
@@ -144,7 +144,7 @@
 	"diffError": {
 		"title": "편집 실패"
 	},
-	"troubleMessage": "Zoo에 문제가 발생했습니다...",
+	"troubleMessage": "Bolt에 문제가 발생했습니다...",
 	"apiRequest": {
 		"title": "API 요청",
 		"failed": "API 요청 실패",
@@ -162,7 +162,7 @@
 			"500": "공급자 서버 오류입니다. 공급자 쪽에 문제가 있으며 요청에는 문제가 없습니다.",
 			"docs": "문서",
 			"goToSettings": "설정",
-			"unknown": "알 수 없는 API 오류입니다. Zoo Code 지원팀에 문의하세요.",
+			"unknown": "알 수 없는 API 오류입니다. Bolt Code 지원팀에 문의하세요.",
 			"connection": "연결 오류입니다. 인터넷 연결이 제대로 작동하는지 확인하세요.",
 			"claudeCodeNotAuthenticated": "Claude Code를 사용하려면 로그인해야 합니다. 설정으로 이동하여 \"Claude Code에 로그인\"을 클릭하여 인증하세요."
 		}
@@ -187,43 +187,43 @@
 		"current": "현재"
 	},
 	"instructions": {
-		"wantsToFetch": "Zoo는 현재 작업을 지원하기 위해 자세한 지침을 가져오려고 합니다"
+		"wantsToFetch": "Bolt는 현재 작업을 지원하기 위해 자세한 지침을 가져오려고 합니다"
 	},
 	"fileOperations": {
-		"wantsToRead": "Zoo가 이 파일을 읽고 싶어합니다",
-		"wantsToReadOutsideWorkspace": "Zoo가 워크스페이스 외부의 이 파일을 읽고 싶어합니다",
-		"didRead": "Zoo가 이 파일을 읽었습니다",
-		"wantsToEdit": "Zoo가 이 파일을 편집하고 싶어합니다",
-		"wantsToEditOutsideWorkspace": "Zoo가 워크스페이스 외부의 이 파일을 편집하고 싶어합니다",
-		"wantsToEditProtected": "Zoo가 보호된 설정 파일을 편집하고 싶어합니다",
-		"wantsToCreate": "Zoo가 새 파일을 만들고 싶어합니다",
-		"wantsToSearchReplace": "Zoo가 이 파일에서 검색 및 바꾸기를 수행하고 싶어합니다",
-		"didSearchReplace": "Zoo가 이 파일에서 검색 및 바꾸기를 수행했습니다",
-		"wantsToInsert": "Zoo가 이 파일에 내용을 삽입하고 싶어합니다",
-		"wantsToInsertWithLineNumber": "Zoo가 이 파일의 {{lineNumber}}번 줄에 내용을 삽입하고 싶어합니다",
-		"wantsToInsertAtEnd": "Zoo가 이 파일의 끝에 내용을 추가하고 싶어합니다",
-		"wantsToReadAndXMore": "Zoo가 이 파일과 {{count}}개의 파일을 더 읽으려고 합니다",
-		"wantsToReadMultiple": "Zoo가 여러 파일을 읽으려고 합니다",
-		"wantsToApplyBatchChanges": "Zoo가 여러 파일에 변경 사항을 적용하고 싶어합니다",
-		"wantsToGenerateImage": "Zoo가 이미지를 생성하고 싶어합니다",
-		"wantsToGenerateImageOutsideWorkspace": "Zoo가 워크스페이스 외부에서 이미지를 생성하고 싶어합니다",
-		"wantsToGenerateImageProtected": "Zoo가 보호된 위치에서 이미지를 생성하고 싶어합니다",
-		"didGenerateImage": "Zoo가 이미지를 생성했습니다"
+		"wantsToRead": "Bolt가 이 파일을 읽고 싶어합니다",
+		"wantsToReadOutsideWorkspace": "Bolt가 워크스페이스 외부의 이 파일을 읽고 싶어합니다",
+		"didRead": "Bolt가 이 파일을 읽었습니다",
+		"wantsToEdit": "Bolt가 이 파일을 편집하고 싶어합니다",
+		"wantsToEditOutsideWorkspace": "Bolt가 워크스페이스 외부의 이 파일을 편집하고 싶어합니다",
+		"wantsToEditProtected": "Bolt가 보호된 설정 파일을 편집하고 싶어합니다",
+		"wantsToCreate": "Bolt가 새 파일을 만들고 싶어합니다",
+		"wantsToSearchReplace": "Bolt가 이 파일에서 검색 및 바꾸기를 수행하고 싶어합니다",
+		"didSearchReplace": "Bolt가 이 파일에서 검색 및 바꾸기를 수행했습니다",
+		"wantsToInsert": "Bolt가 이 파일에 내용을 삽입하고 싶어합니다",
+		"wantsToInsertWithLineNumber": "Bolt가 이 파일의 {{lineNumber}}번 줄에 내용을 삽입하고 싶어합니다",
+		"wantsToInsertAtEnd": "Bolt가 이 파일의 끝에 내용을 추가하고 싶어합니다",
+		"wantsToReadAndXMore": "Bolt가 이 파일과 {{count}}개의 파일을 더 읽으려고 합니다",
+		"wantsToReadMultiple": "Bolt가 여러 파일을 읽으려고 합니다",
+		"wantsToApplyBatchChanges": "Bolt가 여러 파일에 변경 사항을 적용하고 싶어합니다",
+		"wantsToGenerateImage": "Bolt가 이미지를 생성하고 싶어합니다",
+		"wantsToGenerateImageOutsideWorkspace": "Bolt가 워크스페이스 외부에서 이미지를 생성하고 싶어합니다",
+		"wantsToGenerateImageProtected": "Bolt가 보호된 위치에서 이미지를 생성하고 싶어합니다",
+		"didGenerateImage": "Bolt가 이미지를 생성했습니다"
 	},
 	"directoryOperations": {
-		"wantsToViewTopLevel": "Zoo가 이 디렉토리의 최상위 파일을 보고 싶어합니다",
-		"didViewTopLevel": "Zoo가 이 디렉토리의 최상위 파일을 보았습니다",
-		"wantsToViewRecursive": "Zoo가 이 디렉토리의 모든 파일을 재귀적으로 보고 싶어합니다",
-		"didViewRecursive": "Zoo가 이 디렉토리의 모든 파일을 재귀적으로 보았습니다",
-		"wantsToSearch": "Zoo가 이 디렉토리에서 <code>{{regex}}</code>을(를) 검색하고 싶어합니다",
-		"didSearch": "Zoo가 이 디렉토리에서 <code>{{regex}}</code>을(를) 검색했습니다",
-		"wantsToSearchOutsideWorkspace": "Zoo가 이 디렉토리(워크스페이스 외부)에서 <code>{{regex}}</code>을(를) 검색하고 싶어합니다",
-		"didSearchOutsideWorkspace": "Zoo가 이 디렉토리(워크스페이스 외부)에서 <code>{{regex}}</code>을(를) 검색했습니다",
-		"wantsToViewTopLevelOutsideWorkspace": "Zoo가 이 디렉토리(워크스페이스 외부)의 최상위 파일을 보고 싶어합니다",
-		"didViewTopLevelOutsideWorkspace": "Zoo가 이 디렉토리(워크스페이스 외부)의 최상위 파일을 보았습니다",
-		"wantsToViewRecursiveOutsideWorkspace": "Zoo가 이 디렉토리(워크스페이스 외부)의 모든 파일을 재귀적으로 보고 싶어합니다",
-		"didViewRecursiveOutsideWorkspace": "Zoo가 이 디렉토리(워크스페이스 외부)의 모든 파일을 재귀적으로 보았습니다",
-		"wantsToViewMultipleDirectories": "Zoo가 여러 디렉토리를 보려고 합니다"
+		"wantsToViewTopLevel": "Bolt가 이 디렉토리의 최상위 파일을 보고 싶어합니다",
+		"didViewTopLevel": "Bolt가 이 디렉토리의 최상위 파일을 보았습니다",
+		"wantsToViewRecursive": "Bolt가 이 디렉토리의 모든 파일을 재귀적으로 보고 싶어합니다",
+		"didViewRecursive": "Bolt가 이 디렉토리의 모든 파일을 재귀적으로 보았습니다",
+		"wantsToSearch": "Bolt가 이 디렉토리에서 <code>{{regex}}</code>을(를) 검색하고 싶어합니다",
+		"didSearch": "Bolt가 이 디렉토리에서 <code>{{regex}}</code>을(를) 검색했습니다",
+		"wantsToSearchOutsideWorkspace": "Bolt가 이 디렉토리(워크스페이스 외부)에서 <code>{{regex}}</code>을(를) 검색하고 싶어합니다",
+		"didSearchOutsideWorkspace": "Bolt가 이 디렉토리(워크스페이스 외부)에서 <code>{{regex}}</code>을(를) 검색했습니다",
+		"wantsToViewTopLevelOutsideWorkspace": "Bolt가 이 디렉토리(워크스페이스 외부)의 최상위 파일을 보고 싶어합니다",
+		"didViewTopLevelOutsideWorkspace": "Bolt가 이 디렉토리(워크스페이스 외부)의 최상위 파일을 보았습니다",
+		"wantsToViewRecursiveOutsideWorkspace": "Bolt가 이 디렉토리(워크스페이스 외부)의 모든 파일을 재귀적으로 보고 싶어합니다",
+		"didViewRecursiveOutsideWorkspace": "Bolt가 이 디렉토리(워크스페이스 외부)의 모든 파일을 재귀적으로 보았습니다",
+		"wantsToViewMultipleDirectories": "Bolt가 여러 디렉토리를 보려고 합니다"
 	},
 	"commandOutput": "명령 출력",
 	"commandExecution": {
@@ -253,18 +253,18 @@
 		"youSaid": "당신은 말했다"
 	},
 	"mcp": {
-		"wantsToUseTool": "Zoo가 {{serverName}} MCP 서버에서 도구를 사용하고 싶어합니다",
-		"wantsToAccessResource": "Zoo가 {{serverName}} MCP 서버에서 리소스에 접근하고 싶어합니다"
+		"wantsToUseTool": "Bolt가 {{serverName}} MCP 서버에서 도구를 사용하고 싶어합니다",
+		"wantsToAccessResource": "Bolt가 {{serverName}} MCP 서버에서 리소스에 접근하고 싶어합니다"
 	},
 	"modes": {
-		"wantsToSwitch": "Zoo가 <code>{{mode}}</code> 모드로 전환하고 싶어합니다",
-		"wantsToSwitchWithReason": "Zoo가 다음 이유로 <code>{{mode}}</code> 모드로 전환하고 싶어합니다: {{reason}}",
-		"didSwitch": "Zoo가 <code>{{mode}}</code> 모드로 전환했습니다",
-		"didSwitchWithReason": "Zoo가 다음 이유로 <code>{{mode}}</code> 모드로 전환했습니다: {{reason}}"
+		"wantsToSwitch": "Bolt가 <code>{{mode}}</code> 모드로 전환하고 싶어합니다",
+		"wantsToSwitchWithReason": "Bolt가 다음 이유로 <code>{{mode}}</code> 모드로 전환하고 싶어합니다: {{reason}}",
+		"didSwitch": "Bolt가 <code>{{mode}}</code> 모드로 전환했습니다",
+		"didSwitchWithReason": "Bolt가 다음 이유로 <code>{{mode}}</code> 모드로 전환했습니다: {{reason}}"
 	},
 	"subtasks": {
-		"wantsToCreate": "Zoo가 <code>{{mode}}</code> 모드에서 새 하위 작업을 만들고 싶어합니다",
-		"wantsToFinish": "Zoo가 이 하위 작업을 완료하고 싶어합니다",
+		"wantsToCreate": "Bolt가 <code>{{mode}}</code> 모드에서 새 하위 작업을 만들고 싶어합니다",
+		"wantsToFinish": "Bolt가 이 하위 작업을 완료하고 싶어합니다",
 		"newTaskContent": "하위 작업 지침",
 		"completionContent": "하위 작업 완료",
 		"resultContent": "하위 작업 결과",
@@ -273,7 +273,7 @@
 		"goToSubtask": "작업 보기"
 	},
 	"questions": {
-		"hasQuestion": "Zoo에게 질문이 있습니다"
+		"hasQuestion": "Bolt에게 질문이 있습니다"
 	},
 	"taskCompleted": "작업 완료",
 	"modelResponseIncomplete": "모델 응답 불완전",
@@ -289,7 +289,7 @@
 		"copyToClipboard": "클립보드에 복사",
 		"copied": "복사됨!",
 		"diagnostics": "상세한 오류 정보 가져오기",
-		"proxyProvider": "프록시 기반 제공자를 사용하는 것 같습니다. 로그를 확인하고 Zoo의 요청을 다시 작성하지 않는지 확인하세요."
+		"proxyProvider": "프록시 기반 제공자를 사용하는 것 같습니다. 로그를 확인하고 Bolt의 요청을 다시 작성하지 않는지 확인하세요."
 	},
 	"powershell": {
 		"issues": "Windows PowerShell에 문제가 있는 것 같습니다. 다음을 참조하세요"
@@ -332,21 +332,21 @@
 		}
 	},
 	"skill": {
-		"wantsToLoad": "Zoo가 스킬을 로드하려고 합니다",
-		"didLoad": "Zoo가 스킬을 로드했습니다"
+		"wantsToLoad": "Bolt가 스킬을 로드하려고 합니다",
+		"didLoad": "Bolt가 스킬을 로드했습니다"
 	},
 	"followUpSuggest": {
 		"copyToInput": "입력창에 복사 (또는 Shift + 클릭)",
 		"timerPrefix": "자동 승인 활성화됨. {{seconds}}초 후 선택 중…"
 	},
 	"announcement": {
-		"title": "Zoo Code {{version}} 출시",
-		"support": "<githubLink>GitHub</githubLink>에서 별표를 눌러 Zoo Code를 응원해 주세요.",
+		"title": "Bolt Code {{version}} 출시",
+		"support": "<githubLink>GitHub</githubLink>에서 별표를 눌러 Bolt Code를 응원해 주세요.",
 		"release": {
 			"heading": "새로운 기능:",
 			"highlight1": "더 다양한 OpenAI 제어 — OpenAI Codex에서 Fast 우선 모드를 사용하고 OpenAI 호환 모델의 reasoning effort를 더 높게 선택하세요.",
 			"highlight2": "더 안정적인 프로바이더와 모델 — router 메타데이터 처리, Ollama 모델 새로고침, Bedrock 프록시 지원, Friendli reasoning 제어가 개선되었습니다.",
-			"highlight3": "더 매끄러운 설정 및 개발 워크플로우 — 설정에서 저장하지 않은 편집을 유지하고, 짧은 터미널 명령을 올바르게 완료하며, Architect 계획에 워크스페이스 상대 경로를 사용합니다. 남아 있던 사용자용 Roo 브랜드도 Zoo로 업데이트했습니다."
+			"highlight3": "더 매끄러운 설정 및 개발 워크플로우 — 설정에서 저장하지 않은 편집을 유지하고, 짧은 터미널 명령을 올바르게 완료하며, Architect 계획에 워크스페이스 상대 경로를 사용합니다. 남아 있던 사용자용 Roo 브랜드도 Bolt로 업데이트했습니다."
 		},
 		"cloudAgents": {
 			"heading": "클라우드의 새로운 기능:",
@@ -370,24 +370,24 @@
 	"profileViolationWarning": "현재 프로필이 조직 설정과 호환되지 않습니다",
 	"shellIntegration": {
 		"title": "명령 실행 경고",
-		"description": "명령이 VSCode 터미널 쉘 통합 없이 실행되고 있습니다. 이 경고를 숨기려면 <settingsLink>Zoo Code 설정</settingsLink>의 <strong>Terminal</strong> 섹션에서 쉘 통합을 비활성화하거나 아래 링크를 사용하여 VSCode 터미널 통합 문제를 해결하세요.",
+		"description": "명령이 VSCode 터미널 쉘 통합 없이 실행되고 있습니다. 이 경고를 숨기려면 <settingsLink>Bolt Code 설정</settingsLink>의 <strong>Terminal</strong> 섹션에서 쉘 통합을 비활성화하거나 아래 링크를 사용하여 VSCode 터미널 통합 문제를 해결하세요.",
 		"troubleshooting": "쉘 통합 문서를 보려면 여기를 클릭하세요."
 	},
 	"ask": {
 		"autoApprovedRequestLimitReached": {
 			"title": "자동 승인 요청 한도 도달",
-			"description": "Zoo가 {{count}}개의 API 요청(들)에 대한 자동 승인 한도에 도달했습니다. 카운트를 재설정하고 작업을 계속하시겠습니까?",
+			"description": "Bolt가 {{count}}개의 API 요청(들)에 대한 자동 승인 한도에 도달했습니다. 카운트를 재설정하고 작업을 계속하시겠습니까?",
 			"button": "재설정 후 계속"
 		},
 		"autoApprovedCostLimitReached": {
-			"description": "Zoo가 자동 승인된 비용 한도인 ${{count}}에 도달했습니다. 비용을 초기화하고 작업을 계속하시겠습니까?",
+			"description": "Bolt가 자동 승인된 비용 한도인 ${{count}}에 도달했습니다. 비용을 초기화하고 작업을 계속하시겠습니까?",
 			"title": "자동 승인 비용 한도에 도달함",
 			"button": "재설정 후 계속하기"
 		}
 	},
 	"codebaseSearch": {
-		"wantsToSearch": "Zoo가 코드베이스에서 <code>{{query}}</code>을(를) 검색하고 싶어합니다",
-		"wantsToSearchWithPath": "Zoo가 <code>{{path}}</code>에서 <code>{{query}}</code>을(를) 검색하고 싶어합니다",
+		"wantsToSearch": "Bolt가 코드베이스에서 <code>{{query}}</code>을(를) 검색하고 싶어합니다",
+		"wantsToSearchWithPath": "Bolt가 <code>{{path}}</code>에서 <code>{{query}}</code>을(를) 검색하고 싶어합니다",
 		"didSearch_one": "1개의 결과를 찾았습니다",
 		"didSearch_other": "{{count}}개의 결과를 찾았습니다",
 		"resultTooltip": "유사도 점수: {{score}} (클릭하여 파일 열기)"
@@ -428,7 +428,7 @@
 		"ariaLabel": "버전 {{version}} - 릴리스 노트를 보려면 클릭하세요"
 	},
 	"rooCloudCTA": {
-		"title": "Zoo Code Cloud가 진화하고 있습니다!",
+		"title": "Bolt Code Cloud가 진화하고 있습니다!",
 		"description": "클라우드에서 원격 에이전트를 실행하고, 어디서나 작업에 액세스하고, 다른 사람들과 협업하는 등 다양한 기능을 이용하세요.",
 		"joinWaitlist": "최신 업데이트를 받으려면 가입하세요."
 	},
@@ -469,8 +469,8 @@
 		"clickToEdit": "클릭하여 메시지 편집"
 	},
 	"slashCommand": {
-		"wantsToRun": "Zoo가 슬래시 명령어를 실행하려고 합니다",
-		"didRun": "Zoo가 슬래시 명령어를 실행했습니다"
+		"wantsToRun": "Bolt가 슬래시 명령어를 실행하려고 합니다",
+		"didRun": "Bolt가 슬래시 명령어를 실행했습니다"
 	},
 	"todo": {
 		"partial": "{{total}}개의 할 일 중 {{completed}}개 완료",
@@ -489,7 +489,7 @@
 		"openMcpSettings": "MCP 설정 열기"
 	},
 	"readCommandOutput": {
-		"title": "Zoo read command output"
+		"title": "Bolt read command output"
 	},
 	"retiredProvider": {
 		"title": "공급자 지원 종료",

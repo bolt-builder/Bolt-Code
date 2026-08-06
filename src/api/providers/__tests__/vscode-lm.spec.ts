@@ -147,11 +147,11 @@ describe("VsCodeLmHandler", () => {
 			expect(client.vendor).toBe("vscode")
 		})
 
-		it("should throw a Zoo Code branded error when selectChatModels fails", async () => {
+		it("should throw a Bolt Code branded error when selectChatModels fails", async () => {
 			;(vscode.lm.selectChatModels as Mock).mockRejectedValueOnce(new Error("network down"))
 
 			await expect(handler["createClient"]({ vendor: "test" })).rejects.toThrow(
-				"Zoo Code <Language Model API>: Failed to select model: network down",
+				"Bolt Code <Language Model API>: Failed to select model: network down",
 			)
 		})
 	})
@@ -417,7 +417,7 @@ describe("VsCodeLmHandler", () => {
 			await expect(handler.createMessage(systemPrompt, messages).next()).rejects.toThrow("API Error")
 		})
 
-		it("should brand the LM authorization justification as Zoo Code", async () => {
+		it("should brand the LM authorization justification as Bolt Code", async () => {
 			const systemPrompt = "You are a helpful assistant"
 			const messages: Anthropic.Messages.MessageParam[] = [
 				{
@@ -446,13 +446,13 @@ describe("VsCodeLmHandler", () => {
 				expect.any(Array),
 				expect.objectContaining({
 					justification:
-						"Zoo Code would like to use 'Test Model' from 'test-vendor', Click 'Allow' to proceed.",
+						"Bolt Code would like to use 'Test Model' from 'test-vendor', Click 'Allow' to proceed.",
 				}),
 				expect.anything(),
 			)
 		})
 
-		it("should throw a Zoo Code branded error when request is cancelled", async () => {
+		it("should throw a Bolt Code branded error when request is cancelled", async () => {
 			const systemPrompt = "You are a helpful assistant"
 			const messages: Anthropic.Messages.MessageParam[] = [
 				{
@@ -464,11 +464,11 @@ describe("VsCodeLmHandler", () => {
 			mockLanguageModelChat.sendRequest.mockRejectedValueOnce(new vscode.CancellationError())
 
 			await expect(handler.createMessage(systemPrompt, messages).next()).rejects.toThrow(
-				"Zoo Code <Language Model API>: Request cancelled by user",
+				"Bolt Code <Language Model API>: Request cancelled by user",
 			)
 		})
 
-		it("should throw a Zoo Code branded error on stream error with error-like object", async () => {
+		it("should throw a Bolt Code branded error on stream error with error-like object", async () => {
 			const systemPrompt = "You are a helpful assistant"
 			const messages: Anthropic.Messages.MessageParam[] = [
 				{
@@ -482,17 +482,17 @@ describe("VsCodeLmHandler", () => {
 			mockLanguageModelChat.sendRequest.mockRejectedValueOnce({ code: "STREAM_ERROR", details: "broken" })
 
 			await expect(handler.createMessage(systemPrompt, messages).next()).rejects.toThrow(
-				"Zoo Code <Language Model API>: Response stream error:",
+				"Bolt Code <Language Model API>: Response stream error:",
 			)
 
 			expect(consoleErrorSpy).toHaveBeenCalledWith(
-				"Zoo Code <Language Model API>: Stream error object:",
+				"Bolt Code <Language Model API>: Stream error object:",
 				expect.stringContaining("STREAM_ERROR"),
 			)
 
 			consoleErrorSpy.mockRestore()
 		})
-		it("should log Zoo Code branded warning for unknown chunk type in stream", async () => {
+		it("should log Bolt Code branded warning for unknown chunk type in stream", async () => {
 			const systemPrompt = "You are a helpful assistant"
 			const messages: Anthropic.Messages.MessageParam[] = [{ role: "user" as const, content: "Hello" }]
 
@@ -516,14 +516,14 @@ describe("VsCodeLmHandler", () => {
 			}
 
 			expect(consoleWarnSpy).toHaveBeenCalledWith(
-				"Zoo Code <Language Model API>: Unknown chunk type received:",
+				"Bolt Code <Language Model API>: Unknown chunk type received:",
 				expect.objectContaining({ type: "unknown" }),
 			)
 
 			consoleWarnSpy.mockRestore()
 		})
 
-		it("should log Zoo Code branded warning for invalid text part value", async () => {
+		it("should log Bolt Code branded warning for invalid text part value", async () => {
 			const systemPrompt = "You are a helpful assistant"
 			const messages: Anthropic.Messages.MessageParam[] = [{ role: "user" as const, content: "Hello" }]
 
@@ -548,14 +548,14 @@ describe("VsCodeLmHandler", () => {
 			}
 
 			expect(consoleWarnSpy).toHaveBeenCalledWith(
-				"Zoo Code <Language Model API>: Invalid text part value received:",
+				"Bolt Code <Language Model API>: Invalid text part value received:",
 				42,
 			)
 
 			consoleWarnSpy.mockRestore()
 		})
 
-		it("should log Zoo Code branded warning for invalid tool callId", async () => {
+		it("should log Bolt Code branded warning for invalid tool callId", async () => {
 			const systemPrompt = "You are a helpful assistant"
 			const messages: Anthropic.Messages.MessageParam[] = [{ role: "user" as const, content: "Hello" }]
 
@@ -580,14 +580,14 @@ describe("VsCodeLmHandler", () => {
 			}
 
 			expect(consoleWarnSpy).toHaveBeenCalledWith(
-				"Zoo Code <Language Model API>: Invalid tool callId received:",
+				"Bolt Code <Language Model API>: Invalid tool callId received:",
 				123,
 			)
 
 			consoleWarnSpy.mockRestore()
 		})
 
-		it("should log Zoo Code branded warning for invalid tool input", async () => {
+		it("should log Bolt Code branded warning for invalid tool input", async () => {
 			const systemPrompt = "You are a helpful assistant"
 			const messages: Anthropic.Messages.MessageParam[] = [{ role: "user" as const, content: "Hello" }]
 
@@ -616,14 +616,14 @@ describe("VsCodeLmHandler", () => {
 			}
 
 			expect(consoleWarnSpy).toHaveBeenCalledWith(
-				"Zoo Code <Language Model API>: Invalid tool input received:",
+				"Bolt Code <Language Model API>: Invalid tool input received:",
 				"not-an-object",
 			)
 
 			consoleWarnSpy.mockRestore()
 		})
 
-		it("should log Zoo Code branded error when tool call processing fails", async () => {
+		it("should log Bolt Code branded error when tool call processing fails", async () => {
 			const systemPrompt = "You are a helpful assistant"
 			const messages: Anthropic.Messages.MessageParam[] = [{ role: "user" as const, content: "Hello" }]
 
@@ -659,7 +659,7 @@ describe("VsCodeLmHandler", () => {
 			}
 
 			expect(consoleErrorSpy).toHaveBeenCalledWith(
-				"Zoo Code <Language Model API>: Failed to process tool call:",
+				"Bolt Code <Language Model API>: Failed to process tool call:",
 				expect.any(Error),
 			)
 
@@ -668,7 +668,7 @@ describe("VsCodeLmHandler", () => {
 	})
 
 	describe("getClient", () => {
-		it("should log Zoo Code branded debug when creating client with selector", async () => {
+		it("should log Bolt Code branded debug when creating client with selector", async () => {
 			const consoleDebugSpy = vi.spyOn(console, "debug").mockImplementation(() => {})
 			const mockModel = { ...mockLanguageModelChat }
 			;(vscode.lm.selectChatModels as Mock).mockResolvedValue([mockModel])
@@ -678,25 +678,25 @@ describe("VsCodeLmHandler", () => {
 			await handler["getClient"]()
 
 			expect(consoleDebugSpy).toHaveBeenCalledWith(
-				"Zoo Code <Language Model API>: Creating client with selector:",
+				"Bolt Code <Language Model API>: Creating client with selector:",
 				expect.any(Object),
 			)
 
 			consoleDebugSpy.mockRestore()
 		})
 
-		it("should throw a Zoo Code branded error when getClient fails to create client", async () => {
+		it("should throw a Bolt Code branded error when getClient fails to create client", async () => {
 			const consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {})
 			;(vscode.lm.selectChatModels as Mock).mockRejectedValueOnce(new Error("network error"))
 			handler["client"] = null
 
 			// @ts-ignore – access private method for coverage
 			await expect(handler["getClient"]()).rejects.toThrow(
-				"Zoo Code <Language Model API>: Failed to create client:",
+				"Bolt Code <Language Model API>: Failed to create client:",
 			)
 
 			expect(consoleErrorSpy).toHaveBeenCalledWith(
-				"Zoo Code <Language Model API>: Client creation failed:",
+				"Bolt Code <Language Model API>: Client creation failed:",
 				expect.stringContaining("network error"),
 			)
 
@@ -711,7 +711,7 @@ describe("VsCodeLmHandler", () => {
 			handler["client"] = mockLanguageModelChat
 			await handler.initializeClient()
 
-			expect(consoleDebugSpy).toHaveBeenCalledWith("Zoo Code <Language Model API>: Client already initialized")
+			expect(consoleDebugSpy).toHaveBeenCalledWith("Bolt Code <Language Model API>: Client already initialized")
 
 			consoleDebugSpy.mockRestore()
 		})
@@ -725,13 +725,13 @@ describe("VsCodeLmHandler", () => {
 			await handler.initializeClient()
 
 			expect(consoleDebugSpy).toHaveBeenCalledWith(
-				"Zoo Code <Language Model API>: Client initialized successfully",
+				"Bolt Code <Language Model API>: Client initialized successfully",
 			)
 
 			consoleDebugSpy.mockRestore()
 		})
 
-		it("should throw a Zoo Code branded error when client initialization fails", async () => {
+		it("should throw a Bolt Code branded error when client initialization fails", async () => {
 			const consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {})
 			;(vscode.lm.selectChatModels as Mock).mockRejectedValue(new Error("select failed"))
 			handler["client"] = null
@@ -739,10 +739,10 @@ describe("VsCodeLmHandler", () => {
 			// Catch the unhandled rejection that may occur from the constructor's async call
 			const initPromise = handler.initializeClient()
 
-			await expect(initPromise).rejects.toThrow("Zoo Code <Language Model API>: Failed to initialize client:")
+			await expect(initPromise).rejects.toThrow("Bolt Code <Language Model API>: Failed to initialize client:")
 
 			expect(consoleErrorSpy).toHaveBeenCalledWith(
-				"Zoo Code <Language Model API>: Client initialization failed:",
+				"Bolt Code <Language Model API>: Client initialization failed:",
 				expect.stringContaining("select failed"),
 			)
 
@@ -774,7 +774,7 @@ describe("VsCodeLmHandler", () => {
 			expect(model.id).toBe("test-vendor/test-family")
 			expect(model.info).toBeDefined()
 			expect(consoleDebugSpy).toHaveBeenCalledWith(
-				"Zoo Code <Language Model API>: No client available, using fallback model info",
+				"Bolt Code <Language Model API>: No client available, using fallback model info",
 			)
 
 			consoleDebugSpy.mockRestore()
@@ -928,7 +928,7 @@ describe("VsCodeLmHandler", () => {
 
 			expect(result).toBe(0)
 			expect(consoleWarnSpy).toHaveBeenCalledWith(
-				"Zoo Code <Language Model API>: No client available for token counting",
+				"Bolt Code <Language Model API>: No client available for token counting",
 			)
 
 			consoleWarnSpy.mockRestore()
@@ -956,7 +956,7 @@ describe("VsCodeLmHandler", () => {
 
 			expect(result).toBe(0)
 			expect(consoleDebugSpy).toHaveBeenCalledWith(
-				"Zoo Code <Language Model API>: Empty text provided for token counting",
+				"Bolt Code <Language Model API>: Empty text provided for token counting",
 			)
 
 			consoleDebugSpy.mockRestore()
@@ -973,7 +973,7 @@ describe("VsCodeLmHandler", () => {
 
 			expect(result).toBe(0)
 			expect(consoleWarnSpy).toHaveBeenCalledWith(
-				"Zoo Code <Language Model API>: Non-numeric token count received:",
+				"Bolt Code <Language Model API>: Non-numeric token count received:",
 				"not-a-number",
 			)
 
@@ -991,7 +991,7 @@ describe("VsCodeLmHandler", () => {
 
 			expect(result).toBe(0)
 			expect(consoleWarnSpy).toHaveBeenCalledWith(
-				"Zoo Code <Language Model API>: Negative token count received:",
+				"Bolt Code <Language Model API>: Negative token count received:",
 				-5,
 			)
 

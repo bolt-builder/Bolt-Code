@@ -117,8 +117,8 @@ describe("OpenRouterHandler", () => {
 			baseURL: "https://openrouter.ai/api/v1",
 			apiKey: mockOptions.openRouterApiKey,
 			defaultHeaders: {
-				"HTTP-Referer": "https://github.com/Zoo-Code-Org/Zoo-Code",
-				"X-Title": "Zoo Code",
+				"HTTP-Referer": "https://github.com/bolt-builder/Bolt-Code",
+				"X-Title": "Bolt Code",
 				"User-Agent": `ZooCode/${Package.version}`,
 			},
 			timeout: MOCK_TIMEOUT_MS,

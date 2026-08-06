@@ -1,22 +1,22 @@
 <p align="center">
-          <a href="https://marketplace.visualstudio.com/items?itemName=ZooCodeOrganization.zoo-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
+          <a href="https://marketplace.visualstudio.com/items?itemName=bolt-builder.bolt-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
           <a href="https://x.com/ZooCodeDev"><img src="https://img.shields.io/badge/ZooCode-000000?style=flat&logo=x&logoColor=white" alt="X"></a>
           <a href="https://youtube.com/@roocodeyt?feature=shared"><img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube"></a>
           <a href="https://discord.gg/VxfP4Vx3gX"><img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Join Discord"></a>
           <a href="https://www.reddit.com/r/ZooCode/"><img src="https://img.shields.io/badge/Join%20r%2FZooCode-FF4500?style=flat&logo=reddit&logoColor=white" alt="Join r/ZooCode"></a>
-          <a href="https://github.com/Zoo-Code-Org/Zoo-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
+          <a href="https://github.com/bolt-builder/Bolt-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
         </p>
         <p align="center">
           <em>Snel hulp nodig → <a href="https://discord.gg/VxfP4Vx3gX">Word lid van Discord</a> • Liever asynchroon? → <a href="https://www.reddit.com/r/ZooCode/">Word lid van r/ZooCode</a></em>
         </p>
 
-        # Zoo Code
+        # Bolt Code
 
         > Jouw AI-aangedreven dev-team, rechtstreeks in je editor
 
-        ## Wij zijn Zoo Code
+        ## Wij zijn Bolt Code
 
-> Zoo Code zet de ontwikkeling van dit project voort nadat het Roo-team
+> Bolt Code zet de ontwikkeling van dit project voort nadat het Roo-team
 > gestopt is met actieve ontwikkeling van Roo Code om zich te richten op
 > [Roomote](https://roomote.dev/). Dank aan het Roo-team voor alles wat ze
 > hebben gebouwd.
@@ -28,17 +28,17 @@
 > Doe met ons mee op
 > [Discord](https://discord.gg/VxfP4Vx3gX),
 > [Reddit](https://www.reddit.com/r/ZooCode), of
-> [open een PR of issue](https://github.com/Zoo-Code-Org/Zoo-Code).
+> [open een PR of issue](https://github.com/bolt-builder/Bolt-Code).
 >
-> _-Zoo Code Team_
+> _-Bolt Code Team_
 
-## Migratie van Roo Code naar Zoo Code
+## Migratie van Roo Code naar Bolt Code
 
-Je vindt een korte handleiding voor de overstap van Roo Code naar Zoo Code in de [Roo→Zoo-migratiegids](https://docs.zoocode.dev/roo-to-zoo-migration). We willen gebruikers zo goed mogelijk helpen tijdens de overgang, en precies daarvoor zijn onze [Reddit](https://www.reddit.com/r/ZooCode) en [Discord](https://discord.gg/VxfP4Vx3gX) er. Als je ergens tegenaan loopt of vragen hebt, kom langs en vraag het.
+Je vindt een korte handleiding voor de overstap van Roo Code naar Bolt Code in de [Roo→Bolt-migratiegids](https://docs.zoocode.dev/roo-to-zoo-migration). We willen gebruikers zo goed mogelijk helpen tijdens de overgang, en precies daarvoor zijn onze [Reddit](https://www.reddit.com/r/ZooCode) en [Discord](https://discord.gg/VxfP4Vx3gX) er. Als je ergens tegenaan loopt of vragen hebt, kom langs en vraag het.
 
 ## Nieuw in v3.74.0
 
-**Zoo Gateway is live!**
+**Bolt Gateway is live!**
 
 De gateway is één endpoint voor alle providers, met één saldo en een uitsplitsing van kosten en gebruik per verzoek.
 
@@ -46,7 +46,7 @@ De gateway is één endpoint voor alle providers, met één saldo en een uitspli
 
 - Tegoed toevoegen: https://www.zoocode.dev/dashboard/credits
 - Log in vanuit de extensie.
-- Selecteer in de instellingen Zoo Gateway als provider bij het aanmaken van profielen voor verschillende modellen
+- Selecteer in de instellingen Bolt Gateway als provider bij het aanmaken van profielen voor verschillende modellen
 
 Gebruik en kosten zijn te zien in het [dashboard](https://www.zoocode.dev/dashboard).
 
@@ -54,12 +54,12 @@ Modellen: https://www.zoocode.dev/dashboard/models
 
 - **Meer OpenAI-bediening** — gebruik de Fast-prioriteitsmodus met OpenAI Codex en kies een hogere reasoning effort voor OpenAI-compatibele modellen.
 - **Betrouwbaardere providers en modellen** — verbeterde verwerking van routermetadata, Ollama-modelverversing, Bedrock-proxyondersteuning en Friendli-reasoningbediening.
-- **Soepelere instellingen en ontwikkelworkflows** — instellingen bewaren niet-opgeslagen wijzigingen, korte terminalopdrachten worden correct voltooid, architectuurplannen gebruiken werkruimterelatieve paden en de resterende zichtbare Roo-branding is bijgewerkt naar Zoo.
-- **Sterkere taakfundamenten** — een nieuw taakregister en een op semaforen gebaseerde scheduler bereiden Zoo Code voor op veiligere taakcoördinatie.
+- **Soepelere instellingen en ontwikkelworkflows** — instellingen bewaren niet-opgeslagen wijzigingen, korte terminalopdrachten worden correct voltooid, architectuurplannen gebruiken werkruimterelatieve paden en de resterende zichtbare Roo-branding is bijgewerkt naar Bolt.
+- **Sterkere taakfundamenten** — een nieuw taakregister en een op semaforen gebaseerde scheduler bereiden Bolt Code voor op veiligere taakcoördinatie.
 - **Consistente providerarchitectuur** — provider-ID's en service-tiercomponenten zijn nu gecentraliseerd in de API, kern, gedeelde typen en webview.
 - Verbeteringen aan beveiliging, dependencies, linting, visuele regressie en end-to-endtests.
 
-## Wat kan Zoo Code voor JOU doen?
+## Wat kan Bolt Code voor JOU doen?
 
 - Genereer code vanuit natuurlijke taalomschrijvingen
 - Aanpassen met Modi: Code, Architect, Vraag, Debug en Aangepaste Modi
@@ -71,7 +71,7 @@ Modellen: https://www.zoocode.dev/dashboard/models
 
 ## Modi
 
-Zoo Code past zich aan jouw werkwijze aan, niet andersom:
+Bolt Code past zich aan jouw werkwijze aan, niet andersom:
 
 - Code Modus: dagelijks coderen, bewerkingen en bestandsoperaties
 - Architect Modus: plan systemen, specificaties en migraties
@@ -85,10 +85,10 @@ Meer info: [Modi gebruiken](https://docs.zoocode.dev/basic-usage/using-modes) �
 
 <div align="center">
 
-|                                                                                                                                                                            |                                                                                                                                                                              |                                                                                                                                                                          |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <a href="https://www.youtube.com/watch?v=Mcq3r1EPZ-4"><img src="https://img.youtube.com/vi/Mcq3r1EPZ-4/maxresdefault.jpg" width="100%"></a><br><b>Zoo Code installeren</b> | <a href="https://www.youtube.com/watch?v=ZBML8h5cCgo"><img src="https://img.youtube.com/vi/ZBML8h5cCgo/maxresdefault.jpg" width="100%"></a><br><b>Profielen configureren</b> | <a href="https://www.youtube.com/watch?v=r1bpod1VWhg"><img src="https://img.youtube.com/vi/r1bpod1VWhg/maxresdefault.jpg" width="100%"></a><br><b>Codebase indexeren</b> |
-|   <a href="https://www.youtube.com/watch?v=iiAv1eKOaxk"><img src="https://img.youtube.com/vi/iiAv1eKOaxk/maxresdefault.jpg" width="100%"></a><br><b>Aangepaste modi</b>    |      <a href="https://www.youtube.com/watch?v=Ho30nyY332E"><img src="https://img.youtube.com/vi/Ho30nyY332E/maxresdefault.jpg" width="100%"></a><br><b>Checkpoints</b>       |   <a href="https://www.youtube.com/watch?v=HmnNSasv7T8"><img src="https://img.youtube.com/vi/HmnNSasv7T8/maxresdefault.jpg" width="100%"></a><br><b>Contextbeheer</b>    |
+|                                                                                                                                                                             |                                                                                                                                                                              |                                                                                                                                                                          |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <a href="https://www.youtube.com/watch?v=Mcq3r1EPZ-4"><img src="https://img.youtube.com/vi/Mcq3r1EPZ-4/maxresdefault.jpg" width="100%"></a><br><b>Bolt Code installeren</b> | <a href="https://www.youtube.com/watch?v=ZBML8h5cCgo"><img src="https://img.youtube.com/vi/ZBML8h5cCgo/maxresdefault.jpg" width="100%"></a><br><b>Profielen configureren</b> | <a href="https://www.youtube.com/watch?v=r1bpod1VWhg"><img src="https://img.youtube.com/vi/r1bpod1VWhg/maxresdefault.jpg" width="100%"></a><br><b>Codebase indexeren</b> |
+|    <a href="https://www.youtube.com/watch?v=iiAv1eKOaxk"><img src="https://img.youtube.com/vi/iiAv1eKOaxk/maxresdefault.jpg" width="100%"></a><br><b>Aangepaste modi</b>    |      <a href="https://www.youtube.com/watch?v=Ho30nyY332E"><img src="https://img.youtube.com/vi/Ho30nyY332E/maxresdefault.jpg" width="100%"></a><br><b>Checkpoints</b>       |   <a href="https://www.youtube.com/watch?v=HmnNSasv7T8"><img src="https://img.youtube.com/vi/HmnNSasv7T8/maxresdefault.jpg" width="100%"></a><br><b>Contextbeheer</b>    |
 
 </div>
 <p align="center">
@@ -97,12 +97,12 @@ Meer info: [Modi gebruiken](https://docs.zoocode.dev/basic-usage/using-modes) �
 
 ## Hulpbronnen
 
-- **[Documentatie](https://docs.zoocode.dev):** De officiële gids voor het installeren, configureren en beheersen van Zoo Code.
+- **[Documentatie](https://docs.zoocode.dev):** De officiële gids voor het installeren, configureren en beheersen van Bolt Code.
 - **[YouTube-kanaal](https://youtube.com/@roocodeyt?feature=shared):** Bekijk tutorials en zie functies in actie.
 - **[Discord Server](https://discord.gg/VxfP4Vx3gX):** Word lid van de community voor realtime hulp en discussie.
 - **[Reddit Community](https://www.reddit.com/r/ZooCode):** Deel je ervaringen en kijk wat anderen bouwen.
-- **[GitHub Issues](https://github.com/Zoo-Code-Org/Zoo-Code/issues):** Meld bugs en volg de ontwikkeling.
-- **[Feature Requests](https://github.com/Zoo-Code-Org/Zoo-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop):** Heb je een idee? Deel het met de ontwikkelaars.
+- **[GitHub Issues](https://github.com/bolt-builder/Bolt-Code/issues):** Meld bugs en volg de ontwikkeling.
+- **[Feature Requests](https://github.com/bolt-builder/Bolt-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop):** Heb je een idee? Deel het met de ontwikkelaars.
 
 ---
 
@@ -111,7 +111,7 @@ Meer info: [Modi gebruiken](https://docs.zoocode.dev/basic-usage/using-modes) �
 1. **Kloon** de repo:
 
 ```sh
-git clone https://github.com/Zoo-Code-Org/Zoo-Code.git
+git clone https://github.com/bolt-builder/Bolt-Code.git
 ```
 
 2. **Installeer afhankelijkheden**:
@@ -122,13 +122,13 @@ pnpm install
 
 3. **Voer de extensie uit**:
 
-Er zijn verschillende manieren om de Zoo Code-extensie uit te voeren:
+Er zijn verschillende manieren om de Bolt Code-extensie uit te voeren:
 
 ### Ontwikkelmodus (F5)
 
 Gebruik voor actieve ontwikkeling de ingebouwde foutopsporing van VSCode:
 
-Druk op `F5` (of ga naar **Uitvoeren** → **Foutopsporing starten**) in VSCode. Dit opent een nieuw VSCode-venster waarin de Zoo Code-extensie wordt uitgevoerd.
+Druk op `F5` (of ga naar **Uitvoeren** → **Foutopsporing starten**) in VSCode. Dit opent een nieuw VSCode-venster waarin de Bolt Code-extensie wordt uitgevoerd.
 
 - Wijzigingen in de webweergave verschijnen onmiddellijk.
 - Wijzigingen in de kernextensie worden ook automatisch hot-herladen.
@@ -162,10 +162,10 @@ Als u het VSIX-pakket liever handmatig installeert:
     ```sh
     pnpm vsix
     ```
-2.  Een `.vsix`-bestand wordt gegenereerd in de `bin/`-directory (bijv. `bin/zoo-code-<version>.vsix`).
+2.  Een `.vsix`-bestand wordt gegenereerd in de `bin/`-directory (bijv. `bin/bolt-code-<version>.vsix`).
 3.  Installeer het handmatig met de VSCode CLI:
     ```sh
-    code --install-extension bin/zoo-code-<version>.vsix
+    code --install-extension bin/bolt-code-<version>.vsix
     ```
 
 ---
@@ -176,7 +176,7 @@ We gebruiken [changesets](https://github.com/changesets/changesets) voor versieb
 
 ## Disclaimer
 
-**Let op**: Zoo Code geeft **geen** verklaringen of garanties met betrekking tot enige code, modellen of andere tools die worden geleverd of beschikbaar worden gesteld in verband met Zoo Code, enige geassocieerde tools van derden, of enige resulterende output. U aanvaardt **alle risico's** die gepaard gaan met het gebruik van dergelijke tools of output; dergelijke tools worden geleverd op een **"AS IS"** en **"AS AVAILABLE"** basis. Dergelijke risico's kunnen omvatten, maar zijn niet beperkt tot, inbreuk op intellectueel eigendom, cyberkwetsbaarheden of -aanvallen, vooringenomenheid, onnauwkeurigheden, fouten, defecten, virussen, downtime, verlies of beschadiging van eigendommen, en/of persoonlijk letsel. U bent als enige verantwoordelijk voor uw gebruik van dergelijke tools of output (inclusief, maar niet beperkt tot, de wettigheid, geschiktheid en resultaten daarvan).
+**Let op**: Bolt Code geeft **geen** verklaringen of garanties met betrekking tot enige code, modellen of andere tools die worden geleverd of beschikbaar worden gesteld in verband met Bolt Code, enige geassocieerde tools van derden, of enige resulterende output. U aanvaardt **alle risico's** die gepaard gaan met het gebruik van dergelijke tools of output; dergelijke tools worden geleverd op een **"AS IS"** en **"AS AVAILABLE"** basis. Dergelijke risico's kunnen omvatten, maar zijn niet beperkt tot, inbreuk op intellectueel eigendom, cyberkwetsbaarheden of -aanvallen, vooringenomenheid, onnauwkeurigheden, fouten, defecten, virussen, downtime, verlies of beschadiging van eigendommen, en/of persoonlijk letsel. U bent als enige verantwoordelijk voor uw gebruik van dergelijke tools of output (inclusief, maar niet beperkt tot, de wettigheid, geschiktheid en resultaten daarvan).
 
 ---
 
@@ -188,8 +188,8 @@ We houden van bijdragen uit de community! Begin met het lezen van onze [CONTRIBU
 
 ## Licentie
 
-[Apache 2.0 © 2025 Zoo Code Org](../../LICENSE)
+[Apache 2.0 © 2025 Bolt Code Org](../../LICENSE)
 
 ---
 
-**Veel plezier met Zoo Code!** Of je het nu kort aangelijnd houdt of autonoom laat rondzwerven, we kunnen niet wachten om te zien wat je bouwt. Als je vragen of feature-ideeën hebt, open dan een [issue](https://github.com/Zoo-Code-Org/Zoo-Code/issues) of start een [discussion](https://github.com/Zoo-Code-Org/Zoo-Code/discussions). Veel codeerplezier!
+**Veel plezier met Bolt Code!** Of je het nu kort aangelijnd houdt of autonoom laat rondzwerven, we kunnen niet wachten om te zien wat je bouwt. Als je vragen of feature-ideeën hebt, open dan een [issue](https://github.com/bolt-builder/Bolt-Code/issues) of start een [discussion](https://github.com/bolt-builder/Bolt-Code/discussions). Veel codeerplezier!

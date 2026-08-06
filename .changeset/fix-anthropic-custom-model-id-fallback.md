@@ -1,5 +1,5 @@
 ---
-"zoo-code": patch
+"bolt-code": patch
 ---
 
 Fix Anthropic provider silently replacing a custom/unrecognized `apiModelId` with the hardcoded default model.

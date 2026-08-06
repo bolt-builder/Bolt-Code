@@ -1,23 +1,23 @@
 <p align="center">
-          <a href="https://marketplace.visualstudio.com/items?itemName=ZooCodeOrganization.zoo-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
+          <a href="https://marketplace.visualstudio.com/items?itemName=bolt-builder.bolt-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
           <a href="https://x.com/ZooCodeDev"><img src="https://img.shields.io/badge/ZooCode-000000?style=flat&logo=x&logoColor=white" alt="X"></a>
           <a href="https://youtube.com/@roocodeyt?feature=shared"><img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube"></a>
           <a href="https://discord.gg/VxfP4Vx3gX"><img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Join Discord"></a>
           <a href="https://www.reddit.com/r/ZooCode/"><img src="https://img.shields.io/badge/Join%20r%2FZooCode-FF4500?style=flat&logo=reddit&logoColor=white" alt="Join r/ZooCode"></a>
-          <a href="https://github.com/Zoo-Code-Org/Zoo-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
+          <a href="https://github.com/bolt-builder/Bolt-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
         </p>
         <p align="center">
           <em>Hızlıca yardım al → <a href="https://discord.gg/VxfP4Vx3gX">Discord'a katıl</a> • Eşzamansız mı tercih ediyorsun? → <a href="https://www.reddit.com/r/ZooCode/">r/ZooCode'a katıl</a></em>
         </p>
 
-        # Zoo Code
+        # Bolt Code
 
         > AI destekli dev ekibin, doğrudan editörünün içinde
 
-        ## Biz Zoo Code'uz
+        ## Biz Bolt Code'uz
 
 > Roo ekibi, [Roomote](https://roomote.dev/) üzerine odaklanmak için Roo
-> Code'un aktif geliştirmesini durdurduktan sonra Zoo Code bu projenin
+> Code'un aktif geliştirmesini durdurduktan sonra Bolt Code bu projenin
 > geliştirilmesini sürdürüyor. İnşa ettikleri her şey için Roo ekibine
 > teşekkürler.
 >
@@ -28,17 +28,17 @@
 > Bize katıl:
 > [Discord](https://discord.gg/VxfP4Vx3gX),
 > [Reddit](https://www.reddit.com/r/ZooCode), ya da
-> [PR veya issue aç](https://github.com/Zoo-Code-Org/Zoo-Code).
+> [PR veya issue aç](https://github.com/bolt-builder/Bolt-Code).
 >
-> _-Zoo Code Team_
+> _-Bolt Code Team_
 
-## Roo Code'dan Zoo Code'a geçiş
+## Roo Code'dan Bolt Code'a geçiş
 
-Roo Code'dan Zoo Code'a geçmek için hızlı bir rehberi [Roo→Zoo geçiş rehberinde](https://docs.zoocode.dev/roo-to-zoo-migration) bulabilirsin. Geçiş sürecinde kullanıcılara elimizden geldiğince yardımcı olmak istiyoruz ve bunun için [Reddit](https://www.reddit.com/r/ZooCode) ile [Discord](https://discord.gg/VxfP4Vx3gX) topluluklarımız var. Bir sorun yaşarsan ya da soruların olursa gel ve sor.
+Roo Code'dan Bolt Code'a geçmek için hızlı bir rehberi [Roo→Bolt geçiş rehberinde](https://docs.zoocode.dev/roo-to-zoo-migration) bulabilirsin. Geçiş sürecinde kullanıcılara elimizden geldiğince yardımcı olmak istiyoruz ve bunun için [Reddit](https://www.reddit.com/r/ZooCode) ile [Discord](https://discord.gg/VxfP4Vx3gX) topluluklarımız var. Bir sorun yaşarsan ya da soruların olursa gel ve sor.
 
 ## v3.74.0'daki Yenilikler
 
-**Zoo Gateway yayında!**
+**Bolt Gateway yayında!**
 
 Gateway, tüm sağlayıcılar için tek bir uç noktadır; tek bakiye ve istek başına harcama/kullanım dökümü sunar.
 
@@ -46,7 +46,7 @@ Gateway, tüm sağlayıcılar için tek bir uç noktadır; tek bakiye ve istek b
 
 - Kredi ekleyin: https://www.zoocode.dev/dashboard/credits
 - Uzantıdan oturum açın.
-- Ayarlarda, farklı modeller için profil oluştururken sağlayıcı olarak Zoo Gateway'i seçin
+- Ayarlarda, farklı modeller için profil oluştururken sağlayıcı olarak Bolt Gateway'i seçin
 
 Kullanım ve ücretler [panodan](https://www.zoocode.dev/dashboard) görüntülenebilir.
 
@@ -54,12 +54,12 @@ Modeller: https://www.zoocode.dev/dashboard/models
 
 - **Daha fazla OpenAI denetimi** — OpenAI Codex ile Fast öncelik modunu kullan ve OpenAI uyumlu modeller için daha yüksek reasoning effort seç.
 - **Daha güvenilir provider'lar ve modeller** — router metadata işleme, Ollama model yenileme, Bedrock proxy desteği ve Friendli reasoning denetimleri iyileştirildi.
-- **Daha akıcı ayarlar ve geliştirici iş akışları** — ayarlar kaydedilmemiş düzenlemeleri koruyor, kısa terminal komutları düzgün tamamlanıyor, architect planları workspace'e göreli yollar kullanıyor ve kullanıcıya görünen kalan Roo markaları Zoo olarak güncellendi.
-- **Daha güçlü görev temelleri** — yeni görev kayıt sistemi ve semaphore tabanlı scheduler, Zoo Code'u daha güvenli görev koordinasyonuna hazırlıyor.
+- **Daha akıcı ayarlar ve geliştirici iş akışları** — ayarlar kaydedilmemiş düzenlemeleri koruyor, kısa terminal komutları düzgün tamamlanıyor, architect planları workspace'e göreli yollar kullanıyor ve kullanıcıya görünen kalan Roo markaları Bolt olarak güncellendi.
+- **Daha güçlü görev temelleri** — yeni görev kayıt sistemi ve semaphore tabanlı scheduler, Bolt Code'u daha güvenli görev koordinasyonuna hazırlıyor.
 - **Tutarlı provider mimarisi** — provider tanımlayıcıları ve service tier bileşenleri artık API, core, paylaşılan türler ve webview genelinde merkezileştirildi.
 - Güvenlik, bağımlılık, lint, görsel regresyon ve uçtan uca test iyileştirmeleri.
 
-## Zoo Code SİZİN İçin Ne Yapabilir?
+## Bolt Code SİZİN İçin Ne Yapabilir?
 
 - Doğal dil açıklamalarından kod üretin
 - Modlarla Uyum Sağlayın: Kod, Mimar, Sor, Hata Ayıkla ve Özel Modlar
@@ -71,7 +71,7 @@ Modeller: https://www.zoocode.dev/dashboard/models
 
 ## Modlar
 
-Zoo Code, sizin çalışma şeklinize uyum sağlar, tam tersi değil:
+Bolt Code, sizin çalışma şeklinize uyum sağlar, tam tersi değil:
 
 - Kod Modu: günlük kodlama, düzenlemeler ve dosya işlemleri
 - Mimar Modu: sistemleri, özellikleri ve geçişleri planlayın
@@ -85,10 +85,10 @@ Daha fazla: [Modları kullanma](https://docs.zoocode.dev/basic-usage/using-modes
 
 <div align="center">
 
-|                                                                                                                                                                         |                                                                                                                                                                               |                                                                                                                                                                             |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <a href="https://www.youtube.com/watch?v=Mcq3r1EPZ-4"><img src="https://img.youtube.com/vi/Mcq3r1EPZ-4/maxresdefault.jpg" width="100%"></a><br><b>Zoo Code Kurulumu</b> | <a href="https://www.youtube.com/watch?v=ZBML8h5cCgo"><img src="https://img.youtube.com/vi/ZBML8h5cCgo/maxresdefault.jpg" width="100%"></a><br><b>Profilleri Yapılandırma</b> | <a href="https://www.youtube.com/watch?v=r1bpod1VWhg"><img src="https://img.youtube.com/vi/r1bpod1VWhg/maxresdefault.jpg" width="100%"></a><br><b>Kod Tabanı İndeksleme</b> |
-|    <a href="https://www.youtube.com/watch?v=iiAv1eKOaxk"><img src="https://img.youtube.com/vi/iiAv1eKOaxk/maxresdefault.jpg" width="100%"></a><br><b>Özel Modlar</b>    |    <a href="https://www.youtube.com/watch?v=Ho30nyY332E"><img src="https://img.youtube.com/vi/Ho30nyY332E/maxresdefault.jpg" width="100%"></a><br><b>Kontrol Noktaları</b>    |    <a href="https://www.youtube.com/watch?v=HmnNSasv7T8"><img src="https://img.youtube.com/vi/HmnNSasv7T8/maxresdefault.jpg" width="100%"></a><br><b>Bağlam Yönetimi</b>    |
+|                                                                                                                                                                          |                                                                                                                                                                               |                                                                                                                                                                             |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <a href="https://www.youtube.com/watch?v=Mcq3r1EPZ-4"><img src="https://img.youtube.com/vi/Mcq3r1EPZ-4/maxresdefault.jpg" width="100%"></a><br><b>Bolt Code Kurulumu</b> | <a href="https://www.youtube.com/watch?v=ZBML8h5cCgo"><img src="https://img.youtube.com/vi/ZBML8h5cCgo/maxresdefault.jpg" width="100%"></a><br><b>Profilleri Yapılandırma</b> | <a href="https://www.youtube.com/watch?v=r1bpod1VWhg"><img src="https://img.youtube.com/vi/r1bpod1VWhg/maxresdefault.jpg" width="100%"></a><br><b>Kod Tabanı İndeksleme</b> |
+|    <a href="https://www.youtube.com/watch?v=iiAv1eKOaxk"><img src="https://img.youtube.com/vi/iiAv1eKOaxk/maxresdefault.jpg" width="100%"></a><br><b>Özel Modlar</b>     |    <a href="https://www.youtube.com/watch?v=Ho30nyY332E"><img src="https://img.youtube.com/vi/Ho30nyY332E/maxresdefault.jpg" width="100%"></a><br><b>Kontrol Noktaları</b>    |    <a href="https://www.youtube.com/watch?v=HmnNSasv7T8"><img src="https://img.youtube.com/vi/HmnNSasv7T8/maxresdefault.jpg" width="100%"></a><br><b>Bağlam Yönetimi</b>    |
 
 </div>
 <p align="center">
@@ -97,12 +97,12 @@ Daha fazla: [Modları kullanma](https://docs.zoocode.dev/basic-usage/using-modes
 
 ## Kaynaklar
 
-- **[Dokümantasyon](https://docs.zoocode.dev):** Zoo Code'u yükleme, yapılandırma ve ustalaşma konusundaki resmi kılavuz.
+- **[Dokümantasyon](https://docs.zoocode.dev):** Bolt Code'u yükleme, yapılandırma ve ustalaşma konusundaki resmi kılavuz.
 - **[YouTube Kanalı](https://youtube.com/@roocodeyt?feature=shared):** Eğitimleri izleyin ve özellikleri çalışırken görün.
 - **[Discord Sunucusu](https://discord.gg/VxfP4Vx3gX):** Gerçek zamanlı yardım ve tartışma için topluluğa katılın.
 - **[Reddit Topluluğu](https://www.reddit.com/r/ZooCode):** Deneyimlerinizi paylaşın ve başkalarının ne inşa ettiğini görün.
-- **[GitHub Sorunları](https://github.com/Zoo-Code-Org/Zoo-Code/issues):** Hataları bildirin ve gelişimi takip edin.
-- **[Özellik İstekleri](https://github.com/Zoo-Code-Org/Zoo-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop):** Bir fikriniz mi var? Geliştiricilerle paylaşın.
+- **[GitHub Sorunları](https://github.com/bolt-builder/Bolt-Code/issues):** Hataları bildirin ve gelişimi takip edin.
+- **[Özellik İstekleri](https://github.com/bolt-builder/Bolt-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop):** Bir fikriniz mi var? Geliştiricilerle paylaşın.
 
 ---
 
@@ -111,7 +111,7 @@ Daha fazla: [Modları kullanma](https://docs.zoocode.dev/basic-usage/using-modes
 1. **Depoyu klonlayın**:
 
 ```sh
-git clone https://github.com/Zoo-Code-Org/Zoo-Code.git
+git clone https://github.com/bolt-builder/Bolt-Code.git
 ```
 
 2. **Bağımlılıkları yükleyin**:
@@ -122,13 +122,13 @@ pnpm install
 
 3. **Uzantıyı çalıştırın**:
 
-Zoo Code uzantısını çalıştırmanın birkaç yolu vardır:
+Bolt Code uzantısını çalıştırmanın birkaç yolu vardır:
 
 ### Geliştirme Modu (F5)
 
 Aktif geliştirme için VSCode'un yerleşik hata ayıklama özelliğini kullanın:
 
-VSCode'da `F5` tuşuna basın (veya **Çalıştır** → **Hata Ayıklamayı Başlat**'a gidin). Bu, Zoo Code uzantısının çalıştığı yeni bir VSCode penceresi açacaktır.
+VSCode'da `F5` tuşuna basın (veya **Çalıştır** → **Hata Ayıklamayı Başlat**'a gidin). Bu, Bolt Code uzantısının çalıştığı yeni bir VSCode penceresi açacaktır.
 
 - Web görünümündeki değişiklikler anında görünecektir.
 - Çekirdek uzantıdaki değişiklikler de otomatik olarak sıcak yeniden yüklenecektir.
@@ -162,10 +162,10 @@ VSIX paketini manuel olarak yüklemeyi tercih ederseniz:
     ```sh
     pnpm vsix
     ```
-2.  `bin/` dizininde bir `.vsix` dosyası oluşturulur (ör. `bin/zoo-code-<version>.vsix`).
+2.  `bin/` dizininde bir `.vsix` dosyası oluşturulur (ör. `bin/bolt-code-<version>.vsix`).
 3.  VSCode CLI kullanarak manuel olarak yükleyin:
     ```sh
-    code --install-extension bin/zoo-code-<version>.vsix
+    code --install-extension bin/bolt-code-<version>.vsix
     ```
 
 ---
@@ -176,7 +176,7 @@ Sürüm oluşturma ve yayınlama için [changesets](https://github.com/changeset
 
 ## Sorumluluk Reddi Beyanı
 
-**Lütfen dikkat** Zoo Code, Zoo Code ile bağlantılı olarak sağlanan veya kullanıma sunulan herhangi bir kod, model veya diğer araçlar, ilgili üçüncü taraf araçları veya ortaya çıkan çıktılarla ilgili olarak **hiçbir** beyanda bulunmaz veya garanti vermez. Bu tür araçların veya çıktıların kullanımıyla ilişkili **tüm riskleri** üstlenirsiniz; bu tür araçlar **"OLDUĞU GİBİ"** ve **"MEVCUT OLDUĞU GİBİ"** esasına göre sağlanır. Bu tür riskler, fikri mülkiyet ihlali, siber güvenlik açıkları veya saldırıları, önyargı, yanlışlıklar, hatalar, kusurlar, virüsler, kesintiler, mal kaybı veya hasarı ve/veya kişisel yaralanmaları içerebilir, ancak bunlarla sınırlı değildir. Bu tür araçların veya çıktıların kullanımından (yasallığı, uygunluğu ve sonuçları dahil ancak bunlarla sınırlı olmamak üzere) yalnızca siz sorumlusunuz.
+**Lütfen dikkat** Bolt Code, Bolt Code ile bağlantılı olarak sağlanan veya kullanıma sunulan herhangi bir kod, model veya diğer araçlar, ilgili üçüncü taraf araçları veya ortaya çıkan çıktılarla ilgili olarak **hiçbir** beyanda bulunmaz veya garanti vermez. Bu tür araçların veya çıktıların kullanımıyla ilişkili **tüm riskleri** üstlenirsiniz; bu tür araçlar **"OLDUĞU GİBİ"** ve **"MEVCUT OLDUĞU GİBİ"** esasına göre sağlanır. Bu tür riskler, fikri mülkiyet ihlali, siber güvenlik açıkları veya saldırıları, önyargı, yanlışlıklar, hatalar, kusurlar, virüsler, kesintiler, mal kaybı veya hasarı ve/veya kişisel yaralanmaları içerebilir, ancak bunlarla sınırlı değildir. Bu tür araçların veya çıktıların kullanımından (yasallığı, uygunluğu ve sonuçları dahil ancak bunlarla sınırlı olmamak üzere) yalnızca siz sorumlusunuz.
 
 ---
 
@@ -188,8 +188,8 @@ Topluluk katkılarını çok seviyoruz! [CONTRIBUTING.md](CONTRIBUTING.md) dosya
 
 ## Lisans
 
-[Apache 2.0 © 2025 Zoo Code Org](../../LICENSE)
+[Apache 2.0 © 2025 Bolt Code Org](../../LICENSE)
 
 ---
 
-**Zoo Code'un keyfini çıkar!** Onu ister kısa tasma ile yakınında tut, ister kendi başına dolaşmasına izin ver, neler inşa edeceğini görmek için sabırsızlanıyoruz. Soruların veya özellik fikirlerin varsa bir [issue](https://github.com/Zoo-Code-Org/Zoo-Code/issues) aç ya da bir [discussion](https://github.com/Zoo-Code-Org/Zoo-Code/discussions) başlat. Mutlu kodlamalar!
+**Bolt Code'un keyfini çıkar!** Onu ister kısa tasma ile yakınında tut, ister kendi başına dolaşmasına izin ver, neler inşa edeceğini görmek için sabırsızlanıyoruz. Soruların veya özellik fikirlerin varsa bir [issue](https://github.com/bolt-builder/Bolt-Code/issues) aç ya da bir [discussion](https://github.com/bolt-builder/Bolt-Code/discussions) başlat. Mutlu kodlamalar!

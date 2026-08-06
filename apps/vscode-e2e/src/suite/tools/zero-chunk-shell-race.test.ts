@@ -14,7 +14,7 @@
  * where VSCode DOES emit stream data including the D marker but never fires
  * onDidEndTerminalShellExecution. Here, without the fix, not even stream data arrives.
  *
- * See: https://github.com/Zoo-Code-Org/Zoo-Code/issues/800
+ * See: https://github.com/bolt-builder/Bolt-Code/issues/800
  */
 import * as assert from "assert"
 

@@ -1,23 +1,23 @@
 <p align="center">
-          <a href="https://marketplace.visualstudio.com/items?itemName=ZooCodeOrganization.zoo-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
+          <a href="https://marketplace.visualstudio.com/items?itemName=bolt-builder.bolt-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
           <a href="https://x.com/ZooCodeDev"><img src="https://img.shields.io/badge/ZooCode-000000?style=flat&logo=x&logoColor=white" alt="X"></a>
           <a href="https://youtube.com/@roocodeyt?feature=shared"><img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube"></a>
           <a href="https://discord.gg/VxfP4Vx3gX"><img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Join Discord"></a>
           <a href="https://www.reddit.com/r/ZooCode/"><img src="https://img.shields.io/badge/Join%20r%2FZooCode-FF4500?style=flat&logo=reddit&logoColor=white" alt="Join r/ZooCode"></a>
-          <a href="https://github.com/Zoo-Code-Org/Zoo-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
+          <a href="https://github.com/bolt-builder/Bolt-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
         </p>
         <p align="center">
           <em>जल्दी मदद पाएं → <a href="https://discord.gg/VxfP4Vx3gX">Discord जॉइन करें</a> • Async पसंद है? → <a href="https://www.reddit.com/r/ZooCode/">r/ZooCode जॉइन करें</a></em>
         </p>
 
-        # Zoo Code
+        # Bolt Code
 
         > तुम्हारी AI-संचालित डेवलपमेंट टीम, सीधे तुम्हारे एडिटर में
 
-        ## हम हैं Zoo Code
+        ## हम हैं Bolt Code
 
 > Roo टीम के [Roomote](https://roomote.dev/) पर focus करने के लिए Roo Code का
-> active development बंद करने के बाद, Zoo Code इस project का development
+> active development बंद करने के बाद, Bolt Code इस project का development
 > आगे बढ़ा रहा है। जो कुछ भी उन्होंने बनाया, उसके लिए Roo टीम का धन्यवाद।
 >
 > Core team ऐसे developers का समूह है जिन्होंने पहले Roo में योगदान दिया है
@@ -27,17 +27,17 @@
 > बनाया। हमारे साथ जुड़ो
 > [Discord](https://discord.gg/VxfP4Vx3gX),
 > [Reddit](https://www.reddit.com/r/ZooCode), या
-> [PR या issue खोलें](https://github.com/Zoo-Code-Org/Zoo-Code) पर।
+> [PR या issue खोलें](https://github.com/bolt-builder/Bolt-Code) पर।
 >
-> _-Zoo Code Team_
+> _-Bolt Code Team_
 
-## Roo Code से Zoo Code migration
+## Roo Code से Bolt Code migration
 
-Roo Code से Zoo Code में आने के लिए एक quick guide तुम्हें [Roo→Zoo migration guide](https://docs.zoocode.dev/roo-to-zoo-migration) में मिल जाएगी। We plan to help users as much as possible during the transition, और उसी support के लिए हमारा [Reddit](https://www.reddit.com/r/ZooCode) और [Discord](https://discord.gg/VxfP4Vx3gX) है। अगर तुम्हें कोई problem हो या कोई question हो, आकर पूछो।
+Roo Code से Bolt Code में आने के लिए एक quick guide तुम्हें [Roo→Bolt migration guide](https://docs.zoocode.dev/roo-to-zoo-migration) में मिल जाएगी। We plan to help users as much as possible during the transition, और उसी support के लिए हमारा [Reddit](https://www.reddit.com/r/ZooCode) और [Discord](https://discord.gg/VxfP4Vx3gX) है। अगर तुम्हें कोई problem हो या कोई question हो, आकर पूछो।
 
 ## v3.74.0 में नया क्या है
 
-**Zoo Gateway लाइव है!**
+**Bolt Gateway लाइव है!**
 
 गेटवे सभी प्रदाताओं के लिए एक ही एंडपॉइंट है, जिसमें एक बैलेंस और प्रति-अनुरोध खर्च/उपयोग का विवरण है।
 
@@ -45,7 +45,7 @@ Roo Code से Zoo Code में आने के लिए एक quick guide
 
 - क्रेडिट जोड़ें: https://www.zoocode.dev/dashboard/credits
 - एक्सटेंशन से साइन इन करें।
-- सेटिंग्स में, अलग-अलग मॉडलों के लिए प्रोफ़ाइल बनाते समय Zoo Gateway को प्रदाता के रूप में चुनें
+- सेटिंग्स में, अलग-अलग मॉडलों के लिए प्रोफ़ाइल बनाते समय Bolt Gateway को प्रदाता के रूप में चुनें
 
 उपयोग और शुल्क [डैशबोर्ड](https://www.zoocode.dev/dashboard) में देखे जा सकते हैं।
 
@@ -53,12 +53,12 @@ Roo Code से Zoo Code में आने के लिए एक quick guide
 
 - **अधिक OpenAI controls** — OpenAI Codex के साथ Fast priority mode का उपयोग करें और OpenAI-compatible models के लिए अधिक reasoning effort चुनें।
 - **अधिक भरोसेमंद providers और models** — router metadata handling, Ollama model refresh, Bedrock proxy support और Friendli reasoning controls में सुधार।
-- **अधिक सहज settings और developer workflows** — settings अब unsaved edits सुरक्षित रखती हैं, छोटे terminal commands ठीक से पूरे होते हैं, architect plans workspace-relative paths का उपयोग करते हैं और बची हुई user-facing Roo branding को Zoo में अपडेट किया गया है।
-- **मज़बूत task foundations** — नया task registry और semaphore-based scheduler Zoo Code को अधिक सुरक्षित task coordination के लिए तैयार करते हैं।
+- **अधिक सहज settings और developer workflows** — settings अब unsaved edits सुरक्षित रखती हैं, छोटे terminal commands ठीक से पूरे होते हैं, architect plans workspace-relative paths का उपयोग करते हैं और बची हुई user-facing Roo branding को Bolt में अपडेट किया गया है।
+- **मज़बूत task foundations** — नया task registry और semaphore-based scheduler Bolt Code को अधिक सुरक्षित task coordination के लिए तैयार करते हैं।
 - **सुसंगत provider architecture** — provider identifiers और service-tier components अब API, core, shared types और webview में केंद्रीकृत हैं।
 - Security, dependencies, lint, visual regression और end-to-end tests में सुधार।
 
-## Zoo Code आपके लिए क्या कर सकता है?
+## Bolt Code आपके लिए क्या कर सकता है?
 
 - प्राकृतिक भाषा विवरण से कोड उत्पन्न करें
 - मोड के साथ अनुकूलन: कोड, आर्किटेक्ट, पूछें, डीबग और कस्टम मोड
@@ -96,12 +96,12 @@ Roo Code से Zoo Code में आने के लिए एक quick guide
 
 ## संसाधन
 
-- **[दस्तावेज़ीकरण](https://docs.zoocode.dev):** Zoo Code को स्थापित करने, कॉन्फ़िगर करने और उसमें महारत हासिल करने के लिए आधिकारिक गाइड।
+- **[दस्तावेज़ीकरण](https://docs.zoocode.dev):** Bolt Code को स्थापित करने, कॉन्फ़िगर करने और उसमें महारत हासिल करने के लिए आधिकारिक गाइड।
 - **[यूट्यूब चैनल](https://youtube.com/@roocodeyt?feature=shared):** ट्यूटोरियल देखें और सुविधाओं को एक्शन में देखें।
 - **[डिस्कॉर्ड सर्वर](https://discord.gg/VxfP4Vx3gX):** रीयल-टाइम सहायता और चर्चा के लिए समुदाय में शामिल हों।
 - **[रेडिट समुदाय](https://www.reddit.com/r/ZooCode):** अपने अनुभव साझा करें और देखें कि दूसरे क्या बना रहे हैं।
-- **[गिटहब मुद्दे](https://github.com/Zoo-Code-Org/Zoo-Code/issues):** बग की रिपोर्ट करें और विकास को ट्रैक करें।
-- **[सुविधा अनुरोध](https://github.com/Zoo-Code-Org/Zoo-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop):** क्या आपके पास कोई विचार है? इसे डेवलपर्स के साथ साझा करें।
+- **[गिटहब मुद्दे](https://github.com/bolt-builder/Bolt-Code/issues):** बग की रिपोर्ट करें और विकास को ट्रैक करें।
+- **[सुविधा अनुरोध](https://github.com/bolt-builder/Bolt-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop):** क्या आपके पास कोई विचार है? इसे डेवलपर्स के साथ साझा करें।
 
 ---
 
@@ -110,7 +110,7 @@ Roo Code से Zoo Code में आने के लिए एक quick guide
 1. **क्लोन** करें रेपो:
 
 ```sh
-git clone https://github.com/Zoo-Code-Org/Zoo-Code.git
+git clone https://github.com/bolt-builder/Bolt-Code.git
 ```
 
 2. **निर्भरताएँ स्थापित करें**:
@@ -127,7 +127,7 @@ pnpm install
 
 सक्रिय विकास के लिए, वीएसकोड के अंतर्निहित डिबगिंग का उपयोग करें:
 
-वीएसकोड में `F5` दबाएं (या **रन** → **डीबगिंग प्रारंभ करें** पर जाएं)। यह Zoo Code एक्सटेंशन के साथ एक नई वीएसकोड विंडो खोलेगा।
+वीएसकोड में `F5` दबाएं (या **रन** → **डीबगिंग प्रारंभ करें** पर जाएं)। यह Bolt Code एक्सटेंशन के साथ एक नई वीएसकोड विंडो खोलेगा।
 
 - वेबव्यू में किए गए परिवर्तन तुरंत दिखाई देंगे।
 - कोर एक्सटेंशन में किए गए परिवर्तन भी स्वचालित रूप से हॉट रीलोड हो जाएंगे।
@@ -161,10 +161,10 @@ pnpm install:vsix [-y] [--editor=<command>]
     ```sh
     pnpm vsix
     ```
-2.  `bin/` डायरेक्टरी में एक `.vsix` फ़ाइल जनरेट होगी (जैसे, `bin/zoo-code-<version>.vsix` )।
+2.  `bin/` डायरेक्टरी में एक `.vsix` फ़ाइल जनरेट होगी (जैसे, `bin/bolt-code-<version>.vsix` )।
 3.  इसे वीएसकोड सीएलआई का उपयोग करके मैन्युअल रूप से इंस्टॉल करें:
     ```sh
-    code --install-extension bin/zoo-code-<version>.vsix
+    code --install-extension bin/bolt-code-<version>.vsix
     ```
 
 ---
@@ -187,8 +187,8 @@ pnpm install:vsix [-y] [--editor=<command>]
 
 ## लाइसेंस
 
-[Apache 2.0 © 2025 Zoo Code Org](../../LICENSE)
+[Apache 2.0 © 2025 Bolt Code Org](../../LICENSE)
 
 ---
 
-**Zoo Code का आनंद लें!** चाहे आप इसे short leash पर रखें या इसे autonomously घूमने दें, हम यह देखने के लिए उत्साहित हैं कि आप क्या बनाते हैं। अगर आपके पास questions या feature ideas हैं, तो एक [issue](https://github.com/Zoo-Code-Org/Zoo-Code/issues) खोलें या एक [discussion](https://github.com/Zoo-Code-Org/Zoo-Code/discussions) शुरू करें। Happy coding!
+**Bolt Code का आनंद लें!** चाहे आप इसे short leash पर रखें या इसे autonomously घूमने दें, हम यह देखने के लिए उत्साहित हैं कि आप क्या बनाते हैं। अगर आपके पास questions या feature ideas हैं, तो एक [issue](https://github.com/bolt-builder/Bolt-Code/issues) खोलें या एक [discussion](https://github.com/bolt-builder/Bolt-Code/discussions) शुरू करें। Happy coding!

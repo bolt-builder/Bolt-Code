@@ -1,5 +1,5 @@
 ---
-"zoo-code": patch
+"bolt-code": patch
 ---
 
 Fix bedrock DNS resolution when behind corporate proxy

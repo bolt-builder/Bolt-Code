@@ -1,4 +1,4 @@
-# Zoo Code Changelog
+# Bolt Code Changelog
 
 ## [3.74.0]
 
@@ -232,7 +232,7 @@
 - Add Claude Opus 4.8 support across Anthropic, Bedrock, and Vertex providers (PR #386 by @vandre-sales)
 - Add Opencode Go as a first-class provider (#172 by @vijay-0001, PR #319 by @proyectoauraorg)
 - Add glm-5.1, kimi-k2.6, and deepseek-v4-pro models to the Fireworks provider (#198 by @DeCodeTheWeb, PR #231 by @proyectoauraorg)
-- Show Zoo Code identity in outbound provider activity logs (#203 by @yfdyh000, PR #219 by @app/roomote)
+- Show Bolt Code identity in outbound provider activity logs (#203 by @yfdyh000, PR #219 by @app/roomote)
 - Fix API requests hanging indefinitely on VS Code 1.122.0+ (#381 by @greatgradz-svg, #382 by @abcxlab, PR #383 by @app/roomote)
 - Fix terminal task cancellation so the running process is terminated when a task is cancelled (#245 by @proyectoauraorg, PR #261 by @proyectoauraorg)
 - Fix terminal Ctrl+C retry so processes that need multiple SIGINT signals are properly stopped (#266 by @edelauna, PR #272 by @proyectoauraorg)
@@ -240,7 +240,7 @@
 - Fix truncated Grok diffs caused by missing diff markers (#186 by @jcalfee, PR #230 by @proyectoauraorg)
 - Fix PowerShell detection on Windows when no shell profile is configured (#82 by @rossdonald, PR #239 by @proyectoauraorg)
 - Fix Vertex AI warning when the Google Cloud Credentials field receives a file path instead of JSON (PR #294 by @0xMink)
-- Rename Zoo Code in VS Code code actions (#328 by @rrewll, PR #329 by @rrewll)
+- Rename Bolt Code in VS Code code actions (#328 by @rrewll, PR #329 by @rrewll)
 - Localize VS Code code action commands (#334 by @edelauna, PR #339 by @rrewll)
 - Migrate webview build to Vite 8 (PR #214 by @maxdewald)
 - Add comprehensive unit tests for AskFollowupQuestionTool and ListFilesTool (#206 by @app/roomote, PR #212, #213 by @proyectoauraorg)
@@ -255,18 +255,18 @@
 
 ### Patch Changes
 
-- Fix API requests hanging indefinitely on VS Code 1.122.0+ when Zoo Code could not find the bundled ripgrep binary after the `@vscode/ripgrep-universal` rename (#381 by @greatgradz-svg, PR #248 by @0xMink).
+- Fix API requests hanging indefinitely on VS Code 1.122.0+ when Bolt Code could not find the bundled ripgrep binary after the `@vscode/ripgrep-universal` rename (#381 by @greatgradz-svg, PR #248 by @0xMink).
 
-All notable changes to Zoo Code will be documented in this file.
+All notable changes to Bolt Code will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and Zoo Code uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and Bolt Code uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## 3.55.0
 
 ### Minor Changes
 
 - Add Xiaomi MiMo as a first-class API provider (#80 by @capitanfeeder, PR #81 by @capitanfeeder)
-- Merge the Roo Code upstream sunset into Zoo Code and pull in related handoff updates (PR #123 by @edelauna)
+- Merge the Roo Code upstream sunset into Bolt Code and pull in related handoff updates (PR #123 by @edelauna)
 - Fix Gemini requests when users enable the full MCP tool set (PR #148 by @app/roomote)
 - Fix OpenAI requests by omitting temperature for models that do not support it (#215 by @marty-a11y, PR #233 by @proyectoauraorg)
 - Fix the MCP OAuth callback page garbled text after sign-in (#217 by @mabiuroot-art, PR #218 by @app/roomote)
@@ -303,10 +303,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Fix the OpenAI Compatible onboarding form starting above the viewport (PR #113 by @app/roomote)
 - Fix settings and Marketplace access after importing Roo Router settings (PR #109 by @app/roomote)
 - Fix the setup announcement origin and load LM Studio models on first open (PR #97 by @app/roomote)
-- Fix Discord invite links that still pointed to the old Zoo Code server (PR #107 by @app/roomote)
+- Fix Discord invite links that still pointed to the old Bolt Code server (PR #107 by @app/roomote)
 - Fix support links that opened the wrong GitHub repository (PR #77 by @app/roomote)
-- Refresh Zoo Code branding across docs and metadata (PR #85 by @taltas)
-- Clarify Zoo Code migration messaging in the README (PR #99 by @taltas)
+- Refresh Bolt Code branding across docs and metadata (PR #85 by @taltas)
+- Clarify Bolt Code migration messaging in the README (PR #99 by @taltas)
 - Keep settings regression coverage in the webview-ui test suite (PR #95 by @app/roomote)
 - Clean up skipped extension package tests (PR #110 by @app/roomote)
 - Add DeepSeek V4 end-to-end coverage (PR #72 by @app/roomote)
@@ -321,7 +321,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- Publish Zoo Code under the `ZooCodeOrganization.zoo-code` Marketplace identity, continuing from upstream Roo Code `3.53.0`.
+- Publish Bolt Code under the `bolt-builder.bolt-code` Marketplace identity, continuing from upstream Roo Code `3.53.0`.
 - Add stable publishing workflows for the VS Code Marketplace and Open VSX Registry.
 - Add a VS Code Marketplace pre-release workflow.
 
@@ -329,7 +329,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 # Archived Roo Code Changelog
 
-The entries below are preserved from the upstream Roo Code project history before the Zoo Code marketplace handoff.
+The entries below are preserved from the upstream Roo Code project history before the Bolt Code marketplace handoff.
 
 ## 3.53.0
 

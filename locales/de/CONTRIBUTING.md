@@ -11,9 +11,9 @@
 </sub>
 </div>
 
-# Beitrag zu Zoo Code
+# Beitrag zu Bolt Code
 
-Zoo Code ist ein von der Community getragenes Projekt, und wir schätzen jeden Beitrag sehr. Um die Zusammenarbeit zu optimieren, arbeiten wir nach dem [Issue-First-Ansatz](#issue-first-ansatz), was bedeutet, dass alle [Pull Requests (PRs)](#einen-pull-request-einreichen) zuerst mit einem GitHub-Issue verknüpft sein müssen. Bitte lies diesen Leitfaden sorgfältig durch.
+Bolt Code ist ein von der Community getragenes Projekt, und wir schätzen jeden Beitrag sehr. Um die Zusammenarbeit zu optimieren, arbeiten wir nach dem [Issue-First-Ansatz](#issue-first-ansatz), was bedeutet, dass alle [Pull Requests (PRs)](#einen-pull-request-einreichen) zuerst mit einem GitHub-Issue verknüpft sein müssen. Bitte lies diesen Leitfaden sorgfältig durch.
 
 ## Inhaltsverzeichnis
 
@@ -54,7 +54,7 @@ Unsere Roadmap gibt die Richtung des Projekts vor. Richte deine Beiträge an die
 
 Erwähne die Ausrichtung auf diese Bereiche in deinen PRs.
 
-### 3. Tritt der Zoo Code Community bei
+### 3. Tritt der Bolt Code Community bei
 
 - **Discord:** Tritt unserem [Discord](https://discord.gg/VxfP4Vx3gX) bei.
 - **Reddit:** Tritt unserem [Reddit](https://www.reddit.com/r/ZooCode/) bei.
@@ -71,7 +71,7 @@ Erwähne die Ausrichtung auf diese Bereiche in deinen PRs.
 
 Alle Beiträge beginnen mit einem GitHub-Issue unter Verwendung unserer schlanken Vorlagen.
 
-- **Überprüfe bestehende Issues**: Suche in den [GitHub Issues](https://github.com/Zoo-Code-Org/Zoo-Code/issues).
+- **Überprüfe bestehende Issues**: Suche in den [GitHub Issues](https://github.com/bolt-builder/Bolt-Code/issues).
 - **Erstelle ein Issue** mit:
     - **Verbesserungen:** Vorlage „Verbesserungsvorschlag“ (einfache Sprache mit Fokus auf den Nutzen für den Benutzer).
     - **Fehler:** Vorlage „Fehlerbericht“ (minimale Reproduktion + erwartet vs. tatsächlich + Version).
@@ -80,17 +80,17 @@ Alle Beiträge beginnen mit einem GitHub-Issue unter Verwendung unserer schlanke
 
 ### Entscheiden, woran du arbeiten möchtest
 
-- Prüfe die [GitHub-Issues-Seite](https://github.com/Zoo-Code-Org/Zoo-Code/issues) auf Issues.
-- Für Dokumentation besuche [Zoo Code Docs](https://github.com/Zoo-Code-Org/Zoo-Code-Docs).
+- Prüfe die [GitHub-Issues-Seite](https://github.com/bolt-builder/Bolt-Code/issues) auf Issues.
+- Für Dokumentation besuche [Bolt Code Docs](https://github.com/bolt-builder/Bolt-Code-Docs).
 
 ### Fehler melden
 
 - Überprüfe zuerst, ob bereits Berichte vorhanden sind.
-- Erstelle einen neuen Fehler mit der [Vorlage „Fehlerbericht“](https://github.com/Zoo-Code-Org/Zoo-Code/issues/new/choose) mit:
+- Erstelle einen neuen Fehler mit der [Vorlage „Fehlerbericht“](https://github.com/bolt-builder/Bolt-Code/issues/new/choose) mit:
     - Klaren, nummerierten Reproduktionsschritten
     - Erwartetes vs. tatsächliches Ergebnis
-    - Zoo Code-Version (erforderlich); API-Anbieter/Modell, falls relevant
-- **Sicherheitsprobleme**: Melde sie privat über [Sicherheitshinweise](https://github.com/Zoo-Code-Org/Zoo-Code/security/advisories/new).
+    - Bolt Code-Version (erforderlich); API-Anbieter/Modell, falls relevant
+- **Sicherheitsprobleme**: Melde sie privat über [Sicherheitshinweise](https://github.com/bolt-builder/Bolt-Code/security/advisories/new).
 
 ## Entwicklungs- und Einreichungsprozess
 
@@ -99,7 +99,7 @@ Alle Beiträge beginnen mit einem GitHub-Issue unter Verwendung unserer schlanke
 1. **Fork & Klonen:**
 
 ```
-git clone https://github.com/YOUR_USERNAME/Zoo-Code.git
+git clone https://github.com/YOUR_USERNAME/Bolt-Code.git
 ```
 
 2. **Abhängigkeiten installieren:**
@@ -166,4 +166,4 @@ Bitte reiche keine KI-generierten Änderungen ein, die du nicht verstehst oder d
 
 ## Rechtliches
 
-Indem du einen Beitrag leistest, stimmst du zu, dass deine Beiträge unter der Apache-2.0-Lizenz lizenziert werden, die mit der Lizenzierung von Zoo Code übereinstimmt.
+Indem du einen Beitrag leistest, stimmst du zu, dass deine Beiträge unter der Apache-2.0-Lizenz lizenziert werden, die mit der Lizenzierung von Bolt Code übereinstimmt.

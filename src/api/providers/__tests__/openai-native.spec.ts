@@ -122,7 +122,7 @@ describe("OpenAiNativeHandler", () => {
 			)
 		})
 
-		it("should identify itself as Zoo Code in request headers", () => {
+		it("should identify itself as Bolt Code in request headers", () => {
 			;(OpenAI as unknown as ReturnType<typeof vitest.fn>).mockClear()
 			new OpenAiNativeHandler({
 				apiModelId: "gpt-4.1",
@@ -132,8 +132,8 @@ describe("OpenAiNativeHandler", () => {
 			expect(OpenAI).toHaveBeenCalledWith(
 				expect.objectContaining({
 					defaultHeaders: expect.objectContaining({
-						originator: "zoo-code",
-						"User-Agent": expect.stringContaining(`zoo-code/${Package.version}`),
+						originator: "bolt-code",
+						"User-Agent": expect.stringContaining(`bolt-code/${Package.version}`),
 					}),
 				}),
 			)
