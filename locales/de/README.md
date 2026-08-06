@@ -1,7 +1,6 @@
 <p align="center">
           <a href="https://marketplace.visualstudio.com/items?itemName=bolt-builder.bolt-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
           <a href="https://x.com/ZooCodeDev"><img src="https://img.shields.io/badge/ZooCode-000000?style=flat&logo=x&logoColor=white" alt="X"></a>
-          <a href="https://youtube.com/@roocodeyt?feature=shared"><img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube"></a>
           <a href="https://discord.gg/VxfP4Vx3gX"><img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Join Discord"></a>
           <a href="https://www.reddit.com/r/ZooCode/"><img src="https://img.shields.io/badge/Join%20r%2FZooCode-FF4500?style=flat&logo=reddit&logoColor=white" alt="Join r/ZooCode"></a>
           <a href="https://github.com/bolt-builder/Bolt-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
@@ -36,13 +35,19 @@
 
 Eine kurze Anleitung für den Wechsel von Roo Code zu Bolt Code findest du im [Roo→Bolt-Migrationsleitfaden](https://docs.zoocode.dev/roo-to-zoo-migration). Wir wollen Nutzer beim Umstieg so gut wie möglich unterstützen, und genau dafür sind unser [Reddit](https://www.reddit.com/r/ZooCode) und [Discord](https://discord.gg/VxfP4Vx3gX) da. Wenn du Probleme hast oder Fragen auftauchen, komm vorbei und frag nach.
 
-## Neu in v3.74.0
+## Was Zoo Code seit Roo Code hinzugefügt hat
 
 **Bolt Gateway ist live!**
 
-Das Gateway ist ein einziger Endpunkt für alle Anbieter – mit einem Guthaben und einer Aufschlüsselung der Ausgaben/Nutzung pro Anfrage.
+- **Semble-Codebasisintelligenz** — schnelle semantische Codesuche bei Bedarf, mit automatischer Einrichtung und ohne separaten Indizierungsablauf.
+- **Stärkere Orchestrator-Workflows** — sicherere Delegation, parallele Aufgabenkoordination, zuverlässige Wiederherstellung von über- und untergeordneten Aufgaben sowie bessere Isolierung zwischen Unteraufgaben und Anbieterprofilen.
+- **Längere autonome Läufe mit Destructive Command Guard (DCG)** — gefährliche Befehle werden automatisch blockiert, während vertrauenswürdige Arbeit ohne wiederholte Genehmigungsaufforderungen weiterläuft.
+- **Die neuesten Modelle** — fortlaufende Unterstützung für neue Modellfamilien von Claude, GPT, Gemini, Kimi, GLM, Grok, MiniMax und weiteren.
+- **Mehr Verbindungsmöglichkeiten** — neue und erweiterte Anbieter, darunter Zoo Gateway, Moonshot, Kimi Code, Kenari, Friendli, OpenCode Go und viele mehr.
+- **Zuverlässigere Terminal- und Bearbeitungsabläufe** — Korrekturen für vorzeitige Terminalabschlüsse, Race Conditions beim Aufgabenstatus, Kontextverwaltung, diff-Bearbeitung und anbieterspezifische Tool-Nutzung.
+- **Mehr Kontrolle über deinen Workspace** — Regelverwaltung, MCP-Beschränkungen pro Modus, Pfadsteuerung für Multi-Root-Workspaces, Reasoning-Optionen für Modelle und Aktionen zur Prüfung von Änderungen nach Abschluss.
 
-**Einrichtung:**
+## Neu in v3.76.0
 
 - Guthaben hinzufügen: https://www.zoocode.dev/dashboard/credits
 - Melde dich in der Erweiterung an.
