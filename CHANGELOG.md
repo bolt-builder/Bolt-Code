@@ -2,13 +2,19 @@
 
 ## [Unreleased]
 
-- Fork of Zoo Code rebranded as Bolt Code: marketplace identity `bolt-builder.bolt-code`, updated user-facing strings, icons, and provenance (Roo Code to Zoo Code to Bolt Code, Apache-2.0).
-- Telemetry is now opt-in and off by default; dismissing the first-run banner records an explicit decline.
-- Release/CI hygiene for the fork: nightly pre-release is manual-only, Zoo-internal automation removed, and `PUBLISHING.md` documents the publisher setup.
-
 ## [3.76.0]
 
-### Minor Changes
+First Bolt Code release. Bolt Code is a fork of Zoo Code (itself derived from Roo Code, Apache-2.0), tracking upstream Zoo Code v3.76.0.
+
+### Bolt Code Changes
+
+- Fork of Zoo Code rebranded as Bolt Code: marketplace identity `bolt-builder.bolt-code`, updated user-facing strings, icons, and provenance (Roo Code to Zoo Code to Bolt Code, Apache-2.0).
+- Telemetry is now opt-in and off by default; dismissing the first-run banner records an explicit decline.
+- New built-in slash commands: `/review`, `/commit`, `/test`, `/fix`, and `/docs`, alongside the existing `/init`.
+- Support `.boltignore` and `.boltrules` configuration files, with fallback to the legacy `.rooignore` and `.roorules` names.
+- Release/CI hygiene for the fork: nightly pre-release is manual-only, Zoo-internal automation removed, and `PUBLISHING.md` documents the publisher setup.
+
+### Minor Changes (upstream Zoo Code)
 
 - Add Destructive Command Guard as an opt-in safety layer that blocks dangerous terminal commands while allowing longer tasks to continue without repeated approvals (#1057 by @navedmerchant, PR #1061 by @navedmerchant)
 - Streamline Destructive Command Guard approval handling so safe commands can continue with fewer interruptions (#1058 by @navedmerchant, PR #1062 by @navedmerchant)
