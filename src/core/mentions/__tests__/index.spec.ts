@@ -5,11 +5,29 @@ import * as vscode from "vscode"
 import { parseMentions } from "../index"
 
 // Mock vscode
-vi.mock("vscode", () => ({
-	window: {
-		showErrorMessage: vi.fn(),
-	},
-}))
+vi.mock("vscode", () => {
+	class TabInputText {
+		constructor(public uri: { fsPath: string }) {}
+	}
+
+	return {
+		window: {
+			showErrorMessage: vi.fn(),
+			activeTextEditor: undefined,
+			tabGroups: { all: [] },
+		},
+		TabInputText,
+		Uri: {
+			file: vi.fn((fsPath: string) => ({ fsPath, path: fsPath, scheme: "file" })),
+		},
+		env: {
+			clipboard: { readText: vi.fn(), writeText: vi.fn() },
+		},
+		commands: {
+			executeCommand: vi.fn(),
+		},
+	}
+})
 
 // Mock i18n
 vi.mock("../../../i18n", () => ({
@@ -64,5 +82,67 @@ describe("parseMentions - @selection", () => {
 		const result = await parseMentions("Explain @selection", "/test")
 
 		expect(result.text).toContain("No active editor selection found.")
+	})
+})
+
+describe("parseMentions - @tab and @tabs", () => {
+	beforeEach(() => {
+		vi.clearAllMocks()
+		Object.assign(vscode.window, { activeTextEditor: undefined })
+		Object.assign(vscode.window.tabGroups, { all: [] })
+	})
+
+	it("should include the active tab as a file content block", async () => {
+		const os = await import("os")
+		const fs = await import("fs/promises")
+		const path = await import("path")
+		const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "bolt-mentions-"))
+		const filePath = path.join(tmpDir, "active.ts")
+		await fs.writeFile(filePath, "const active = true\n")
+
+		Object.assign(vscode.window, {
+			activeTextEditor: { document: { isUntitled: false, uri: { fsPath: filePath } } },
+		})
+
+		const result = await parseMentions("Look at @tab", tmpDir)
+
+		expect(result.text).toContain("Active editor tab (see below for content)")
+		expect(result.contentBlocks).toHaveLength(1)
+		expect(result.contentBlocks[0].type).toBe("file")
+		expect(result.contentBlocks[0].path).toBe("active.ts")
+		expect(result.contentBlocks[0].content).toContain("const active = true")
+
+		await fs.rm(tmpDir, { recursive: true, force: true })
+	})
+
+	it("should report when there is no active tab", async () => {
+		const result = await parseMentions("Look at @tab", "/test")
+
+		expect(result.text).toContain("No active editor tab found.")
+	})
+
+	it("should list open tabs", async () => {
+		Object.assign(vscode.window.tabGroups, {
+			all: [
+				{
+					tabs: [
+						{ input: new vscode.TabInputText(vscode.Uri.file("/test/src/a.ts")) },
+						{ input: new vscode.TabInputText(vscode.Uri.file("/test/src/b.ts")) },
+						{ input: {} }, // Non-text tab is skipped
+					],
+				},
+			],
+		})
+
+		const result = await parseMentions("Review @tabs", "/test")
+
+		expect(result.text).toContain("Open editor tabs (see below for list)")
+		expect(result.text).toContain("<open_tabs>\nsrc/a.ts\nsrc/b.ts\n</open_tabs>")
+	})
+
+	it("should report when no tabs are open", async () => {
+		const result = await parseMentions("Review @tabs", "/test")
+
+		expect(result.text).toContain("No open editor tabs found.")
 	})
 })

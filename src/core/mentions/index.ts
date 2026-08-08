@@ -179,6 +179,10 @@ export async function parseMentions(
 			return `Terminal Output (see below for output)`
 		} else if (mention === "selection") {
 			return `Editor selection (see below for content)`
+		} else if (mention === "tab") {
+			return `Active editor tab (see below for content)`
+		} else if (mention === "tabs") {
+			return `Open editor tabs (see below for list)`
 		}
 		return match
 	})
@@ -241,6 +245,43 @@ export async function parseMentions(
 				}
 			} catch (error) {
 				parsedText += `\n\n<editor_selection>\nError fetching editor selection: ${error.message}\n</editor_selection>`
+			}
+		} else if (mention === "tab") {
+			const activeEditor = vscode.window.activeTextEditor
+			if (!activeEditor || activeEditor.document.isUntitled) {
+				parsedText += `\n\n<active_tab>\nNo active editor tab found.\n</active_tab>`
+			} else {
+				const relPath = path.relative(cwd, activeEditor.document.uri.fsPath).toPosix()
+				try {
+					const fileResult = await getFileOrFolderContentWithMetadata(
+						relPath,
+						cwd,
+						rooIgnoreController,
+						showRooIgnoredFiles,
+						fileContextTracker,
+					)
+					contentBlocks.push(fileResult)
+				} catch (error) {
+					const errorMsg = error instanceof Error ? error.message : String(error)
+					contentBlocks.push({
+						type: "file",
+						path: relPath,
+						content: `[read_file for '${relPath}']\nError: ${errorMsg}`,
+					})
+				}
+			}
+		} else if (mention === "tabs") {
+			try {
+				const tabPaths = vscode.window.tabGroups.all
+					.flatMap((group) => group.tabs)
+					.filter((tab) => tab.input instanceof vscode.TabInputText)
+					.map((tab) => (tab.input as vscode.TabInputText).uri.fsPath)
+					.filter(Boolean)
+					.map((absolutePath) => path.relative(cwd, absolutePath).toPosix())
+				const listing = tabPaths.length > 0 ? tabPaths.join("\n") : "No open editor tabs found."
+				parsedText += `\n\n<open_tabs>\n${listing}\n</open_tabs>`
+			} catch (error) {
+				parsedText += `\n\n<open_tabs>\nError fetching open tabs: ${error.message}\n</open_tabs>`
 			}
 		}
 	}

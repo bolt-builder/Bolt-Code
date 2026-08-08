@@ -25,6 +25,10 @@ describe("mentionRegex and mentionRegexGlobal", () => {
 		{ input: "@selection", expected: ["@selection"] },
 		{ input: "Look at @selection please", expected: ["@selection"] },
 		{ input: "word@selection", expected: null }, // @ mid-word before "selection"
+		{ input: "@tab", expected: ["@tab"] },
+		{ input: "@tabs", expected: ["@tabs"] },
+		{ input: "Compare @tab with @tabs.", expected: ["@tab", "@tabs"] },
+		{ input: "word@tab", expected: null }, // @ mid-word before "tab"
 		{ input: "@a1b2c3d", expected: ["@a1b2c3d"] }, // Git commit hash (short)
 		{ input: "@a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0", expected: ["@a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0"] }, // Git commit hash (long)
 
