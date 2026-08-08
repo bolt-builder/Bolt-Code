@@ -183,6 +183,8 @@ export async function parseMentions(
 			return `Active editor tab (see below for content)`
 		} else if (mention === "tabs") {
 			return `Open editor tabs (see below for list)`
+		} else if (mention === "clipboard") {
+			return `Clipboard contents (see below for content)`
 		}
 		return match
 	})
@@ -282,6 +284,13 @@ export async function parseMentions(
 				parsedText += `\n\n<open_tabs>\n${listing}\n</open_tabs>`
 			} catch (error) {
 				parsedText += `\n\n<open_tabs>\nError fetching open tabs: ${error.message}\n</open_tabs>`
+			}
+		} else if (mention === "clipboard") {
+			try {
+				const clipboardText = (await vscode.env.clipboard.readText()).trim()
+				parsedText += `\n\n<clipboard>\n${clipboardText || "Clipboard is empty."}\n</clipboard>`
+			} catch (error) {
+				parsedText += `\n\n<clipboard>\nError fetching clipboard contents: ${error.message}\n</clipboard>`
 			}
 		}
 	}

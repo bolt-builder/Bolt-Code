@@ -146,3 +146,34 @@ describe("parseMentions - @tab and @tabs", () => {
 		expect(result.text).toContain("No open editor tabs found.")
 	})
 })
+
+describe("parseMentions - @clipboard", () => {
+	beforeEach(() => {
+		vi.clearAllMocks()
+	})
+
+	it("should append clipboard contents", async () => {
+		vi.mocked(vscode.env.clipboard.readText).mockResolvedValue("copied snippet")
+
+		const result = await parseMentions("Use @clipboard", "/test")
+
+		expect(result.text).toContain("Clipboard contents (see below for content)")
+		expect(result.text).toContain("<clipboard>\ncopied snippet\n</clipboard>")
+	})
+
+	it("should report when the clipboard is empty", async () => {
+		vi.mocked(vscode.env.clipboard.readText).mockResolvedValue("   ")
+
+		const result = await parseMentions("Use @clipboard", "/test")
+
+		expect(result.text).toContain("Clipboard is empty.")
+	})
+
+	it("should report clipboard read errors", async () => {
+		vi.mocked(vscode.env.clipboard.readText).mockRejectedValue(new Error("denied"))
+
+		const result = await parseMentions("Use @clipboard", "/test")
+
+		expect(result.text).toContain("Error fetching clipboard contents: denied")
+	})
+})
