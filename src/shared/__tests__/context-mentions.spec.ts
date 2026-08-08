@@ -52,6 +52,9 @@ describe("mentionRegex and mentionRegexGlobal", () => {
 		{ input: "@diff:HEAD~3", expected: ["@diff:HEAD~3"] },
 		{ input: "Compare @diff:main..feature/foo, then merge", expected: ["@diff:main..feature/foo"] },
 		{ input: "word@diff:main", expected: null }, // @ mid-word before "diff:"
+		{ input: "@symbol:ClineProvider", expected: ["@symbol:ClineProvider"] },
+		{ input: "Where is @symbol:parseMentions?", expected: ["@symbol:parseMentions"] },
+		{ input: "word@symbol:foo", expected: null }, // @ mid-word before "symbol:"
 		{ input: "@a1b2c3d", expected: ["@a1b2c3d"] }, // Git commit hash (short)
 		{ input: "@a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0", expected: ["@a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0"] }, // Git commit hash (long)
 

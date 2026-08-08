@@ -210,6 +210,8 @@ export async function parseMentions(
 			return `Task '${mention.slice("task:".length)}' (see below for task details)`
 		} else if (mention.startsWith("diff:")) {
 			return `Git diff against '${mention.slice("diff:".length)}' (see below for diff)`
+		} else if (mention.startsWith("symbol:")) {
+			return `Workspace symbols for '${unescapeSpaces(mention.slice("symbol:".length))}' (see below for symbols)`
 		}
 		return match
 	})
@@ -381,6 +383,30 @@ export async function parseMentions(
 				parsedText += `\n\n<git_diff ref="${ref}">\n${refDiff}\n</git_diff>`
 			} catch (error) {
 				parsedText += `\n\n<git_diff ref="${ref}">\nError fetching diff: ${error.message}\n</git_diff>`
+			}
+		} else if (mention.startsWith("symbol:")) {
+			const symbolName = unescapeSpaces(mention.slice("symbol:".length))
+			try {
+				const symbols = await vscode.commands.executeCommand<vscode.SymbolInformation[] | undefined>(
+					"vscode.executeWorkspaceSymbolProvider",
+					symbolName,
+				)
+				if (!symbols || symbols.length === 0) {
+					parsedText += `\n\n<workspace_symbols query="${symbolName}">\nNo symbols found.\n</workspace_symbols>`
+				} else {
+					const listing = symbols
+						.slice(0, 50)
+						.map((symbol) => {
+							const relPath = path.relative(cwd, symbol.location.uri.fsPath).toPosix()
+							const line = symbol.location.range.start.line + 1
+							const container = symbol.containerName ? ` in ${symbol.containerName}` : ""
+							return `${symbol.name} (${vscode.SymbolKind[symbol.kind]})${container} - ${relPath}:${line}`
+						})
+						.join("\n")
+					parsedText += `\n\n<workspace_symbols query="${symbolName}">\n${listing}\n</workspace_symbols>`
+				}
+			} catch (error) {
+				parsedText += `\n\n<workspace_symbols query="${symbolName}">\nError fetching symbols: ${error.message}\n</workspace_symbols>`
 			}
 		}
 	}

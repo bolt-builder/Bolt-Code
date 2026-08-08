@@ -26,6 +26,12 @@ vi.mock("vscode", () => {
 		commands: {
 			executeCommand: vi.fn(),
 		},
+		SymbolKind: {
+			4: "Class",
+			11: "Function",
+			Class: 4,
+			Function: 11,
+		},
 	}
 })
 
@@ -402,5 +408,51 @@ describe("parseMentions - @diff:", () => {
 		const result = await parseMentions("Review @diff:main", "/test")
 
 		expect(result.text).toContain("Error fetching diff: bad ref")
+	})
+})
+
+describe("parseMentions - @symbol:", () => {
+	beforeEach(() => {
+		vi.clearAllMocks()
+	})
+
+	it("should list workspace symbols", async () => {
+		vi.mocked(vscode.commands.executeCommand).mockResolvedValue([
+			{
+				name: "login",
+				kind: 11,
+				containerName: "AuthService",
+				location: { uri: { fsPath: "/test/src/auth.ts" }, range: { start: { line: 9 } } },
+			},
+			{
+				name: "LoginView",
+				kind: 4,
+				containerName: "",
+				location: { uri: { fsPath: "/test/src/view.ts" }, range: { start: { line: 0 } } },
+			},
+		])
+
+		const result = await parseMentions("Find @symbol:login", "/test")
+
+		expect(vscode.commands.executeCommand).toHaveBeenCalledWith("vscode.executeWorkspaceSymbolProvider", "login")
+		expect(result.text).toContain("Workspace symbols for 'login' (see below for symbols)")
+		expect(result.text).toContain("login (Function) in AuthService - src/auth.ts:10")
+		expect(result.text).toContain("LoginView (Class) - src/view.ts:1")
+	})
+
+	it("should report when no symbols are found", async () => {
+		vi.mocked(vscode.commands.executeCommand).mockResolvedValue([])
+
+		const result = await parseMentions("Find @symbol:missing", "/test")
+
+		expect(result.text).toContain("No symbols found.")
+	})
+
+	it("should report symbol provider errors", async () => {
+		vi.mocked(vscode.commands.executeCommand).mockRejectedValue(new Error("no provider"))
+
+		const result = await parseMentions("Find @symbol:login", "/test")
+
+		expect(result.text).toContain("Error fetching symbols: no provider")
 	})
 })
