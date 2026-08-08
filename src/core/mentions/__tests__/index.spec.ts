@@ -41,6 +41,11 @@ vi.mock("../../../integrations/editor/EditorUtils", () => ({
 	},
 }))
 
+// Mock ripgrep service
+vi.mock("../../../services/ripgrep", () => ({
+	regexSearchFiles: vi.fn(),
+}))
+
 describe("parseMentions - URL mention handling", () => {
 	beforeEach(() => {
 		vi.clearAllMocks()
@@ -175,5 +180,40 @@ describe("parseMentions - @clipboard", () => {
 		const result = await parseMentions("Use @clipboard", "/test")
 
 		expect(result.text).toContain("Error fetching clipboard contents: denied")
+	})
+})
+
+describe("parseMentions - @search:", () => {
+	beforeEach(() => {
+		vi.clearAllMocks()
+	})
+
+	it("should append ripgrep search results", async () => {
+		const { regexSearchFiles } = await import("../../../services/ripgrep")
+		vi.mocked(regexSearchFiles).mockResolvedValue("# src/foo.ts\n  1 | const foo = 1")
+
+		const result = await parseMentions("Find @search:foo", "/test")
+
+		expect(regexSearchFiles).toHaveBeenCalledWith("/test", "/test", "foo", undefined, undefined)
+		expect(result.text).toContain("Workspace search for 'foo' (see below for results)")
+		expect(result.text).toContain('<search_results query="foo">\n# src/foo.ts')
+	})
+
+	it("should unescape spaces in the search query", async () => {
+		const { regexSearchFiles } = await import("../../../services/ripgrep")
+		vi.mocked(regexSearchFiles).mockResolvedValue("No results found")
+
+		await parseMentions("Find @search:foo\\ bar", "/test")
+
+		expect(regexSearchFiles).toHaveBeenCalledWith("/test", "/test", "foo bar", undefined, undefined)
+	})
+
+	it("should report search errors", async () => {
+		const { regexSearchFiles } = await import("../../../services/ripgrep")
+		vi.mocked(regexSearchFiles).mockRejectedValue(new Error("rg missing"))
+
+		const result = await parseMentions("Find @search:foo", "/test")
+
+		expect(result.text).toContain("Error searching workspace: rg missing")
 	})
 })

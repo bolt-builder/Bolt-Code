@@ -18,6 +18,7 @@ import { EditorUtils } from "../../integrations/editor/EditorUtils"
 
 import { RooIgnoreController } from "../ignore/RooIgnoreController"
 import { getCommand, type Command } from "../../services/command/commands"
+import { regexSearchFiles } from "../../services/ripgrep"
 import { buildSkillResult, resolveSkillContentForMode, type SkillLookup } from "../../services/skills/skillInvocation"
 import type { SkillContent } from "../../shared/skills"
 
@@ -185,6 +186,8 @@ export async function parseMentions(
 			return `Open editor tabs (see below for list)`
 		} else if (mention === "clipboard") {
 			return `Clipboard contents (see below for content)`
+		} else if (mention.startsWith("search:")) {
+			return `Workspace search for '${unescapeSpaces(mention.slice("search:".length))}' (see below for results)`
 		}
 		return match
 	})
@@ -291,6 +294,14 @@ export async function parseMentions(
 				parsedText += `\n\n<clipboard>\n${clipboardText || "Clipboard is empty."}\n</clipboard>`
 			} catch (error) {
 				parsedText += `\n\n<clipboard>\nError fetching clipboard contents: ${error.message}\n</clipboard>`
+			}
+		} else if (mention.startsWith("search:")) {
+			const query = unescapeSpaces(mention.slice("search:".length))
+			try {
+				const results = await regexSearchFiles(cwd, cwd, query, undefined, rooIgnoreController)
+				parsedText += `\n\n<search_results query="${query}">\n${results}\n</search_results>`
+			} catch (error) {
+				parsedText += `\n\n<search_results query="${query}">\nError searching workspace: ${error.message}\n</search_results>`
 			}
 		}
 	}
