@@ -17,6 +17,22 @@ import { vscode } from "@src/utils/vscode"
 
 import { buildDocLink } from "@/utils/docLinks"
 
+const mentionHandleIcons: Record<string, string> = {
+	selection: "selection",
+	tab: "window",
+	tabs: "files",
+	clipboard: "clippy",
+	recent: "history",
+	tree: "list-tree",
+	commits: "git-commit",
+	"search:": "search",
+	"codebase:": "telescope",
+	"skill:": "book",
+	"task:": "checklist",
+	"diff:": "diff",
+	"symbol:": "symbol-method",
+}
+
 interface ContextMenuProps {
 	onSelect: (type: ContextMenuOptionType, value?: string) => void
 	searchQuery: string
@@ -146,6 +162,26 @@ const ContextMenu: React.FC<ContextMenuProps> = ({
 				return <span>{t("chat:contextMenu.url")}</span>
 			case ContextMenuOptionType.NoResults:
 				return <span>{t("chat:contextMenu.noResults")}</span>
+			case ContextMenuOptionType.Keyword:
+			case ContextMenuOptionType.Prefix:
+				return (
+					<div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+						<span style={{ lineHeight: "1.2" }}>{option.label}</span>
+						{option.description && (
+							<span
+								style={{
+									fontSize: "0.85em",
+									opacity: 0.7,
+									whiteSpace: "nowrap",
+									overflow: "hidden",
+									textOverflow: "ellipsis",
+									lineHeight: "1.2",
+								}}>
+								{option.description}
+							</span>
+						)}
+					</div>
+				)
 			case ContextMenuOptionType.Git:
 				if (option.value) {
 					return (
@@ -230,6 +266,9 @@ const ContextMenu: React.FC<ContextMenuProps> = ({
 				return "link"
 			case ContextMenuOptionType.Git:
 				return "git-commit"
+			case ContextMenuOptionType.Keyword:
+			case ContextMenuOptionType.Prefix:
+				return mentionHandleIcons[option.value ?? ""] ?? "mention"
 			case ContextMenuOptionType.NoResults:
 				return "info"
 			default:
@@ -250,7 +289,8 @@ const ContextMenu: React.FC<ContextMenuProps> = ({
 		return (
 			option.type !== ContextMenuOptionType.NoResults &&
 			option.type !== ContextMenuOptionType.URL &&
-			option.type !== ContextMenuOptionType.SectionHeader
+			option.type !== ContextMenuOptionType.SectionHeader &&
+			option.type !== ContextMenuOptionType.Prefix
 		)
 	}
 

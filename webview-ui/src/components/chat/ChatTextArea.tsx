@@ -377,6 +377,8 @@ export const ChatTextArea = forwardRef<HTMLTextAreaElement, ChatTextAreaProps>(
 						insertValue = "terminal"
 					} else if (type === ContextMenuOptionType.Git) {
 						insertValue = value || ""
+					} else if (type === ContextMenuOptionType.Keyword) {
+						insertValue = value || ""
 					} else if (type === ContextMenuOptionType.Command) {
 						insertValue = value ? `/${value}` : ""
 					}
@@ -439,7 +441,8 @@ export const ChatTextArea = forwardRef<HTMLTextAreaElement, ChatTextAreaProps>(
 								(option) =>
 									option.type !== ContextMenuOptionType.URL &&
 									option.type !== ContextMenuOptionType.NoResults &&
-									option.type !== ContextMenuOptionType.SectionHeader,
+									option.type !== ContextMenuOptionType.SectionHeader &&
+									option.type !== ContextMenuOptionType.Prefix,
 							)
 
 							if (selectableOptions.length === 0) return -1 // No selectable options
@@ -472,7 +475,8 @@ export const ChatTextArea = forwardRef<HTMLTextAreaElement, ChatTextAreaProps>(
 							selectedOption &&
 							selectedOption.type !== ContextMenuOptionType.URL &&
 							selectedOption.type !== ContextMenuOptionType.NoResults &&
-							selectedOption.type !== ContextMenuOptionType.SectionHeader
+							selectedOption.type !== ContextMenuOptionType.SectionHeader &&
+							selectedOption.type !== ContextMenuOptionType.Prefix
 						) {
 							handleMentionSelect(selectedOption.type, selectedOption.value)
 						}

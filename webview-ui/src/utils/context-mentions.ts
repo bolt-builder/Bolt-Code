@@ -108,6 +108,8 @@ export enum ContextMenuOptionType {
 	Mode = "mode", // Add mode type
 	Command = "command", // Add command type
 	SectionHeader = "sectionHeader", // Add section header type
+	Keyword = "keyword", // Simple @keyword mentions (selection, tabs, clipboard, ...)
+	Prefix = "prefix", // Prefixed @prefix:query mentions (search:, codebase:, ...); shown as hints
 }
 
 export interface ContextMenuQueryItem {
@@ -120,6 +122,75 @@ export interface ContextMenuQueryItem {
 	secondaryText?: string
 	argumentHint?: string
 }
+
+export const keywordMentionOptions: ContextMenuQueryItem[] = [
+	{
+		type: ContextMenuOptionType.Keyword,
+		value: "selection",
+		label: "Selection",
+		description: "Active editor selection",
+	},
+	{
+		type: ContextMenuOptionType.Keyword,
+		value: "tab",
+		label: "Active Tab",
+		description: "Contents of the active editor tab",
+	},
+	{ type: ContextMenuOptionType.Keyword, value: "tabs", label: "Open Tabs", description: "List of open editor tabs" },
+	{ type: ContextMenuOptionType.Keyword, value: "clipboard", label: "Clipboard", description: "Clipboard contents" },
+	{
+		type: ContextMenuOptionType.Keyword,
+		value: "recent",
+		label: "Recent Files",
+		description: "Recently changed files",
+	},
+	{ type: ContextMenuOptionType.Keyword, value: "tree", label: "File Tree", description: "Workspace file tree" },
+	{
+		type: ContextMenuOptionType.Keyword,
+		value: "commits",
+		label: "Recent Commits",
+		description: "Recent commit log",
+	},
+]
+
+export const prefixMentionOptions: ContextMenuQueryItem[] = [
+	{
+		type: ContextMenuOptionType.Prefix,
+		value: "search:",
+		label: "@search:<regex>",
+		description: "Regex search the workspace",
+	},
+	{
+		type: ContextMenuOptionType.Prefix,
+		value: "codebase:",
+		label: "@codebase:<query>",
+		description: "Semantic codebase search",
+	},
+	{
+		type: ContextMenuOptionType.Prefix,
+		value: "skill:",
+		label: "@skill:<name>",
+		description: "Include skill instructions",
+	},
+	{
+		type: ContextMenuOptionType.Prefix,
+		value: "task:",
+		label: "@task:<id>",
+		description: "Include a past task's summary",
+	},
+	{
+		type: ContextMenuOptionType.Prefix,
+		value: "diff:",
+		label: "@diff:<ref>",
+		description: "Diff working tree against a git ref",
+	},
+	{
+		type: ContextMenuOptionType.Prefix,
+		value: "symbol:",
+		label: "@symbol:<name>",
+		description: "Find workspace symbols",
+	},
+]
 
 export function getContextMenuOptions(
 	query: string,
@@ -255,6 +326,8 @@ export function getContextMenuOptions(
 			{ type: ContextMenuOptionType.Folder },
 			{ type: ContextMenuOptionType.File },
 			{ type: ContextMenuOptionType.Git },
+			...keywordMentionOptions,
+			...prefixMentionOptions,
 		]
 	}
 
@@ -280,6 +353,17 @@ export function getContextMenuOptions(
 	}
 	if (query.startsWith("http")) {
 		suggestions.push({ type: ContextMenuOptionType.URL, value: query })
+	}
+	for (const option of keywordMentionOptions) {
+		if (option.value?.startsWith(lowerQuery)) {
+			suggestions.push(option)
+		}
+	}
+	for (const option of prefixMentionOptions) {
+		// Keep showing the hint while the user types out the prefixed query.
+		if (option.value && (option.value.startsWith(lowerQuery) || lowerQuery.startsWith(option.value))) {
+			suggestions.push(option)
+		}
 	}
 
 	// Add exact SHA matches to suggestions

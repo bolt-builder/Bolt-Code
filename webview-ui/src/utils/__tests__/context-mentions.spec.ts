@@ -6,6 +6,8 @@ import {
 	ContextMenuOptionType,
 	ContextMenuQueryItem,
 	SearchResult,
+	keywordMentionOptions,
+	prefixMentionOptions,
 } from "@src/utils/context-mentions"
 
 describe("insertMention", () => {
@@ -238,7 +240,7 @@ describe("getContextMenuOptions", () => {
 
 	it("should return all option types for empty query", () => {
 		const result = getContextMenuOptions("", null, [])
-		expect(result).toHaveLength(6)
+		expect(result).toHaveLength(6 + keywordMentionOptions.length + prefixMentionOptions.length)
 		expect(result.map((item) => item.type)).toEqual([
 			ContextMenuOptionType.Problems,
 			ContextMenuOptionType.Terminal,
@@ -246,7 +248,34 @@ describe("getContextMenuOptions", () => {
 			ContextMenuOptionType.Folder,
 			ContextMenuOptionType.File,
 			ContextMenuOptionType.Git,
+			...keywordMentionOptions.map((item) => item.type),
+			...prefixMentionOptions.map((item) => item.type),
 		])
+	})
+
+	it("should suggest keyword mentions matching the query", () => {
+		const result = getContextMenuOptions("tab", null, [])
+		const values = result.map((item) => item.value)
+		expect(values).toContain("tab")
+		expect(values).toContain("tabs")
+		expect(result.find((item) => item.value === "tab")?.type).toBe(ContextMenuOptionType.Keyword)
+	})
+
+	it("should suggest selection keyword for partial query", () => {
+		const result = getContextMenuOptions("sel", null, [])
+		expect(result[0].type).toBe(ContextMenuOptionType.Keyword)
+		expect(result[0].value).toBe("selection")
+	})
+
+	it("should show prefix hints while typing a prefixed mention", () => {
+		const partial = getContextMenuOptions("sea", null, [])
+		expect(partial.some((item) => item.type === ContextMenuOptionType.Prefix && item.value === "search:")).toBe(
+			true,
+		)
+
+		// The hint stays visible while the query is being typed out.
+		const typing = getContextMenuOptions("search:foo", null, [])
+		expect(typing.some((item) => item.type === ContextMenuOptionType.Prefix && item.value === "search:")).toBe(true)
 	})
 
 	it("should filter by selected type when query is empty", () => {
