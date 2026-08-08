@@ -52,6 +52,11 @@ vi.mock("../../../services/ripgrep", () => ({
 	regexSearchFiles: vi.fn(),
 }))
 
+// Mock file listing
+vi.mock("../../../services/glob/list-files", () => ({
+	listFiles: vi.fn(),
+}))
+
 // Mock git utils
 vi.mock("../../../utils/git", () => ({
 	getCommitInfo: vi.fn(),
@@ -481,5 +486,42 @@ describe("parseMentions - @recent", () => {
 		const result = await parseMentions("What changed? @recent", "/test")
 
 		expect(result.text).toContain("Error fetching recent files: git broke")
+	})
+})
+
+describe("parseMentions - @tree", () => {
+	beforeEach(() => {
+		vi.clearAllMocks()
+	})
+
+	it("should append the workspace file tree", async () => {
+		const { listFiles } = await import("../../../services/glob/list-files")
+		vi.mocked(listFiles).mockResolvedValue([["/test/src/", "/test/src/index.ts", "/test/README.md"], false])
+
+		const result = await parseMentions("Explain @tree", "/test")
+
+		expect(listFiles).toHaveBeenCalledWith("/test", true, 200)
+		expect(result.text).toContain("Workspace file tree (see below for listing)")
+		expect(result.text).toContain("<workspace_tree>")
+		expect(result.text).toContain("src/index.ts")
+		expect(result.text).toContain("README.md")
+	})
+
+	it("should note when the listing hit the limit", async () => {
+		const { listFiles } = await import("../../../services/glob/list-files")
+		vi.mocked(listFiles).mockResolvedValue([["/test/a.ts"], true])
+
+		const result = await parseMentions("Explain @tree", "/test")
+
+		expect(result.text).toContain("File list truncated.")
+	})
+
+	it("should report tree listing errors", async () => {
+		const { listFiles } = await import("../../../services/glob/list-files")
+		vi.mocked(listFiles).mockRejectedValue(new Error("fs error"))
+
+		const result = await parseMentions("Explain @tree", "/test")
+
+		expect(result.text).toContain("Error fetching workspace tree: fs error")
 	})
 })

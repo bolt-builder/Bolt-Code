@@ -19,6 +19,8 @@ import { EditorUtils } from "../../integrations/editor/EditorUtils"
 import { RooIgnoreController } from "../ignore/RooIgnoreController"
 import { getCommand, type Command } from "../../services/command/commands"
 import { regexSearchFiles } from "../../services/ripgrep"
+import { listFiles } from "../../services/glob/list-files"
+import { formatResponse } from "../prompts/responses"
 import { buildSkillResult, resolveSkillContentForMode, type SkillLookup } from "../../services/skills/skillInvocation"
 import type { SkillContent } from "../../shared/skills"
 import type { VectorStoreSearchResult } from "../../services/code-index/interfaces"
@@ -214,6 +216,8 @@ export async function parseMentions(
 			return `Workspace symbols for '${unescapeSpaces(mention.slice("symbol:".length))}' (see below for symbols)`
 		} else if (mention === "recent") {
 			return `Recently changed files (see below for list)`
+		} else if (mention === "tree") {
+			return `Workspace file tree (see below for listing)`
 		}
 		return match
 	})
@@ -416,6 +420,20 @@ export async function parseMentions(
 				parsedText += `\n\n<recent_files>\n${recentFiles}\n</recent_files>`
 			} catch (error) {
 				parsedText += `\n\n<recent_files>\nError fetching recent files: ${error.message}\n</recent_files>`
+			}
+		} else if (mention === "tree") {
+			try {
+				const [files, didHitLimit] = await listFiles(cwd, true, 200)
+				const listing = formatResponse.formatFilesList(
+					cwd,
+					files,
+					didHitLimit,
+					rooIgnoreController,
+					showRooIgnoredFiles,
+				)
+				parsedText += `\n\n<workspace_tree>\n${listing}\n</workspace_tree>`
+			} catch (error) {
+				parsedText += `\n\n<workspace_tree>\nError fetching workspace tree: ${error.message}\n</workspace_tree>`
 			}
 		}
 	}
