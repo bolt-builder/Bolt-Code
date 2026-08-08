@@ -2,7 +2,12 @@ import fs from "fs/promises"
 import * as path from "path"
 import { Dirent } from "fs"
 import matter from "gray-matter"
-import { getGlobalRooDirectory, getProjectRooDirectoryForCwd } from "../roo-config"
+import {
+	getGlobalBoltDirectory,
+	getGlobalRooDirectory,
+	getProjectBoltDirectoryForCwd,
+	getProjectRooDirectoryForCwd,
+} from "../roo-config"
 import { getBuiltInCommands, getBuiltInCommand } from "./built-in-commands"
 
 /**
@@ -133,13 +138,17 @@ export async function getCommands(cwd: string): Promise<Command[]> {
 		commands.set(command.name, command)
 	}
 
-	// Scan global commands (override built-in)
-	const globalDir = path.join(getGlobalRooDirectory(), "commands")
-	await scanCommandDirectory(globalDir, "global", commands)
+	// Scan global commands. Bolt Code's native ~/.bolt/commands takes
+	// precedence over the legacy ~/.roo/commands: for the "global" source the
+	// first scan to set a name wins, so scan .bolt first.
+	await scanCommandDirectory(path.join(getGlobalBoltDirectory(), "commands"), "global", commands)
+	await scanCommandDirectory(path.join(getGlobalRooDirectory(), "commands"), "global", commands)
 
-	// Scan project commands (highest priority - override both global and built-in)
-	const projectDir = path.join(getProjectRooDirectoryForCwd(cwd), "commands")
-	await scanCommandDirectory(projectDir, "project", commands)
+	// Scan project commands (highest priority - override both global and
+	// built-in). For the "project" source the last scan wins, so scan the
+	// legacy .roo/commands before the native .bolt/commands.
+	await scanCommandDirectory(path.join(getProjectRooDirectoryForCwd(cwd), "commands"), "project", commands)
+	await scanCommandDirectory(path.join(getProjectBoltDirectoryForCwd(cwd), "commands"), "project", commands)
 
 	return Array.from(commands.values())
 }
@@ -149,20 +158,21 @@ export async function getCommands(cwd: string): Promise<Command[]> {
  * Priority order: project > global > built-in
  */
 export async function getCommand(cwd: string, name: string): Promise<Command | undefined> {
-	// Try to find the command directly without scanning all commands
-	const projectDir = path.join(getProjectRooDirectoryForCwd(cwd), "commands")
-	const globalDir = path.join(getGlobalRooDirectory(), "commands")
+	// Try to find the command directly without scanning all commands.
+	// Bolt Code's native .bolt directories take precedence over the legacy
+	// .roo directories at each level.
+	const searchDirs: Array<{ dir: string; source: "global" | "project" }> = [
+		{ dir: path.join(getProjectBoltDirectoryForCwd(cwd), "commands"), source: "project" },
+		{ dir: path.join(getProjectRooDirectoryForCwd(cwd), "commands"), source: "project" },
+		{ dir: path.join(getGlobalBoltDirectory(), "commands"), source: "global" },
+		{ dir: path.join(getGlobalRooDirectory(), "commands"), source: "global" },
+	]
 
-	// Check project directory first (highest priority)
-	const projectCommand = await tryLoadCommand(projectDir, name, "project")
-	if (projectCommand) {
-		return projectCommand
-	}
-
-	// Check global directory if not found in project
-	const globalCommand = await tryLoadCommand(globalDir, name, "global")
-	if (globalCommand) {
-		return globalCommand
+	for (const { dir, source } of searchDirs) {
+		const command = await tryLoadCommand(dir, name, source)
+		if (command) {
+			return command
+		}
 	}
 
 	// Check built-in commands if not found in project or global (lowest priority)

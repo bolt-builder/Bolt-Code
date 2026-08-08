@@ -29,6 +29,29 @@ export function getGlobalRooDirectory(): string {
 }
 
 /**
+ * Gets the global .bolt directory path (~/.bolt).
+ *
+ * This is Bolt Code's native global configuration directory. Readers that
+ * support it take it with higher precedence than the legacy ~/.roo directory,
+ * which remains supported for compatibility with upstream configurations.
+ */
+export function getGlobalBoltDirectory(): string {
+	const homeDir = os.homedir()
+	return path.join(homeDir, ".bolt")
+}
+
+/**
+ * Gets the project-local .bolt directory path for a given cwd.
+ *
+ * This is Bolt Code's native project configuration directory. Readers that
+ * support it take it with higher precedence than the legacy .roo directory,
+ * which remains supported for compatibility with upstream configurations.
+ */
+export function getProjectBoltDirectoryForCwd(cwd: string): string {
+	return path.join(cwd, ".bolt")
+}
+
+/**
  * Gets the global .agents directory path based on the current platform.
  * This is a shared directory for agent skills across different AI coding tools.
  *

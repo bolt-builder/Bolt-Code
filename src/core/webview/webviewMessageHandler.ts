@@ -3508,10 +3508,12 @@ export const webviewMessageHandler = async (
 					break
 				}
 
-				// Determine the commands directory based on source
+				// Determine the commands directory based on source. New commands
+				// are created in Bolt Code's native .bolt directories; legacy
+				// .roo/commands remains readable for existing configurations.
 				let commandsDir: string
 				if (source === "global") {
-					const globalConfigDir = path.join(os.homedir(), ".roo")
+					const globalConfigDir = path.join(os.homedir(), ".bolt")
 					commandsDir = path.join(globalConfigDir, "commands")
 				} else {
 					if (!vscode.workspace.workspaceFolders?.length) {
@@ -3524,7 +3526,7 @@ export const webviewMessageHandler = async (
 						vscode.window.showErrorMessage(t("common:errors.no_workspace_for_project_command"))
 						break
 					}
-					commandsDir = path.join(workspaceRoot, ".roo", "commands")
+					commandsDir = path.join(workspaceRoot, ".bolt", "commands")
 				}
 
 				// Ensure the commands directory exists
