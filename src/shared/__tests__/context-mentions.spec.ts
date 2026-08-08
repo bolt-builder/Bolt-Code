@@ -39,6 +39,9 @@ describe("mentionRegex and mentionRegexGlobal", () => {
 		{ input: "@codebase:user\\ authentication", expected: ["@codebase:user\\ authentication"] },
 		{ input: "Explain @codebase:retry logic", expected: ["@codebase:retry"] }, // Unescaped space ends the query
 		{ input: "word@codebase:foo", expected: null }, // @ mid-word before "codebase:"
+		{ input: "@skill:deploy-runbook", expected: ["@skill:deploy-runbook"] },
+		{ input: "Use @skill:pdf-tools, please", expected: ["@skill:pdf-tools"] },
+		{ input: "word@skill:foo", expected: null }, // @ mid-word before "skill:"
 		{ input: "@a1b2c3d", expected: ["@a1b2c3d"] }, // Git commit hash (short)
 		{ input: "@a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0", expected: ["@a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0"] }, // Git commit hash (long)
 

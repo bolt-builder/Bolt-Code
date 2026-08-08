@@ -275,3 +275,51 @@ describe("parseMentions - @codebase:", () => {
 		expect(result.text).toContain("Error searching codebase: index offline")
 	})
 })
+
+describe("parseMentions - @skill:", () => {
+	beforeEach(() => {
+		vi.clearAllMocks()
+	})
+
+	const parseWithSkills = (text: string, getSkillContent: ReturnType<typeof vi.fn>) =>
+		parseMentions(text, "/test", undefined, undefined, false, true, 50, { getSkillContent }, "code")
+
+	it("should append skill instructions", async () => {
+		const getSkillContent = vi.fn().mockResolvedValue({
+			name: "deploy-runbook",
+			description: "How to deploy",
+			path: "/skills/deploy-runbook/SKILL.md",
+			source: "project",
+			instructions: "1. Run the deploy script",
+		})
+
+		const result = await parseWithSkills("Use @skill:deploy-runbook", getSkillContent)
+
+		expect(getSkillContent).toHaveBeenCalledWith("deploy-runbook", "code")
+		expect(result.text).toContain("Skill 'deploy-runbook' (see below for skill instructions)")
+		expect(result.text).toContain("Skill: deploy-runbook")
+		expect(result.text).toContain("1. Run the deploy script")
+	})
+
+	it("should report when the skill is not found", async () => {
+		const getSkillContent = vi.fn().mockResolvedValue(null)
+
+		const result = await parseWithSkills("Use @skill:missing", getSkillContent)
+
+		expect(result.text).toContain("Skill 'missing' not found.")
+	})
+
+	it("should report when no skills manager is available", async () => {
+		const result = await parseMentions("Use @skill:deploy-runbook", "/test")
+
+		expect(result.text).toContain("Skill 'deploy-runbook' not found.")
+	})
+
+	it("should report skill loading errors", async () => {
+		const getSkillContent = vi.fn().mockRejectedValue(new Error("disk error"))
+
+		const result = await parseWithSkills("Use @skill:deploy-runbook", getSkillContent)
+
+		expect(result.text).toContain("Error loading skill: disk error")
+	})
+})

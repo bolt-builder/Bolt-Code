@@ -201,6 +201,8 @@ export async function parseMentions(
 			return `Workspace search for '${unescapeSpaces(mention.slice("search:".length))}' (see below for results)`
 		} else if (mention.startsWith("codebase:")) {
 			return `Codebase search for '${unescapeSpaces(mention.slice("codebase:".length))}' (see below for results)`
+		} else if (mention.startsWith("skill:")) {
+			return `Skill '${unescapeSpaces(mention.slice("skill:".length))}' (see below for skill instructions)`
 		}
 		return match
 	})
@@ -340,6 +342,18 @@ export async function parseMentions(
 				}
 			} catch (error) {
 				parsedText += `\n\n<codebase_search query="${query}">\nError searching codebase: ${error.message}\n</codebase_search>`
+			}
+		} else if (mention.startsWith("skill:")) {
+			const skillName = unescapeSpaces(mention.slice("skill:".length))
+			try {
+				const skillContent = await resolveSkillContentForMode(skillsManager, skillName, currentMode)
+				if (skillContent) {
+					parsedText += `\n\n${buildSkillResult(skillName, undefined, skillContent)}`
+				} else {
+					parsedText += `\n\n<skill name="${skillName}">\nSkill '${skillName}' not found.\n</skill>`
+				}
+			} catch (error) {
+				parsedText += `\n\n<skill name="${skillName}">\nError loading skill: ${error.message}\n</skill>`
 			}
 		}
 	}
