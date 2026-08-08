@@ -12,51 +12,32 @@ permissions:
   contents: read
 
 jobs:
-  check-pr-approval:
+  # Fork note: upstream required the released commit to come from an approved
+  # PR. This fork's main also receives direct fork-sync merge commits that have
+  # no associated PR, so the gate instead verifies the released commit is on
+  # main. Human gating belongs to the marketplace-production environment
+  # (add required reviewers there).
+  check-release-commit:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: read
     steps:
-      - name: Check PR approval status
+      - name: Check commit is on main
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           SHA: ${{ github.sha }}
         run: |
-          pr_number=$(gh api "repos/${REPO}/commits/${SHA}/pulls" \
-            --header "Accept: application/vnd.github+json" \
-            --jq '.[0].number // empty')
+          status=$(gh api "repos/${REPO}/compare/main...${SHA}" --jq '.status')
+          echo "Compare main...${SHA}: ${status}"
 
-          if [ -z "$pr_number" ]; then
-            echo "No PR found for commit ${SHA}. Deployment requires an approved PR."
+          if [ "$status" != "identical" ] && [ "$status" != "behind" ]; then
+            echo "Commit ${SHA} is not reachable from main (status: ${status}). Deployment blocked."
             exit 1
           fi
 
-          review_decision=$(gh api graphql \
-            -f owner="${REPO%%/*}" \
-            -f name="${REPO#*/}" \
-            -F number="$pr_number" \
-            -f query='
-              query($owner: String!, $name: String!, $number: Int!) {
-                repository(owner: $owner, name: $name) {
-                  pullRequest(number: $number) {
-                    reviewDecision
-                  }
-                }
-              }' \
-            --jq '.data.repository.pullRequest.reviewDecision // "NONE"')
-
-          echo "PR #${pr_number} review_decision: ${review_decision}"
-
-          if [ "$review_decision" != "APPROVED" ]; then
-            echo "PR #${pr_number} is not approved (state: ${review_decision}). Deployment blocked."
-            exit 1
-          fi
-
-          echo "PR #${pr_number} is approved. Proceeding."
+          echo "Commit is on main. Proceeding."
 
   publish-stable:
-    needs: [check-pr-approval]
+    needs: [check-release-commit]
     runs-on: ubuntu-latest
     environment: marketplace-production
     permissions:
@@ -132,22 +113,10 @@ jobs:
           test "$artifact_name" = "bolt-code"
           test "$artifact_publisher" = "bolt-builder"
 
-      - name: Publish to VS Code Marketplace
-        env:
-          VSCE_PAT: ${{ secrets.VSCE_PAT }}
-        run: |
-          package_version=$(node -p "require('./src/package.json').version")
-          npx @vscode/vsce publish --packagePath "bin/bolt-code-${package_version}.vsix"
-          echo "Published bolt-builder.bolt-code ${package_version} to VS Code Marketplace"
-
-      - name: Publish to Open VSX Registry
-        env:
-          OVSX_PAT: ${{ secrets.OVSX_PAT }}
-        run: |
-          package_version=$(node -p "require('./src/package.json').version")
-          pnpm exec ovsx publish "bin/bolt-code-${package_version}.vsix" --skip-duplicate
-          echo "Published bolt-builder.bolt-code ${package_version} to Open VSX Registry"
-
+      # The GitHub release (with the .vsix attached) is created before the
+      # marketplace publishes so the artifact exists even when VSCE_PAT or
+      # OVSX_PAT are missing; re-running the job after adding secrets
+      # re-uploads the asset idempotently and continues to the publishes.
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -180,3 +149,19 @@ jobs:
               --target "$GITHUB_SHA" \
               "$vsix_path"
           fi
+
+      - name: Publish to VS Code Marketplace
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        run: |
+          package_version=$(node -p "require('./src/package.json').version")
+          npx @vscode/vsce publish --packagePath "bin/bolt-code-${package_version}.vsix"
+          echo "Published bolt-builder.bolt-code ${package_version} to VS Code Marketplace"
+
+      - name: Publish to Open VSX Registry
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+        run: |
+          package_version=$(node -p "require('./src/package.json').version")
+          pnpm exec ovsx publish "bin/bolt-code-${package_version}.vsix" --skip-duplicate
+          echo "Published bolt-builder.bolt-code ${package_version} to Open VSX Registry"

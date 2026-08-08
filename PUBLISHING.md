@@ -30,16 +30,18 @@ manual dispatch from `main`). It refuses to publish unless:
 
 - `src/package.json` identity is exactly `bolt-builder` / `bolt-code`,
 - the tag version matches `src/package.json` version, and
-- the commit came from an approved PR.
+- the released commit is on `main` (fork-sync merge commits without a PR are fine; add required reviewers to the `marketplace-production` environment for human gating).
 
 To cut a release:
 
 1. Bump `version` in `src/package.json` and add a matching `## [x.y.z]` section to `CHANGELOG.md`.
-2. Merge that through an approved PR.
+2. Merge that to `main`.
 3. Tag the merge commit `vX.Y.Z` and push the tag.
 
-The workflow packages `bin/bolt-code-<version>.vsix`, publishes to the
-Marketplace and Open VSX, and creates a GitHub release with the changelog body.
+The workflow packages `bin/bolt-code-<version>.vsix`, creates a GitHub release
+with the changelog body and the `.vsix` attached, then publishes to the
+Marketplace and Open VSX. If `VSCE_PAT`/`OVSX_PAT` are missing, the GitHub
+release still exists; add the secrets and re-run the failed job to publish.
 
 ## Pre-release (nightly)
 
