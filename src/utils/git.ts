@@ -317,6 +317,44 @@ export async function getCommitInfo(hash: string, cwd: string): Promise<string> 
 	}
 }
 
+/**
+ * Gets the diff between the working tree and the given git ref
+ * (a branch, tag, commit, or range like `main..feature`).
+ * @param ref The git ref to diff against
+ * @param cwd The working directory
+ */
+export async function getRefDiff(ref: string, cwd: string): Promise<string> {
+	// Guard against shell injection: refs are interpolated into the command below.
+	if (!/^[\w./~^@{}-]+$/.test(ref)) {
+		return `Invalid git ref: '${ref}'`
+	}
+
+	try {
+		const isInstalled = await checkGitInstalled()
+		if (!isInstalled) {
+			return "Git is not installed"
+		}
+
+		const isRepo = await checkGitRepo(cwd)
+		if (!isRepo) {
+			return "Not a git repository"
+		}
+
+		const { stdout: stat } = await execAsync(`git diff --stat ${ref}`, { cwd })
+		const { stdout: diff } = await execAsync(`git diff ${ref}`, { cwd })
+
+		if (!diff.trim()) {
+			return `No differences between the working tree and '${ref}'`
+		}
+
+		const output = `Diff against '${ref}':\n\n${stat.trim()}\n\n${diff}`.trim()
+		return truncateOutput(output, GIT_OUTPUT_LINE_LIMIT)
+	} catch (error) {
+		console.error("Error getting ref diff:", error)
+		return `Failed to get diff for '${ref}': ${error instanceof Error ? error.message : String(error)}`
+	}
+}
+
 export async function getWorkingState(cwd: string): Promise<string> {
 	try {
 		const isInstalled = await checkGitInstalled()

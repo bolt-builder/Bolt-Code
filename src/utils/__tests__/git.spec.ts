@@ -6,6 +6,7 @@ import {
 	checkGitInstalled,
 	searchCommits,
 	getCommitInfo,
+	getRefDiff,
 	getWorkingState,
 	getGitRepositoryInfo,
 	sanitizeGitUrl,
@@ -439,6 +440,84 @@ describe("git utils", () => {
 
 			const result = await getWorkingState(cwd)
 			expect(result).toBe("Not a git repository")
+		})
+	})
+
+	describe("getRefDiff", () => {
+		const mockStat = " src/file1.ts | 2 +-\n 1 file changed"
+		const mockDiff = "@@ -1,1 +1,2 @@\n-old line\n+new line"
+
+		// `null` responses simulate the command failing.
+		const mockExecResponses = (responses: Map<string, { stdout: string; stderr: string } | null>) => {
+			const implementation: ExecFunction = (command, _options, callback) => {
+				const response = responses.get(command)
+				if (response) {
+					callback(null, response)
+				} else {
+					callback(new Error(response === null ? "command failed" : "Unexpected command"))
+				}
+			}
+			// Double assertion: exec's overloaded callback signatures cannot be
+			// satisfied by a plain test double; the promisify mock above only ever
+			// invokes this (command, options, callback) shape.
+			vitest.mocked(exec).mockImplementation(implementation as unknown as typeof exec)
+		}
+
+		it("should return the diff against the given ref", async () => {
+			mockExecResponses(
+				new Map([
+					["git --version", { stdout: "git version 2.39.2", stderr: "" }],
+					["git rev-parse --git-dir", { stdout: ".git", stderr: "" }],
+					["git diff --stat main", { stdout: mockStat, stderr: "" }],
+					["git diff main", { stdout: mockDiff, stderr: "" }],
+				]),
+			)
+
+			const result = await getRefDiff("main", cwd)
+			expect(result).toContain("Diff against 'main':")
+			expect(result).toContain("1 file changed")
+			expect(result).toContain("+new line")
+			expect(vitest.mocked(truncateOutput)).toHaveBeenCalled()
+		})
+
+		it("should return message when there are no differences", async () => {
+			mockExecResponses(
+				new Map([
+					["git --version", { stdout: "git version 2.39.2", stderr: "" }],
+					["git rev-parse --git-dir", { stdout: ".git", stderr: "" }],
+					["git diff --stat main", { stdout: "", stderr: "" }],
+					["git diff main", { stdout: "", stderr: "" }],
+				]),
+			)
+
+			const result = await getRefDiff("main", cwd)
+			expect(result).toBe("No differences between the working tree and 'main'")
+		})
+
+		it("should reject refs with unsafe characters without running git", async () => {
+			const result = await getRefDiff("main; rm -rf /", cwd)
+			expect(result).toBe("Invalid git ref: 'main; rm -rf /'")
+			expect(vitest.mocked(exec)).not.toHaveBeenCalled()
+		})
+
+		it("should return error message when git is not installed", async () => {
+			mockExecResponses(new Map([["git --version", null]]))
+
+			const result = await getRefDiff("main", cwd)
+			expect(result).toBe("Git is not installed")
+		})
+
+		it("should return failure message when the ref does not exist", async () => {
+			mockExecResponses(
+				new Map([
+					["git --version", { stdout: "git version 2.39.2", stderr: "" }],
+					["git rev-parse --git-dir", { stdout: ".git", stderr: "" }],
+					["git diff --stat missing-ref", null], // simulate unknown revision
+				]),
+			)
+
+			const result = await getRefDiff("missing-ref", cwd)
+			expect(result).toContain("Failed to get diff for 'missing-ref'")
 		})
 	})
 })

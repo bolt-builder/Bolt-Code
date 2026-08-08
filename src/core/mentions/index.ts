@@ -6,7 +6,7 @@ import { isBinaryFile } from "isbinaryfile"
 
 import { mentionRegexGlobal, commandRegexGlobal, unescapeSpaces } from "../../shared/context-mentions"
 
-import { getCommitInfo, getWorkingState } from "../../utils/git"
+import { getCommitInfo, getRefDiff, getWorkingState } from "../../utils/git"
 
 import { openFile } from "../../integrations/misc/open-file"
 import { extractTextFromFileWithMetadata, type ExtractTextResult } from "../../integrations/misc/extract-text"
@@ -208,6 +208,8 @@ export async function parseMentions(
 			return `Skill '${unescapeSpaces(mention.slice("skill:".length))}' (see below for skill instructions)`
 		} else if (mention.startsWith("task:")) {
 			return `Task '${mention.slice("task:".length)}' (see below for task details)`
+		} else if (mention.startsWith("diff:")) {
+			return `Git diff against '${mention.slice("diff:".length)}' (see below for diff)`
 		}
 		return match
 	})
@@ -371,6 +373,14 @@ export async function parseMentions(
 				}
 			} catch (error) {
 				parsedText += `\n\n<task_history id="${taskId}">\nError fetching task: ${error.message}\n</task_history>`
+			}
+		} else if (mention.startsWith("diff:")) {
+			const ref = mention.slice("diff:".length)
+			try {
+				const refDiff = await getRefDiff(ref, cwd)
+				parsedText += `\n\n<git_diff ref="${ref}">\n${refDiff}\n</git_diff>`
+			} catch (error) {
+				parsedText += `\n\n<git_diff ref="${ref}">\nError fetching diff: ${error.message}\n</git_diff>`
 			}
 		}
 	}

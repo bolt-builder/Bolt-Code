@@ -46,6 +46,13 @@ vi.mock("../../../services/ripgrep", () => ({
 	regexSearchFiles: vi.fn(),
 }))
 
+// Mock git utils
+vi.mock("../../../utils/git", () => ({
+	getCommitInfo: vi.fn(),
+	getRefDiff: vi.fn(),
+	getWorkingState: vi.fn(),
+}))
+
 describe("parseMentions - URL mention handling", () => {
 	beforeEach(() => {
 		vi.clearAllMocks()
@@ -368,5 +375,32 @@ describe("parseMentions - @task:", () => {
 		const result = await parseWithServices("Continue from @task:missing", getTaskInfo)
 
 		expect(result.text).toContain("Error fetching task: Task not found")
+	})
+})
+
+describe("parseMentions - @diff:", () => {
+	beforeEach(() => {
+		vi.clearAllMocks()
+	})
+
+	it("should append the diff against the given ref", async () => {
+		const { getRefDiff } = await import("../../../utils/git")
+		vi.mocked(getRefDiff).mockResolvedValue("Diff against 'main':\n\n1 file changed\n\n+new line")
+
+		const result = await parseMentions("Review @diff:main", "/test")
+
+		expect(getRefDiff).toHaveBeenCalledWith("main", "/test")
+		expect(result.text).toContain("Git diff against 'main' (see below for diff)")
+		expect(result.text).toContain('<git_diff ref="main">')
+		expect(result.text).toContain("+new line")
+	})
+
+	it("should report diff errors", async () => {
+		const { getRefDiff } = await import("../../../utils/git")
+		vi.mocked(getRefDiff).mockRejectedValue(new Error("bad ref"))
+
+		const result = await parseMentions("Review @diff:main", "/test")
+
+		expect(result.text).toContain("Error fetching diff: bad ref")
 	})
 })
