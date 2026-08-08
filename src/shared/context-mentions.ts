@@ -53,6 +53,8 @@ Mention regex:
 	- The exact word 'problems'.
 	- The exact word 'git-changes'.
     - The exact word 'terminal'.
+    - The keywords 'selection', 'tab', 'tabs', 'clipboard', 'recent', 'tree', and 'commits'.
+    - Prefixed mentions 'search:', 'codebase:', 'skill:', 'task:', 'diff:', and 'symbol:' followed by a query (spaces must be escaped with a backslash).
   - It ensures that any trailing punctuation marks (such as ',', '.', '!', etc.) are not included in the matched mention, allowing the punctuation to follow the mention naturally in the text.
   - **NEW**: The @ symbol must be at the start of a line or preceded by whitespace to prevent accidental matches in pasted logs.
 
