@@ -355,6 +355,58 @@ export async function getRefDiff(ref: string, cwd: string): Promise<string> {
 	}
 }
 
+/**
+ * Lists recently changed files: working tree changes first, then files
+ * touched by the most recent commits, deduplicated.
+ * @param cwd The working directory
+ * @param limit Maximum number of files to return
+ */
+export async function getRecentFiles(cwd: string, limit: number = 20): Promise<string> {
+	try {
+		const isInstalled = await checkGitInstalled()
+		if (!isInstalled) {
+			return "Git is not installed"
+		}
+
+		const isRepo = await checkGitRepo(cwd)
+		if (!isRepo) {
+			return "Not a git repository"
+		}
+
+		const { stdout: status } = await execAsync("git status --porcelain", { cwd })
+		const workingFiles = status
+			.split("\n")
+			.map((line) => line.slice(3).trim())
+			.filter(Boolean)
+
+		const { stdout: log } = await execAsync(`git log -5 --name-only --format=""`, { cwd })
+		const commitFiles = log
+			.split("\n")
+			.map((line) => line.trim())
+			.filter(Boolean)
+
+		const seen = new Set<string>()
+		const recentFiles = [...workingFiles, ...commitFiles]
+			.filter((file) => {
+				if (seen.has(file)) {
+					return false
+				}
+				seen.add(file)
+				return true
+			})
+			.slice(0, limit)
+
+		if (recentFiles.length === 0) {
+			return "No recently changed files found"
+		}
+
+		return recentFiles.join("\n")
+	} catch (error) {
+		console.error("Error getting recent files:", error)
+		return `Failed to get recent files: ${error instanceof Error ? error.message : String(error)}`
+	}
+}
+
 export async function getWorkingState(cwd: string): Promise<string> {
 	try {
 		const isInstalled = await checkGitInstalled()

@@ -6,7 +6,7 @@ import { isBinaryFile } from "isbinaryfile"
 
 import { mentionRegexGlobal, commandRegexGlobal, unescapeSpaces } from "../../shared/context-mentions"
 
-import { getCommitInfo, getRefDiff, getWorkingState } from "../../utils/git"
+import { getCommitInfo, getRecentFiles, getRefDiff, getWorkingState } from "../../utils/git"
 
 import { openFile } from "../../integrations/misc/open-file"
 import { extractTextFromFileWithMetadata, type ExtractTextResult } from "../../integrations/misc/extract-text"
@@ -212,6 +212,8 @@ export async function parseMentions(
 			return `Git diff against '${mention.slice("diff:".length)}' (see below for diff)`
 		} else if (mention.startsWith("symbol:")) {
 			return `Workspace symbols for '${unescapeSpaces(mention.slice("symbol:".length))}' (see below for symbols)`
+		} else if (mention === "recent") {
+			return `Recently changed files (see below for list)`
 		}
 		return match
 	})
@@ -407,6 +409,13 @@ export async function parseMentions(
 				}
 			} catch (error) {
 				parsedText += `\n\n<workspace_symbols query="${symbolName}">\nError fetching symbols: ${error.message}\n</workspace_symbols>`
+			}
+		} else if (mention === "recent") {
+			try {
+				const recentFiles = await getRecentFiles(cwd)
+				parsedText += `\n\n<recent_files>\n${recentFiles}\n</recent_files>`
+			} catch (error) {
+				parsedText += `\n\n<recent_files>\nError fetching recent files: ${error.message}\n</recent_files>`
 			}
 		}
 	}

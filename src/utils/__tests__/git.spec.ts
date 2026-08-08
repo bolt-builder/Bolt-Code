@@ -6,6 +6,7 @@ import {
 	checkGitInstalled,
 	searchCommits,
 	getCommitInfo,
+	getRecentFiles,
 	getRefDiff,
 	getWorkingState,
 	getGitRepositoryInfo,
@@ -443,25 +444,25 @@ describe("git utils", () => {
 		})
 	})
 
+	// `null` responses simulate the command failing.
+	const mockExecResponses = (responses: Map<string, { stdout: string; stderr: string } | null>) => {
+		const implementation: ExecFunction = (command, _options, callback) => {
+			const response = responses.get(command)
+			if (response) {
+				callback(null, response)
+			} else {
+				callback(new Error(response === null ? "command failed" : "Unexpected command"))
+			}
+		}
+		// Double assertion: exec's overloaded callback signatures cannot be
+		// satisfied by a plain test double; the promisify mock above only ever
+		// invokes this (command, options, callback) shape.
+		vitest.mocked(exec).mockImplementation(implementation as unknown as typeof exec)
+	}
+
 	describe("getRefDiff", () => {
 		const mockStat = " src/file1.ts | 2 +-\n 1 file changed"
 		const mockDiff = "@@ -1,1 +1,2 @@\n-old line\n+new line"
-
-		// `null` responses simulate the command failing.
-		const mockExecResponses = (responses: Map<string, { stdout: string; stderr: string } | null>) => {
-			const implementation: ExecFunction = (command, _options, callback) => {
-				const response = responses.get(command)
-				if (response) {
-					callback(null, response)
-				} else {
-					callback(new Error(response === null ? "command failed" : "Unexpected command"))
-				}
-			}
-			// Double assertion: exec's overloaded callback signatures cannot be
-			// satisfied by a plain test double; the promisify mock above only ever
-			// invokes this (command, options, callback) shape.
-			vitest.mocked(exec).mockImplementation(implementation as unknown as typeof exec)
-		}
 
 		it("should return the diff against the given ref", async () => {
 			mockExecResponses(
@@ -518,6 +519,57 @@ describe("git utils", () => {
 
 			const result = await getRefDiff("missing-ref", cwd)
 			expect(result).toContain("Failed to get diff for 'missing-ref'")
+		})
+	})
+
+	describe("getRecentFiles", () => {
+		it("should list working tree changes before commit files, deduplicated", async () => {
+			mockExecResponses(
+				new Map([
+					["git --version", { stdout: "git version 2.39.2", stderr: "" }],
+					["git rev-parse --git-dir", { stdout: ".git", stderr: "" }],
+					["git status --porcelain", { stdout: " M src/a.ts\n?? src/new.ts", stderr: "" }],
+					[`git log -5 --name-only --format=""`, { stdout: "src/a.ts\nsrc/b.ts\n\nsrc/c.ts", stderr: "" }],
+				]),
+			)
+
+			const result = await getRecentFiles(cwd)
+			expect(result).toBe("src/a.ts\nsrc/new.ts\nsrc/b.ts\nsrc/c.ts")
+		})
+
+		it("should respect the limit", async () => {
+			mockExecResponses(
+				new Map([
+					["git --version", { stdout: "git version 2.39.2", stderr: "" }],
+					["git rev-parse --git-dir", { stdout: ".git", stderr: "" }],
+					["git status --porcelain", { stdout: "", stderr: "" }],
+					[`git log -5 --name-only --format=""`, { stdout: "a.ts\nb.ts\nc.ts", stderr: "" }],
+				]),
+			)
+
+			const result = await getRecentFiles(cwd, 2)
+			expect(result).toBe("a.ts\nb.ts")
+		})
+
+		it("should report when nothing changed recently", async () => {
+			mockExecResponses(
+				new Map([
+					["git --version", { stdout: "git version 2.39.2", stderr: "" }],
+					["git rev-parse --git-dir", { stdout: ".git", stderr: "" }],
+					["git status --porcelain", { stdout: "", stderr: "" }],
+					[`git log -5 --name-only --format=""`, { stdout: "", stderr: "" }],
+				]),
+			)
+
+			const result = await getRecentFiles(cwd)
+			expect(result).toBe("No recently changed files found")
+		})
+
+		it("should return error message when git is not installed", async () => {
+			mockExecResponses(new Map([["git --version", null]]))
+
+			const result = await getRecentFiles(cwd)
+			expect(result).toBe("Git is not installed")
 		})
 	})
 })

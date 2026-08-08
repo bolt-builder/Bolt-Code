@@ -55,6 +55,7 @@ vi.mock("../../../services/ripgrep", () => ({
 // Mock git utils
 vi.mock("../../../utils/git", () => ({
 	getCommitInfo: vi.fn(),
+	getRecentFiles: vi.fn(),
 	getRefDiff: vi.fn(),
 	getWorkingState: vi.fn(),
 }))
@@ -454,5 +455,31 @@ describe("parseMentions - @symbol:", () => {
 		const result = await parseMentions("Find @symbol:login", "/test")
 
 		expect(result.text).toContain("Error fetching symbols: no provider")
+	})
+})
+
+describe("parseMentions - @recent", () => {
+	beforeEach(() => {
+		vi.clearAllMocks()
+	})
+
+	it("should append recently changed files", async () => {
+		const { getRecentFiles } = await import("../../../utils/git")
+		vi.mocked(getRecentFiles).mockResolvedValue("src/a.ts\nsrc/b.ts")
+
+		const result = await parseMentions("What changed? @recent", "/test")
+
+		expect(getRecentFiles).toHaveBeenCalledWith("/test")
+		expect(result.text).toContain("Recently changed files (see below for list)")
+		expect(result.text).toContain("<recent_files>\nsrc/a.ts\nsrc/b.ts\n</recent_files>")
+	})
+
+	it("should report recent files errors", async () => {
+		const { getRecentFiles } = await import("../../../utils/git")
+		vi.mocked(getRecentFiles).mockRejectedValue(new Error("git broke"))
+
+		const result = await parseMentions("What changed? @recent", "/test")
+
+		expect(result.text).toContain("Error fetching recent files: git broke")
 	})
 })
