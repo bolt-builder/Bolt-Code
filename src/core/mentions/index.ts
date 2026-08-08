@@ -6,7 +6,7 @@ import { isBinaryFile } from "isbinaryfile"
 
 import { mentionRegexGlobal, commandRegexGlobal, unescapeSpaces } from "../../shared/context-mentions"
 
-import { getCommitInfo, getRecentFiles, getRefDiff, getWorkingState } from "../../utils/git"
+import { getCommitInfo, getRecentFiles, getRefDiff, getWorkingState, searchCommits } from "../../utils/git"
 
 import { openFile } from "../../integrations/misc/open-file"
 import { extractTextFromFileWithMetadata, type ExtractTextResult } from "../../integrations/misc/extract-text"
@@ -218,6 +218,8 @@ export async function parseMentions(
 			return `Recently changed files (see below for list)`
 		} else if (mention === "tree") {
 			return `Workspace file tree (see below for listing)`
+		} else if (mention === "commits") {
+			return `Recent commits (see below for log)`
 		}
 		return match
 	})
@@ -434,6 +436,23 @@ export async function parseMentions(
 				parsedText += `\n\n<workspace_tree>\n${listing}\n</workspace_tree>`
 			} catch (error) {
 				parsedText += `\n\n<workspace_tree>\nError fetching workspace tree: ${error.message}\n</workspace_tree>`
+			}
+		} else if (mention === "commits") {
+			try {
+				// An empty query returns the most recent commits.
+				const commits = await searchCommits("", cwd)
+				const listing =
+					commits.length > 0
+						? commits
+								.map(
+									(commit) =>
+										`${commit.shortHash} ${commit.date} ${commit.author}: ${commit.subject}`,
+								)
+								.join("\n")
+						: "No commits found."
+				parsedText += `\n\n<recent_commits>\n${listing}\n</recent_commits>`
+			} catch (error) {
+				parsedText += `\n\n<recent_commits>\nError fetching commits: ${error.message}\n</recent_commits>`
 			}
 		}
 	}

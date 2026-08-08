@@ -63,6 +63,7 @@ vi.mock("../../../utils/git", () => ({
 	getRecentFiles: vi.fn(),
 	getRefDiff: vi.fn(),
 	getWorkingState: vi.fn(),
+	searchCommits: vi.fn(),
 }))
 
 describe("parseMentions - URL mention handling", () => {
@@ -523,5 +524,56 @@ describe("parseMentions - @tree", () => {
 		const result = await parseMentions("Explain @tree", "/test")
 
 		expect(result.text).toContain("Error fetching workspace tree: fs error")
+	})
+})
+
+describe("parseMentions - @commits", () => {
+	beforeEach(() => {
+		vi.clearAllMocks()
+	})
+
+	it("should append the recent commit log", async () => {
+		const { searchCommits } = await import("../../../utils/git")
+		vi.mocked(searchCommits).mockResolvedValue([
+			{
+				hash: "abc123def456",
+				shortHash: "abc123d",
+				subject: "fix: login bug",
+				author: "Alice",
+				date: "2026-08-01",
+			},
+			{
+				hash: "789fed321cba",
+				shortHash: "789fed3",
+				subject: "feat: add dashboard",
+				author: "Bob",
+				date: "2026-07-30",
+			},
+		])
+
+		const result = await parseMentions("Summarize @commits", "/test")
+
+		expect(searchCommits).toHaveBeenCalledWith("", "/test")
+		expect(result.text).toContain("Recent commits (see below for log)")
+		expect(result.text).toContain("abc123d 2026-08-01 Alice: fix: login bug")
+		expect(result.text).toContain("789fed3 2026-07-30 Bob: feat: add dashboard")
+	})
+
+	it("should report when there are no commits", async () => {
+		const { searchCommits } = await import("../../../utils/git")
+		vi.mocked(searchCommits).mockResolvedValue([])
+
+		const result = await parseMentions("Summarize @commits", "/test")
+
+		expect(result.text).toContain("No commits found.")
+	})
+
+	it("should report commit log errors", async () => {
+		const { searchCommits } = await import("../../../utils/git")
+		vi.mocked(searchCommits).mockRejectedValue(new Error("git broke"))
+
+		const result = await parseMentions("Summarize @commits", "/test")
+
+		expect(result.text).toContain("Error fetching commits: git broke")
 	})
 })

@@ -61,6 +61,9 @@ describe("mentionRegex and mentionRegexGlobal", () => {
 		{ input: "@tree", expected: ["@tree"] },
 		{ input: "Show me @tree.", expected: ["@tree"] },
 		{ input: "word@tree", expected: null }, // @ mid-word before "tree"
+		{ input: "@commits", expected: ["@commits"] },
+		{ input: "Summarize @commits, please", expected: ["@commits"] },
+		{ input: "word@commits", expected: null }, // @ mid-word before "commits"
 		{ input: "@a1b2c3d", expected: ["@a1b2c3d"] }, // Git commit hash (short)
 		{ input: "@a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0", expected: ["@a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0"] }, // Git commit hash (long)
 
