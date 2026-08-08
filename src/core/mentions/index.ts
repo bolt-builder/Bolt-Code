@@ -14,6 +14,7 @@ import { diagnosticsToProblemsString } from "../../integrations/diagnostics"
 import { DEFAULT_LINE_LIMIT } from "../prompts/tools/native-tools/read_file"
 
 import { FileContextTracker } from "../context-tracking/FileContextTracker"
+import { EditorUtils } from "../../integrations/editor/EditorUtils"
 
 import { RooIgnoreController } from "../ignore/RooIgnoreController"
 import { getCommand, type Command } from "../../services/command/commands"
@@ -176,6 +177,8 @@ export async function parseMentions(
 			return `Git commit '${mention}' (see below for commit info)`
 		} else if (mention === "terminal") {
 			return `Terminal Output (see below for output)`
+		} else if (mention === "selection") {
+			return `Editor selection (see below for content)`
 		}
 		return match
 	})
@@ -227,6 +230,17 @@ export async function parseMentions(
 				parsedText += `\n\n<terminal_output>\n${terminalOutput}\n</terminal_output>`
 			} catch (error) {
 				parsedText += `\n\n<terminal_output>\nError fetching terminal output: ${error.message}\n</terminal_output>`
+			}
+		} else if (mention === "selection") {
+			try {
+				const editorContext = EditorUtils.getEditorContext()
+				if (editorContext) {
+					parsedText += `\n\n<editor_selection file="${editorContext.filePath}" lines="${editorContext.startLine}-${editorContext.endLine}">\n${editorContext.selectedText}\n</editor_selection>`
+				} else {
+					parsedText += `\n\n<editor_selection>\nNo active editor selection found.\n</editor_selection>`
+				}
+			} catch (error) {
+				parsedText += `\n\n<editor_selection>\nError fetching editor selection: ${error.message}\n</editor_selection>`
 			}
 		}
 	}
