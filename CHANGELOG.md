@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-## [3.76.0]
+## [1.0.0]
 
 First Bolt Code release. Bolt Code is a fork of Zoo Code (itself derived from Roo Code, Apache-2.0), tracking upstream Zoo Code v3.76.0.
 
