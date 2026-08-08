@@ -3,6 +3,7 @@
 import * as vscode from "vscode"
 
 import { parseMentions, type MentionServices } from "../index"
+import type { SkillLookup } from "../../../services/skills/skillInvocation"
 
 // Mock vscode
 vi.mock("vscode", () => {
@@ -301,7 +302,7 @@ describe("parseMentions - @skill:", () => {
 		vi.clearAllMocks()
 	})
 
-	const parseWithSkills = (text: string, getSkillContent: ReturnType<typeof vi.fn>) =>
+	const parseWithSkills = (text: string, getSkillContent: SkillLookup["getSkillContent"]) =>
 		parseMentions(text, "/test", undefined, undefined, false, true, 50, { getSkillContent }, "code")
 
 	it("should append skill instructions", async () => {
