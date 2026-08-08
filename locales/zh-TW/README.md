@@ -1,6 +1,7 @@
 <p align="center">
           <a href="https://marketplace.visualstudio.com/items?itemName=bolt-builder.bolt-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
           <a href="https://x.com/ZooCodeDev"><img src="https://img.shields.io/badge/ZooCode-000000?style=flat&logo=x&logoColor=white" alt="X"></a>
+          <a href="https://youtube.com/@roocodeyt?feature=shared"><img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube"></a>
           <a href="https://discord.gg/VxfP4Vx3gX"><img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Join Discord"></a>
           <a href="https://www.reddit.com/r/ZooCode/"><img src="https://img.shields.io/badge/Join%20r%2FZooCode-FF4500?style=flat&logo=reddit&logoColor=white" alt="Join r/ZooCode"></a>
           <a href="https://github.com/bolt-builder/Bolt-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
@@ -31,19 +32,13 @@
 
 你可以在 [Roo→Bolt 遷移指南](https://docs.zoocode.dev/roo-to-zoo-migration) 中找到從 Roo Code 遷移到 Bolt Code 的快速說明。我們希望在大家轉移過程中盡可能提供協助，這也是我們設立 [Reddit](https://www.reddit.com/r/ZooCode) 和 [Discord](https://discord.gg/VxfP4Vx3gX) 社群的原因。如果你遇到問題或有任何疑問，歡迎加入後直接提問。
 
-## Zoo Code 在 Roo Code 之後新增的功能
+## v3.74.0 新功能
 
 **Bolt Gateway 正式上線！**
 
-- **Semble 程式碼庫智慧** — 快速、隨選的語意程式碼搜尋，可自動設定，無需另外執行索引工作流程。
-- **更強大的 Orchestrator 工作流程** — 更安全的工作委派、平行工作協調、可靠的父子工作復原，以及更完善的子工作與供應商設定檔隔離。
-- **透過 Destructive Command Guard (DCG) 延長自主執行時間** — 自動封鎖危險命令，同時讓可信任的工作繼續執行，不必反覆核准。
-- **最新模型** — 持續支援新的 Claude、GPT、Gemini、Kimi、GLM、Grok、MiniMax 及其他模型系列。
-- **更多連線方式** — 新增並擴充 Zoo Gateway、Moonshot、Kimi Code、Kenari、Friendli、OpenCode Go 等眾多供應商。
-- **更可靠的終端機與編輯工作流程** — 修正終端機過早完成、工作狀態競爭、上下文管理、差異更新編輯和供應商專用工具使用等問題。
-- **更完整的工作區控制** — 支援規則管理、依模式限制 MCP、多根工作區路徑控制、模型推理選項，以及完成後的變更檢閱操作。
+此閘道是所有供應商的單一端點，共用一個餘額，並提供逐請求的費用/用量明細。
 
-## v3.76.0 新功能
+**設定：**
 
 - 新增額度：https://www.zoocode.dev/dashboard/credits
 - 從擴充功能登入。

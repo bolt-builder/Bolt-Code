@@ -1,6 +1,7 @@
 <p align="center">
           <a href="https://marketplace.visualstudio.com/items?itemName=bolt-builder.bolt-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
           <a href="https://x.com/ZooCodeDev"><img src="https://img.shields.io/badge/ZooCode-000000?style=flat&logo=x&logoColor=white" alt="X"></a>
+          <a href="https://youtube.com/@roocodeyt?feature=shared"><img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube"></a>
           <a href="https://discord.gg/VxfP4Vx3gX"><img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Join Discord"></a>
           <a href="https://www.reddit.com/r/ZooCode/"><img src="https://img.shields.io/badge/Join%20r%2FZooCode-FF4500?style=flat&logo=reddit&logoColor=white" alt="Join r/ZooCode"></a>
           <a href="https://github.com/bolt-builder/Bolt-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
@@ -34,19 +35,13 @@
 
 Roo Code から Bolt Code へ移行するためのクイックガイドは、[Roo→Bolt 移行ガイド](https://docs.zoocode.dev/roo-to-zoo-migration) で確認できます。移行中のユーザーをできるだけ支援したいと考えていて、そのために [Reddit](https://www.reddit.com/r/ZooCode) と [Discord](https://discord.gg/VxfP4Vx3gX) を用意しています。困ったことや質問があれば、気軽に参加して聞いてください。
 
-## Roo Code 以降に Zoo Code が追加した機能
+## v3.74.0 の新機能
 
 **Bolt Gateway がリリースされました！**
 
-- **Semble コードベースインテリジェンス** — 自動セットアップに対応し、別途インデックス作成を行わずに使える高速なオンデマンドセマンティックコード検索。
-- **より強力な Orchestrator ワークフロー** — より安全な委任、並列タスクの調整、親子タスクの確実な復旧、サブタスクとプロバイダープロファイル間の分離を強化。
-- **Destructive Command Guard（DCG）による長時間の自律実行** — 信頼できる作業を承認の繰り返しなしで継続しながら、危険なコマンドを自動的にブロック。
-- **最新モデル** — Claude、GPT、Gemini、Kimi、GLM、Grok、MiniMax など、新しいモデルファミリーを継続的にサポート。
-- **接続方法をさらに拡充** — Zoo Gateway、Moonshot、Kimi Code、Kenari、Friendli、OpenCode Go など、新規および拡張されたプロバイダーに対応。
-- **より信頼性の高いターミナルと編集ワークフロー** — ターミナルの早期完了、タスク状態の競合、コンテキスト管理、diff 編集、プロバイダー固有のツール利用に関する問題を修正。
-- **ワークスペースをより細かく制御** — ルール管理、モードごとの MCP 制限、マルチルートのパス制御、モデルの reasoning オプション、完了時の変更レビュー操作を追加。
+ゲートウェイはすべてのプロバイダーに対応する単一のエンドポイントで、1つの残高とリクエストごとの支出/使用量の内訳を提供します。
 
-## v3.76.0 の新機能
+**セットアップ:**
 
 - クレジットを追加: https://www.zoocode.dev/dashboard/credits
 - 拡張機能からサインインします。

@@ -1,6 +1,7 @@
 <p align="center">
           <a href="https://marketplace.visualstudio.com/items?itemName=bolt-builder.bolt-code"><img src="https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace"></a>
           <a href="https://x.com/ZooCodeDev"><img src="https://img.shields.io/badge/ZooCode-000000?style=flat&logo=x&logoColor=white" alt="X"></a>
+          <a href="https://youtube.com/@roocodeyt?feature=shared"><img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube"></a>
           <a href="https://discord.gg/VxfP4Vx3gX"><img src="https://img.shields.io/badge/Join%20Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Join Discord"></a>
           <a href="https://www.reddit.com/r/ZooCode/"><img src="https://img.shields.io/badge/Join%20r%2FZooCode-FF4500?style=flat&logo=reddit&logoColor=white" alt="Join r/ZooCode"></a>
           <a href="https://github.com/bolt-builder/Bolt-Code/issues"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=flat&logo=github&logoColor=white" alt="GitHub Issues"></a>
@@ -31,19 +32,13 @@
 
 你可以在 [Roo→Bolt 迁移指南](https://docs.zoocode.dev/roo-to-zoo-migration) 中找到从 Roo Code 迁移到 Bolt Code 的快速说明。我们希望在大家迁移过程中尽可能提供帮助，这也是我们设立 [Reddit](https://www.reddit.com/r/ZooCode) 和 [Discord](https://discord.gg/VxfP4Vx3gX) 社区的原因。如果你遇到问题或有任何疑问，欢迎加入后直接提问。
 
-## Zoo Code 在 Roo Code 之后新增的功能
+## v3.74.0 新增内容
 
 **Bolt Gateway 已上线！**
 
-- **Semble 代码库智能** — 快速、按需的语义代码搜索，可自动设置，无需单独的索引流程。
-- **更强大的 Orchestrator 工作流** — 更安全的任务委派、并行任务协调、可靠的父子任务恢复，以及更完善的子任务与提供商配置隔离。
-- **通过 Destructive Command Guard (DCG) 实现更长时间的自主运行** — 自动阻止危险命令，同时让可信工作继续执行，无需反复批准。
-- **最新模型** — 持续支持新的 Claude、GPT、Gemini、Kimi、GLM、Grok、MiniMax 及其他模型系列。
-- **更多连接方式** — 新增和扩展了 Zoo Gateway、Moonshot、Kimi Code、Kenari、Friendli、OpenCode Go 等众多提供商。
-- **更可靠的终端和编辑工作流** — 修复终端过早完成、任务状态竞争、上下文管理、差异更新编辑和提供商专用工具调用等问题。
-- **更全面的工作区控制** — 支持规则管理、按模式限制 MCP、多根工作区路径控制、模型推理选项和完成后的变更审查操作。
+该网关是所有提供商的统一端点，共用一个余额，并提供按请求的费用/用量明细。
 
-## v3.76.0 新增内容
+**设置：**
 
 - 添加额度：https://www.zoocode.dev/dashboard/credits
 - 从扩展中登录。
