@@ -2598,6 +2598,19 @@ export class Task extends EventEmitter<TaskEvents> implements TaskLike {
 				maxDiagnosticMessages,
 				skillsManager: provider?.getSkillsManager(),
 				currentMode,
+				mentionServices: {
+					searchCodebase: async (query: string) => {
+						const codeIndexManager = provider?.getCodeIndexManager()
+						if (
+							!codeIndexManager ||
+							!codeIndexManager.isFeatureEnabled ||
+							!codeIndexManager.isFeatureConfigured
+						) {
+							return null
+						}
+						return codeIndexManager.searchIndex(query)
+					},
+				},
 			})
 
 			// Switch mode if specified in a slash command's frontmatter

@@ -21,6 +21,16 @@ import { getCommand, type Command } from "../../services/command/commands"
 import { regexSearchFiles } from "../../services/ripgrep"
 import { buildSkillResult, resolveSkillContentForMode, type SkillLookup } from "../../services/skills/skillInvocation"
 import type { SkillContent } from "../../shared/skills"
+import type { VectorStoreSearchResult } from "../../services/code-index/interfaces"
+
+/**
+ * Optional provider-backed services for mentions that need access to
+ * state outside the workspace filesystem (e.g. the code index).
+ */
+export interface MentionServices {
+	/** Semantic codebase search; resolves to null when indexing is unavailable. */
+	searchCodebase?: (query: string) => Promise<VectorStoreSearchResult[] | null>
+}
 
 export async function openMention(cwd: string, mention?: string): Promise<void> {
 	if (!mention) {
@@ -108,6 +118,7 @@ export async function parseMentions(
 	maxDiagnosticMessages: number = 50,
 	skillsManager?: SkillLookup,
 	currentMode: string = "code",
+	mentionServices?: MentionServices,
 ): Promise<ParseMentionsResult> {
 	const mentions: Set<string> = new Set()
 	const validCommands: Map<string, Command> = new Map()
@@ -188,6 +199,8 @@ export async function parseMentions(
 			return `Clipboard contents (see below for content)`
 		} else if (mention.startsWith("search:")) {
 			return `Workspace search for '${unescapeSpaces(mention.slice("search:".length))}' (see below for results)`
+		} else if (mention.startsWith("codebase:")) {
+			return `Codebase search for '${unescapeSpaces(mention.slice("codebase:".length))}' (see below for results)`
 		}
 		return match
 	})
@@ -302,6 +315,31 @@ export async function parseMentions(
 				parsedText += `\n\n<search_results query="${query}">\n${results}\n</search_results>`
 			} catch (error) {
 				parsedText += `\n\n<search_results query="${query}">\nError searching workspace: ${error.message}\n</search_results>`
+			}
+		} else if (mention.startsWith("codebase:")) {
+			const query = unescapeSpaces(mention.slice("codebase:".length))
+			try {
+				const results = mentionServices?.searchCodebase ? await mentionServices.searchCodebase(query) : null
+				if (results === null) {
+					parsedText += `\n\n<codebase_search query="${query}">\nCodebase indexing is not enabled or not configured.\n</codebase_search>`
+				} else if (results.length === 0) {
+					parsedText += `\n\n<codebase_search query="${query}">\nNo results found.\n</codebase_search>`
+				} else {
+					const formatted = results
+						.flatMap((result) =>
+							result.payload && "filePath" in result.payload
+								? [{ score: result.score, payload: result.payload }]
+								: [],
+						)
+						.map(
+							({ score, payload }) =>
+								`File path: ${payload.filePath}\nScore: ${score}\nLines: ${payload.startLine}-${payload.endLine}\nCode Chunk: ${payload.codeChunk.trim()}\n`,
+						)
+						.join("\n")
+					parsedText += `\n\n<codebase_search query="${query}">\n${formatted}\n</codebase_search>`
+				}
+			} catch (error) {
+				parsedText += `\n\n<codebase_search query="${query}">\nError searching codebase: ${error.message}\n</codebase_search>`
 			}
 		}
 	}

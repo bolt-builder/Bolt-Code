@@ -36,6 +36,9 @@ describe("mentionRegex and mentionRegexGlobal", () => {
 		{ input: "Find @search:foo\\ bar in code.", expected: ["@search:foo\\ bar"] },
 		{ input: "Find @search:TODO, then fix", expected: ["@search:TODO"] },
 		{ input: "word@search:foo", expected: null }, // @ mid-word before "search:"
+		{ input: "@codebase:user\\ authentication", expected: ["@codebase:user\\ authentication"] },
+		{ input: "Explain @codebase:retry logic", expected: ["@codebase:retry"] }, // Unescaped space ends the query
+		{ input: "word@codebase:foo", expected: null }, // @ mid-word before "codebase:"
 		{ input: "@a1b2c3d", expected: ["@a1b2c3d"] }, // Git commit hash (short)
 		{ input: "@a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0", expected: ["@a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0"] }, // Git commit hash (long)
 

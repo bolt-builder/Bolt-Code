@@ -3087,6 +3087,10 @@ export class ClineProvider
 		return this.skillsManager
 	}
 
+	public getCodeIndexManager(): CodeIndexManager | undefined {
+		return this.codeIndexManager
+	}
+
 	/**
 	 * Check if the current state is compliant with MDM policy
 	 * @returns true if compliant or no MDM policy exists, false if MDM policy exists and user is non-compliant

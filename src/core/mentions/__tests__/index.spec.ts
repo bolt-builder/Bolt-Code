@@ -2,7 +2,7 @@
 
 import * as vscode from "vscode"
 
-import { parseMentions } from "../index"
+import { parseMentions, type MentionServices } from "../index"
 
 // Mock vscode
 vi.mock("vscode", () => {
@@ -215,5 +215,63 @@ describe("parseMentions - @search:", () => {
 		const result = await parseMentions("Find @search:foo", "/test")
 
 		expect(result.text).toContain("Error searching workspace: rg missing")
+	})
+})
+
+describe("parseMentions - @codebase:", () => {
+	beforeEach(() => {
+		vi.clearAllMocks()
+	})
+
+	const parseWithServices = (text: string, searchCodebase: MentionServices["searchCodebase"]) =>
+		parseMentions(text, "/test", undefined, undefined, false, true, 50, undefined, "code", { searchCodebase })
+
+	it("should append formatted code index results", async () => {
+		const searchCodebase = vi.fn().mockResolvedValue([
+			{
+				id: "1",
+				score: 0.87,
+				payload: { filePath: "src/auth.ts", codeChunk: "function login() {}", startLine: 10, endLine: 12 },
+			},
+		])
+
+		const result = await parseWithServices("Explain @codebase:user\\ authentication", searchCodebase)
+
+		expect(searchCodebase).toHaveBeenCalledWith("user authentication")
+		expect(result.text).toContain("Codebase search for 'user authentication' (see below for results)")
+		expect(result.text).toContain('<codebase_search query="user authentication">')
+		expect(result.text).toContain("File path: src/auth.ts")
+		expect(result.text).toContain("Lines: 10-12")
+		expect(result.text).toContain("Code Chunk: function login() {}")
+	})
+
+	it("should report when indexing is unavailable", async () => {
+		const searchCodebase = vi.fn().mockResolvedValue(null)
+
+		const result = await parseWithServices("Explain @codebase:auth", searchCodebase)
+
+		expect(result.text).toContain("Codebase indexing is not enabled or not configured.")
+	})
+
+	it("should report when indexing is unavailable because no services were provided", async () => {
+		const result = await parseMentions("Explain @codebase:auth", "/test")
+
+		expect(result.text).toContain("Codebase indexing is not enabled or not configured.")
+	})
+
+	it("should report when there are no results", async () => {
+		const searchCodebase = vi.fn().mockResolvedValue([])
+
+		const result = await parseWithServices("Explain @codebase:auth", searchCodebase)
+
+		expect(result.text).toContain("No results found.")
+	})
+
+	it("should report codebase search errors", async () => {
+		const searchCodebase = vi.fn().mockRejectedValue(new Error("index offline"))
+
+		const result = await parseWithServices("Explain @codebase:auth", searchCodebase)
+
+		expect(result.text).toContain("Error searching codebase: index offline")
 	})
 })

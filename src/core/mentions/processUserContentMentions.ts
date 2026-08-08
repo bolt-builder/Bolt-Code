@@ -1,6 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk"
 
-import { parseMentions, ParseMentionsResult, MentionContentBlock } from "./index"
+import { parseMentions, ParseMentionsResult, MentionContentBlock, MentionServices } from "./index"
 import { FileContextTracker } from "../context-tracking/FileContextTracker"
 import type { SkillLookup } from "../../services/skills/skillInvocation"
 
@@ -43,6 +43,7 @@ export async function processUserContentMentions({
 	maxDiagnosticMessages = 50,
 	skillsManager,
 	currentMode = "code",
+	mentionServices,
 }: {
 	userContent: Anthropic.Messages.ContentBlockParam[]
 	cwd: string
@@ -53,6 +54,7 @@ export async function processUserContentMentions({
 	maxDiagnosticMessages?: number
 	skillsManager?: SkillLookup
 	currentMode?: string
+	mentionServices?: MentionServices
 }): Promise<ProcessUserContentMentionsResult> {
 	// Track the first mode found from slash commands
 	let commandMode: string | undefined
@@ -76,6 +78,7 @@ export async function processUserContentMentions({
 							maxDiagnosticMessages,
 							skillsManager,
 							currentMode,
+							mentionServices,
 						)
 						// Capture the first mode found
 						if (!commandMode && result.mode) {
@@ -121,6 +124,7 @@ export async function processUserContentMentions({
 								maxDiagnosticMessages,
 								skillsManager,
 								currentMode,
+								mentionServices,
 							)
 							// Capture the first mode found
 							if (!commandMode && result.mode) {
@@ -172,6 +176,7 @@ export async function processUserContentMentions({
 											maxDiagnosticMessages,
 											skillsManager,
 											currentMode,
+											mentionServices,
 										)
 										// Capture the first mode found
 										if (!commandMode && result.mode) {
