@@ -323,3 +323,50 @@ describe("parseMentions - @skill:", () => {
 		expect(result.text).toContain("Error loading skill: disk error")
 	})
 })
+
+describe("parseMentions - @task:", () => {
+	beforeEach(() => {
+		vi.clearAllMocks()
+	})
+
+	const parseWithServices = (text: string, getTaskInfo: MentionServices["getTaskInfo"]) =>
+		parseMentions(text, "/test", undefined, undefined, false, true, 50, undefined, "code", { getTaskInfo })
+
+	it("should append task history details", async () => {
+		const getTaskInfo = vi.fn().mockResolvedValue({
+			id: "abc-123",
+			number: 1,
+			ts: 1700000000000,
+			task: "Fix the login bug",
+			tokensIn: 100,
+			tokensOut: 200,
+			totalCost: 0.05,
+			mode: "code",
+			status: "completed",
+			completionResultSummary: "Fixed by updating the session guard.",
+		})
+
+		const result = await parseWithServices("Continue from @task:abc-123", getTaskInfo)
+
+		expect(getTaskInfo).toHaveBeenCalledWith("abc-123")
+		expect(result.text).toContain("Task 'abc-123' (see below for task details)")
+		expect(result.text).toContain('<task_history id="abc-123">')
+		expect(result.text).toContain("Task:\nFix the login bug")
+		expect(result.text).toContain("Status: completed")
+		expect(result.text).toContain("Result summary:\nFixed by updating the session guard.")
+	})
+
+	it("should report when task history is unavailable", async () => {
+		const result = await parseMentions("Continue from @task:abc-123", "/test")
+
+		expect(result.text).toContain("Task history is not available.")
+	})
+
+	it("should report task lookup errors", async () => {
+		const getTaskInfo = vi.fn().mockRejectedValue(new Error("Task not found"))
+
+		const result = await parseWithServices("Continue from @task:missing", getTaskInfo)
+
+		expect(result.text).toContain("Error fetching task: Task not found")
+	})
+})

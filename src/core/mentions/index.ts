@@ -22,6 +22,7 @@ import { regexSearchFiles } from "../../services/ripgrep"
 import { buildSkillResult, resolveSkillContentForMode, type SkillLookup } from "../../services/skills/skillInvocation"
 import type { SkillContent } from "../../shared/skills"
 import type { VectorStoreSearchResult } from "../../services/code-index/interfaces"
+import type { HistoryItem } from "@roo-code/types"
 
 /**
  * Optional provider-backed services for mentions that need access to
@@ -30,6 +31,8 @@ import type { VectorStoreSearchResult } from "../../services/code-index/interfac
 export interface MentionServices {
 	/** Semantic codebase search; resolves to null when indexing is unavailable. */
 	searchCodebase?: (query: string) => Promise<VectorStoreSearchResult[] | null>
+	/** Task history lookup; resolves to null when task history is unavailable. */
+	getTaskInfo?: (taskId: string) => Promise<HistoryItem | null>
 }
 
 export async function openMention(cwd: string, mention?: string): Promise<void> {
@@ -203,6 +206,8 @@ export async function parseMentions(
 			return `Codebase search for '${unescapeSpaces(mention.slice("codebase:".length))}' (see below for results)`
 		} else if (mention.startsWith("skill:")) {
 			return `Skill '${unescapeSpaces(mention.slice("skill:".length))}' (see below for skill instructions)`
+		} else if (mention.startsWith("task:")) {
+			return `Task '${mention.slice("task:".length)}' (see below for task details)`
 		}
 		return match
 	})
@@ -355,6 +360,18 @@ export async function parseMentions(
 			} catch (error) {
 				parsedText += `\n\n<skill name="${skillName}">\nError loading skill: ${error.message}\n</skill>`
 			}
+		} else if (mention.startsWith("task:")) {
+			const taskId = mention.slice("task:".length)
+			try {
+				const historyItem = mentionServices?.getTaskInfo ? await mentionServices.getTaskInfo(taskId) : null
+				if (historyItem) {
+					parsedText += `\n\n<task_history id="${taskId}">\n${formatTaskHistoryItem(historyItem)}\n</task_history>`
+				} else {
+					parsedText += `\n\n<task_history id="${taskId}">\nTask history is not available.\n</task_history>`
+				}
+			} catch (error) {
+				parsedText += `\n\n<task_history id="${taskId}">\nError fetching task: ${error.message}\n</task_history>`
+			}
 		}
 	}
 
@@ -383,6 +400,24 @@ export async function parseMentions(
 		mode: commandMode,
 		slashCommandHelp: slashCommandHelp.trim() || undefined,
 	}
+}
+
+function formatTaskHistoryItem(historyItem: HistoryItem): string {
+	const lines = [
+		`Created: ${new Date(historyItem.ts).toISOString()}`,
+		`Mode: ${historyItem.mode ?? "unknown"}`,
+		`Status: ${historyItem.status ?? "unknown"}`,
+		`Tokens: ${historyItem.tokensIn} in, ${historyItem.tokensOut} out`,
+		"",
+		"Task:",
+		historyItem.task,
+	]
+
+	if (historyItem.completionResultSummary) {
+		lines.push("", "Result summary:", historyItem.completionResultSummary)
+	}
+
+	return lines.join("\n")
 }
 
 /**

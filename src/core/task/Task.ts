@@ -2610,6 +2610,13 @@ export class Task extends EventEmitter<TaskEvents> implements TaskLike {
 						}
 						return codeIndexManager.searchIndex(query)
 					},
+					getTaskInfo: async (taskId: string) => {
+						if (!provider) {
+							return null
+						}
+						const { historyItem } = await provider.getTaskWithId(taskId)
+						return historyItem
+					},
 				},
 			})
 

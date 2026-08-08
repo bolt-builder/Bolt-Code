@@ -61,7 +61,7 @@ Mention regex:
 
 */
 export const mentionRegex =
-	/(?:^|(?<=\s))(?<!\\)@((?:\/|\w+:\/\/)(?:[^\s\\]|\\ )+?|(?:search|codebase|skill):(?:[^\s\\]|\\ )+?|[a-f0-9]{7,40}\b|problems\b|git-changes\b|terminal\b|selection\b|tabs\b|tab\b|clipboard\b)(?=[.,;:!?]?(?=[\s\r\n]|$))/
+	/(?:^|(?<=\s))(?<!\\)@((?:\/|\w+:\/\/)(?:[^\s\\]|\\ )+?|(?:search|codebase|skill|task):(?:[^\s\\]|\\ )+?|[a-f0-9]{7,40}\b|problems\b|git-changes\b|terminal\b|selection\b|tabs\b|tab\b|clipboard\b)(?=[.,;:!?]?(?=[\s\r\n]|$))/
 export const mentionRegexGlobal = new RegExp(mentionRegex.source, "g")
 
 // Regex to match command mentions like /command-name anywhere in text
